@@ -12,7 +12,7 @@ const paths = {
   source: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist')
 };
-const apiAddress = 'http://localhost:8082';
+const apiAddress = 'http://localhost:8083';
 const devMode = process.env.NODE_ENV !== 'production';
 
 const entry = path.join(paths.source, 'index.jsx');
