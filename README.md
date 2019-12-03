@@ -21,10 +21,6 @@ This is my pet project which allows me to test my knowledge of JavaScript and We
 
 `npm start`
 
-and navigate to `localhost:9000`
+and navigate to `localhost:8082`
 
-Note: You will need to have the server running as well. TODO: Update with server repo URL
-
-## Special Thanks
-
-Many thanks to Rishi Prasad for his phenomenal [tutorial](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669) on building an authentication app.
+**Note**: You will need to have the server running as well. You can check out that codebase [here](https://github.com/justinzelinsky/chatroom-server).
