@@ -1,0 +1,63 @@
+.dark-mode-toggle {
+  display: flex;
+
+  & > button {
+    background: none;
+    border: none;
+    color: $yellow;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+
+    &:last-child {
+      color: $very-dark-grey;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .toggle-control {
+    align-items: center;
+    display: flex;
+    padding: 0 4px;
+    position: relative;
+  }
+
+  input[type='checkbox'].dmcheck {
+    appearance: none;
+    background: $very-dark-grey;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 10px;
+    position: relative;
+    outline: none;
+    vertical-align: 2px;
+    width: 40px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    &:checked + label {
+      left: 30px;
+    }
+
+    &:focus-visible {
+      outline: solid 2px $white;
+    }
+
+    & + label {
+      border-radius: 50%;
+      background: $white;
+      background-color: $dark-grey;
+      cursor: pointer;
+      display: inline-block;
+      height: 18px;
+      left: 2px;
+      opacity: 1.0;
+      position: absolute;
+      transition: all 0.3s ease;
+      width: 18px;
+    }
+  }
+}

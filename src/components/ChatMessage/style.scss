@@ -1,0 +1,31 @@
+.chat {
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  padding: 10px;
+
+  .username-chat {
+    flex: 1;
+
+    .username {
+      font-weight: bold;
+
+      &:after {
+        content: ':';
+      }
+    }
+
+    .chat-message {
+      word-break: break-all;
+
+      &.admin-message {
+        font-style: italic;
+      }
+    }
+  }
+
+  .timestamp {
+    font-style: italic;
+    margin-left: 5px;
+  }
+}
