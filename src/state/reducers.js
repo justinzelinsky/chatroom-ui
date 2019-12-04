@@ -41,7 +41,6 @@ export const errors = (state = errorsInitialState, action) => {
   switch (action.type) {
     case HAS_ERRORS:
       return {
-        ...state,
         ...action.payload.errors
       };
     case LOCATION_CHANGE:

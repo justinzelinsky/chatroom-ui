@@ -2,34 +2,23 @@ const headers = {
   'Content-Type': 'application/json'
 };
 
-const status = response => {
-  if (response.status >= 200 && response.status < 300) {
-    return Promise.resolve(response);
-  } else {
-    return Promise.reject(new Error(response.statusText));
-  }
+const request = (url, options) => {
+  return new Promise((resolve, reject) => {
+    fetch(url, options).then(async response => {
+      const body = await response.json();
+      if (response.status >= 200 && response.status < 300) {
+        resolve(body);
+      } else {
+        reject(body);
+      }
+    });
+  });
 };
 
-const json = response => response.json();
+export const get = async url => request(url, { headers, method: 'GET' });
 
-export const get = async url => {
-  return await fetch(url, {
-    method: 'GET',
-    headers
-  })
-    .then(status)
-    .then(json);
-};
-
-export const post = async (url, body) => {
-  return await fetch(url, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body)
-  })
-    .then(status)
-    .then(json);
-};
+export const post = async (url, body) =>
+  request(url, { body: JSON.stringify(body), headers, method: 'POST' });
 
 export const setAuthToken = token => {
   if (token) {
