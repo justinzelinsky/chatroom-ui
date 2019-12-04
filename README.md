@@ -21,6 +21,16 @@ This is my pet project which allows me to test my knowledge of JavaScript and We
 
 `npm start`
 
-and navigate to `localhost:8082`
+and navigate to `https://localhost:8082`
 
 **Note**: You will need to have the server running as well. You can check out that codebase [here](https://github.com/justinzelinsky/chatroom-server).
+
+### SSL Certificates
+
+In order to run this application in production mode, you will need to generate a self-signed certificate.
+
+Run the following command and put `server.key` and `server.cert` in a directory called `.ssl` located in the project root:
+
+```bash
+openssl req -nodes -new -x509 -keyout server.key -out server.cert
+```
