@@ -98,21 +98,6 @@ describe('Error Selectors', () => {
 
     expect(nameError).toEqual(error.name);
   });
-
-  it('should not grab the incorrect error given multiple errors available', () => {
-    const error = { name: 'Name error' };
-    const state = {
-      errors: errors(errorsInitialState, hasErrors(error))
-    };
-
-    const error2 = { email: 'Email error' };
-    const state2 = {
-      errors: errors(state.errors, hasErrors(error2))
-    };
-    const nameError = getNameError(state2);
-
-    expect(nameError).toEqual(error.name);
-  });
 });
 
 describe('getIsAuthenticated selector', () => {
