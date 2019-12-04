@@ -16,7 +16,6 @@ const loginLogic = createLogic({
       ...action.payload
     };
     post('api/users/login', body)
-      .then(resp => resp.json())
       .then(({ token }) => {
         localStorage.setItem('jwtToken', token);
         setAuthToken(token);

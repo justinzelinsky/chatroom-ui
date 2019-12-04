@@ -13,7 +13,6 @@ const updateProfileLogic = createLogic({
   type: UPDATE_PROFILE,
   process({ action, post, setAuthToken }, dispatch, done) {
     post('api/users/update', action.payload)
-      .then(resp => resp.json())
       .then(({ token }) => {
         localStorage.setItem('jwtToken', token);
         setAuthToken(token);
