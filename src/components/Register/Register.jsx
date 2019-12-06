@@ -14,27 +14,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import actions from 'state/actions';
-import {
-  getEmailError,
-  getNameError,
-  getPasswordError,
-  getPasswordConfirmationError
-} from 'state/selectors';
 
 const Register = () => {
-  const {
-    darkMode,
-    emailError,
-    nameError,
-    passwordError,
-    passwordConfirmationError
-  } = useSelector(state => ({
-    darkMode: state.darkMode,
-    emailError: getEmailError(state),
-    nameError: getNameError(state),
-    passwordError: getPasswordError(state),
-    passwordConfirmationError: getPasswordConfirmationError(state)
-  }));
+  const { darkMode } = useSelector(state => state.darkMode);
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
@@ -80,9 +62,6 @@ const Register = () => {
           </Form.Label>
           <Col xs={8}>
             <Form.Control onChange={onNameChange} />
-            {nameError && (
-              <Form.Text className="text-muted">{nameError}</Form.Text>
-            )}
           </Col>
         </Form.Group>
 
@@ -92,9 +71,6 @@ const Register = () => {
           </Form.Label>
           <Col xs={8}>
             <Form.Control onChange={onEmailChange} type="email" />
-            {emailError && (
-              <Form.Text className="text-muted">{emailError}</Form.Text>
-            )}
           </Col>
         </Form.Group>
 
@@ -104,9 +80,6 @@ const Register = () => {
           </Form.Label>
           <Col xs={8}>
             <Form.Control onChange={onPasswordChange} type="password" />
-            {passwordError && (
-              <Form.Text className="text-muted">{passwordError}</Form.Text>
-            )}
           </Col>
         </Form.Group>
 
@@ -119,11 +92,6 @@ const Register = () => {
               onChange={onPasswordConfirmationChange}
               type="password"
             />
-            {passwordConfirmationError && (
-              <Form.Text className="text-muted">
-                {passwordConfirmationError}
-              </Form.Text>
-            )}
           </Col>
         </Form.Group>
 
