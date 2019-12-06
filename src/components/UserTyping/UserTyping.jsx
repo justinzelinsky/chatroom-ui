@@ -18,9 +18,18 @@ const UserTyping = ({ index }) => {
     return () => clearTimeout(timeoutId);
   }, [dots]);
 
+  if (darkMode) {
+    chatVariant = index % 2 ? 'primary' : 'info';
+  } else {
+    chatVariant = index % 2 ? 'light' : 'dark';
+  }
+
   if (usersTyping.length === 0) {
     return (
-      <ListGroup.Item styleName="user-typing-chat hidden" variant="primary" />
+      <ListGroup.Item
+        styleName="user-typing-chat hidden"
+        variant={chatVariant}
+      />
     );
   }
 
@@ -31,11 +40,6 @@ const UserTyping = ({ index }) => {
 
   let chatVariant;
 
-  if (darkMode) {
-    chatVariant = index % 2 ? 'primary' : 'info';
-  } else {
-    chatVariant = index % 2 ? 'light' : 'dark';
-  }
   return (
     <ListGroup.Item styleName="user-typing-chat" variant={chatVariant}>
       {someoneIsTyping}
