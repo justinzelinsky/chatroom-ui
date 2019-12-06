@@ -1,4 +1,3 @@
-import Push from 'push.js';
 import { useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
@@ -39,11 +38,6 @@ const useSockets = () => {
       if (document.hidden) {
         unreadNotifications++;
         document.title = `${documentTitle} (${unreadNotifications})`;
-        if (Push.Permission.has()) {
-          Push.create('Chatroom', {
-            body: `${user.name}: ${message}`
-          });
-        }
         const onDocumentFocus = () => {
           if (!document.hidden) {
             unreadNotifications = 0;

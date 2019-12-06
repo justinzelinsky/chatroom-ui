@@ -1,5 +1,4 @@
 import jwt_decode from 'jwt-decode';
-import Push from 'push.js';
 import { createLogic } from 'redux-logic';
 
 import {
@@ -12,9 +11,8 @@ import {
 const initialLoadLogic = createLogic({
   type: PAGE_LOAD,
   process({ setAuthToken }, dispatch, done) {
-    Push.Permission.request();
-
     const jwtToken = localStorage.getItem('jwtToken');
+
     if (jwtToken) {
       try {
         const user = jwt_decode(jwtToken);
