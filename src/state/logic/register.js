@@ -1,12 +1,15 @@
 import { createLogic } from 'redux-logic';
 
-import { REGISTER, showNotification } from 'state/actions';
+import { login, REGISTER, showNotification } from 'state/actions';
 
 const registerLogic = createLogic({
   type: REGISTER,
-  process({ action, post, history }, dispatch, done) {
+  process({ action, post }, dispatch, done) {
     post('/api/users/register', action.payload)
-      .then(() => history.push('/login'))
+      .then(() => {
+        const { email, password } = action.payload;
+        dispatch(login({ email, password }));
+      })
       .catch(({ error }) =>
         dispatch(
           showNotification({

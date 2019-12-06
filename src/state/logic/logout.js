@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import { LOGOUT, setCurrentUser } from 'state/actions';
+import { LOGOUT, clearCurrentUser } from 'state/actions';
 
 const logoutLogic = createLogic({
   type: LOGOUT,
@@ -8,7 +8,7 @@ const logoutLogic = createLogic({
     get('api/users/logout').then(() => {
       localStorage.removeItem('jwtToken');
       setAuthToken(false);
-      dispatch(setCurrentUser());
+      dispatch(clearCurrentUser());
       done();
     });
   }

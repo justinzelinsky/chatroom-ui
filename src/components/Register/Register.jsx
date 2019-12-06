@@ -2,16 +2,8 @@ import './style.scss';
 
 import classnames from 'classnames';
 import React, { useState } from 'react';
-import {
-  Button,
-  ButtonToolbar,
-  Col,
-  Form,
-  Jumbotron,
-  Row
-} from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import actions from 'state/actions';
 
@@ -50,44 +42,45 @@ const Register = () => {
   });
 
   return (
-    <Jumbotron styleName={registerClassname}>
+    <div styleName={registerClassname}>
       <h1 styleName="register-header">Register</h1>
+
       <Form
         autoComplete="off"
         onSubmit={handleOnSubmit}
         styleName="register-form">
-        <Form.Group as={Row} controlId="name">
-          <Form.Label column={true} xs={4}>
+        <Form.Group as={Row} controlId="register-name">
+          <Form.Label column={true} xs={3}>
             Name
           </Form.Label>
-          <Col xs={8}>
+          <Col xs={9}>
             <Form.Control onChange={onNameChange} />
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} controlId="email">
-          <Form.Label column={true} xs={4}>
+        <Form.Group as={Row} controlId="register-email">
+          <Form.Label column={true} xs={3}>
             Email address
           </Form.Label>
-          <Col xs={8}>
+          <Col xs={9}>
             <Form.Control onChange={onEmailChange} type="email" />
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} controlId="password">
-          <Form.Label column={true} xs={4}>
+        <Form.Group as={Row} controlId="register-password">
+          <Form.Label column={true} xs={3}>
             Password
           </Form.Label>
-          <Col xs={8}>
+          <Col xs={9}>
             <Form.Control onChange={onPasswordChange} type="password" />
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} controlId="passwordConfirmation">
-          <Form.Label column={true} xs={4}>
+        <Form.Group as={Row} controlId="register-password-confirmation">
+          <Form.Label column={true} xs={3}>
             Password (again)
           </Form.Label>
-          <Col xs={8}>
+          <Col xs={9}>
             <Form.Control
               onChange={onPasswordConfirmationChange}
               type="password"
@@ -95,16 +88,15 @@ const Register = () => {
           </Col>
         </Form.Group>
 
-        <ButtonToolbar>
-          <Button disabled={disableButton} type="submit" variant="primary">
-            Register
-          </Button>
-          <Link to="login" className="btn btn-link">
-            Login
-          </Link>
-        </ButtonToolbar>
+        <Button
+          block={true}
+          disabled={disableButton}
+          type="submit"
+          variant="primary">
+          Register
+        </Button>
       </Form>
-    </Jumbotron>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@ import {
   ADD_CHAT,
   ADD_ADMIN_CHAT,
   CHAT_HISTORY_CLEARED,
+  CLEAR_CURRENT_USER,
   HIDE_NOTIFICATION,
   RECEIVED_ALL_USERS,
   RECEIVED_MESSAGES,
@@ -16,11 +17,18 @@ import {
 } from 'state/actions';
 import formatDate from 'utils/formatDate';
 
-export const currentUserInitialState = {};
+export const currentUserInitialState = null;
 export const currentUser = (state = currentUserInitialState, action) => {
-  return action.type === SET_CURRENT_USER
-    ? { ...action.payload.currentUser }
-    : state;
+  switch (action.type) {
+    case SET_CURRENT_USER:
+      return {
+        ...action.payload.currentUser
+      };
+    case CLEAR_CURRENT_USER:
+      return currentUserInitialState;
+    default:
+      return state;
+  }
 };
 
 export const activeUsersInitialState = [];

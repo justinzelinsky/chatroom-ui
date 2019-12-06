@@ -5,14 +5,13 @@ import { Redirect, Switch } from 'react-router-dom';
 import LoadingSpinner from 'components/LoadingSpinner';
 import NavigationBar from 'components/NavigationBar';
 import NotificationBar from 'components/NotificationBar';
+import RegisterLogin from 'components/RegisterLogin';
 import { ProtectedRoute, UnprotectedRoute } from 'components/Routes';
 import actions from 'state/actions';
 
 const AdminPanel = lazy(() => import('components/AdminPanel'));
 const Chatroom = lazy(() => import('components/Chatroom'));
-const Login = lazy(() => import('components/Login'));
 const Profile = lazy(() => import('components/Profile'));
-const Register = lazy(() => import('components/Register'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,8 +27,7 @@ const App = () => {
           <ProtectedRoute component={Chatroom} path="/chatroom" />
           <ProtectedRoute component={AdminPanel} path="/admin" />
           <ProtectedRoute component={Profile} path="/profile" />
-          <UnprotectedRoute component={Login} path="/login" />
-          <UnprotectedRoute component={Register} path="/register" />
+          <UnprotectedRoute component={RegisterLogin} path="/" />
           <Redirect to="/login" />
         </Switch>
       </Suspense>

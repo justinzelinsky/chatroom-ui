@@ -31,6 +31,11 @@ export const clearChatHistory = () => ({
   type: CLEAR_CHAT_HISTORY
 });
 
+export const CLEAR_CURRENT_USER = 'CLEAR_CURRENT_USER';
+export const clearCurrentUser = () => ({
+  type: CLEAR_CURRENT_USER
+});
+
 export const HIDE_NOTIFICATION = 'HIDE_NOTIFICATION';
 export const hideNotification = () => ({
   type: HIDE_NOTIFICATION
@@ -93,7 +98,7 @@ export const requestMessages = () => ({
 });
 
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
-export const setCurrentUser = (currentUser = {}) => ({
+export const setCurrentUser = currentUser => ({
   type: SET_CURRENT_USER,
   payload: {
     currentUser

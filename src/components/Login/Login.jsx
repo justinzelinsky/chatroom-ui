@@ -1,17 +1,9 @@
 import './style.scss';
 
 import classnames from 'classnames';
-import {
-  Button,
-  ButtonToolbar,
-  Col,
-  Form,
-  Jumbotron,
-  Row
-} from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import actions from 'state/actions';
 
@@ -39,10 +31,11 @@ const Login = () => {
   });
 
   return (
-    <Jumbotron styleName={loginClassame}>
+    <div styleName={loginClassame}>
       <h1 styleName="login-header">Login</h1>
+
       <Form autoComplete="off" styleName="login-form" onSubmit={handleOnSubmit}>
-        <Form.Group as={Row} controlId="email">
+        <Form.Group as={Row} controlId="login-email">
           <Form.Label column={true} sm={3}>
             Email address
           </Form.Label>
@@ -55,7 +48,7 @@ const Login = () => {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row} controlId="password">
+        <Form.Group as={Row} controlId="login-password">
           <Form.Label column={true} sm={3}>
             Password
           </Form.Label>
@@ -63,16 +56,16 @@ const Login = () => {
             <Form.Control onChange={onPasswordChange} type="password" />
           </Col>
         </Form.Group>
-        <ButtonToolbar>
-          <Button disabled={disableButton} type="submit" variant="primary">
-            Login
-          </Button>
-          <Link className="btn btn-link" to="register">
-            Register
-          </Link>
-        </ButtonToolbar>
+
+        <Button
+          block={true}
+          disabled={disableButton}
+          type="submit"
+          variant="primary">
+          Login
+        </Button>
       </Form>
-    </Jumbotron>
+    </div>
   );
 };
 

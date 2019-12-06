@@ -1,18 +1,8 @@
 .register-container {
-  margin: 0;
-  width: 35%;
-
-  @include desktop {
-    left: 50%;
-    position: fixed;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  @include phone {
-    margin-top: 10px;
-    width: 100%;
-  }
+  border-bottom: 1px solid $light-grayish-blue;
+  border-right: 1px solid $light-grayish-blue;
+  border-left: 1px solid $light-grayish-blue;
+  padding: 10px;
 
   &.dark-mode {
     background-color: $dark-grey-blue;
@@ -25,11 +15,19 @@
   }
 
   .register-form {
-    padding: 20px;
+    padding: 10px;
+
+    label {
+      text-align: right;
+    }
+
+    button {
+      margin: 0 auto;
+      width: 200px;
+    }
   }
 
   .register-header {
-    margin: 0 0 20px 20px;
     text-align: center;
 
     @include phone {

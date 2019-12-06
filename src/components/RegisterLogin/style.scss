@@ -1,0 +1,8 @@
+.register-login {
+  margin: 10px auto;
+  width: 50%;
+
+  @include phone {
+    width: 100%;
+  }
+}
