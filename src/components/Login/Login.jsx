@@ -14,15 +14,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import actions from 'state/actions';
-import { getEmailError, getPasswordError } from 'state/selectors';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const { darkMode, emailError, passwordError } = useSelector(state => ({
-    darkMode: state.darkMode,
-    emailError: getEmailError(state),
-    passwordError: getPasswordError(state)
-  }));
+  const { darkMode } = useSelector(state => state.darkMode);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -57,9 +52,6 @@ const Login = () => {
               onChange={onEmailChange}
               type="email"
             />
-            {emailError && (
-              <Form.Text className="text-muted">{emailError}</Form.Text>
-            )}
           </Col>
         </Form.Group>
 
@@ -69,9 +61,6 @@ const Login = () => {
           </Form.Label>
           <Col sm={9}>
             <Form.Control onChange={onPasswordChange} type="password" />
-            {passwordError && (
-              <Form.Text className="text-muted">{passwordError}</Form.Text>
-            )}
           </Col>
         </Form.Group>
         <ButtonToolbar>

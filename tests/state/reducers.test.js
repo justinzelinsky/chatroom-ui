@@ -1,7 +1,6 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
 
 import {
-  hasErrors,
   addChat,
   receivedMessages,
   chatHistoryCleared,
@@ -52,40 +51,6 @@ describe('activeUsers reducer', () => {
       activeUsers: activeUsers(activeUsersInitialState, {})
     };
     expect(state.activeUsers).toEqual(activeUsersInitialState);
-  });
-});
-
-describe('errors reducer', () => {
-  it('should return the existing state for an unrelated action', () => {
-    const state = {
-      errors: errors(errorsInitialState, { type: 'Foo' })
-    };
-    expect(state.errors).toEqual(errorsInitialState);
-  });
-
-  it('should update the state when an error action has been dispatched', () => {
-    const error = {
-      email: 'some error'
-    };
-    const state = {
-      errors: errors(errorsInitialState, hasErrors(error))
-    };
-    expect(state.errors).toEqual(error);
-  });
-
-  it('should reset the state on a location change', () => {
-    const error = {
-      email: 'some error'
-    };
-    const state = {
-      errors: errors(errorsInitialState, hasErrors(error))
-    };
-    expect(state.errors).toEqual(error);
-
-    const state2 = {
-      errors: errors(state.errors, { type: LOCATION_CHANGE })
-    };
-    expect(state2.errors).toEqual(errorsInitialState);
   });
 });
 

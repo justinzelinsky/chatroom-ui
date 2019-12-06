@@ -2,20 +2,19 @@ import jwt_decode from 'jwt-decode';
 import { createLogic } from 'redux-logic';
 
 import {
-  hasErrors,
+  hideNotification,
   LOGIN,
   requestAllUsers,
   requestMessages,
-  setCurrentUser
+  setCurrentUser,
+  showNotification
 } from 'state/actions';
 
 const loginLogic = createLogic({
   type: LOGIN,
   process({ action, post, setAuthToken }, dispatch, done) {
-    const body = {
-      ...action.payload
-    };
-    post('api/users/login', body)
+    dispatch(hideNotification());
+    post('api/users/login', action.payload)
       .then(({ token }) => {
         localStorage.setItem('jwtToken', token);
         setAuthToken(token);
@@ -25,7 +24,14 @@ const loginLogic = createLogic({
         dispatch(requestMessages());
         dispatch(requestAllUsers());
       })
-      .catch(err => dispatch(hasErrors(err)))
+      .catch(({ error }) =>
+        dispatch(
+          showNotification({
+            message: error,
+            variant: 'danger'
+          })
+        )
+      )
       .finally(() => done());
   }
 });

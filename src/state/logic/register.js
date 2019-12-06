@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 
-import { hasErrors, REGISTER } from 'state/actions';
+import { REGISTER, showNotification } from 'state/actions';
 
 const registerLogic = createLogic({
   type: REGISTER,
@@ -10,7 +10,14 @@ const registerLogic = createLogic({
     };
     post('/api/users/register', body)
       .then(() => history.push('/login'))
-      .catch(err => dispatch(hasErrors(err.response.data)))
+      .catch(({ error }) =>
+        dispatch(
+          showNotification({
+            message: error,
+            variant: 'danger'
+          })
+        )
+      )
       .finally(() => done());
   }
 });

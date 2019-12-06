@@ -31,14 +31,6 @@ export const clearChatHistory = () => ({
   type: CLEAR_CHAT_HISTORY
 });
 
-export const HAS_ERRORS = 'HAS_ERRORS';
-export const hasErrors = errors => ({
-  type: HAS_ERRORS,
-  payload: {
-    errors
-  }
-});
-
 export const HIDE_NOTIFICATION = 'HIDE_NOTIFICATION';
 export const hideNotification = () => ({
   type: HIDE_NOTIFICATION
@@ -167,7 +159,6 @@ export default {
   addChat,
   chatHistoryCleared,
   clearChatHistory,
-  hasErrors,
   hideNotification,
   login,
   logout,

@@ -1,4 +1,4 @@
-import { hasErrors, setCurrentUser } from 'state/actions';
+import { setCurrentUser } from 'state/actions';
 import {
   currentUser,
   errors,
@@ -55,48 +55,6 @@ describe('getUserList selector', () => {
     expect(userList).toHaveLength(2);
     expect(userList.find(user => user.name === 'Justin').isSelf).toEqual(true);
     expect(userList.find(user => user.name === 'Alex').isActive).toEqual(false);
-  });
-});
-
-describe('Error Selectors', () => {
-  it('should get the correct email error', () => {
-    const error = { email: 'Email error' };
-    const state = {
-      errors: errors(errorsInitialState, hasErrors(error))
-    };
-    const emailError = getEmailError(state);
-
-    expect(emailError).toEqual(error.email);
-  });
-
-  it('should get the correct password error', () => {
-    const error = { password: 'Password Error' };
-    const state = {
-      errors: errors(errorsInitialState, hasErrors(error))
-    };
-    const passwordError = getPasswordError(state);
-
-    expect(passwordError).toEqual(error.password);
-  });
-
-  it('should get the correct password confirmation error', () => {
-    const error = { passwordConfirmation: 'Password Confirmation Error' };
-    const state = {
-      errors: errors(errorsInitialState, hasErrors(error))
-    };
-    const passwordConfirmationError = getPasswordConfirmationError(state);
-
-    expect(passwordConfirmationError).toEqual(error.passwordConfirmation);
-  });
-
-  it('should get the correct name error', () => {
-    const error = { name: 'Name error' };
-    const state = {
-      errors: errors(errorsInitialState, hasErrors(error))
-    };
-    const nameError = getNameError(state);
-
-    expect(nameError).toEqual(error.name);
   });
 });
 

@@ -2,7 +2,6 @@ import jwt_decode from 'jwt-decode';
 import { createLogic } from 'redux-logic';
 
 import {
-  hasErrors,
   hideNotification,
   UPDATE_PROFILE,
   requestAllUsers,
@@ -31,8 +30,13 @@ const updateProfileLogic = createLogic({
           done();
         }, 5000);
       })
-      .catch(err => {
-        dispatch(hasErrors(err));
+      .catch(({ error }) => {
+        dispatch(
+          showNotification({
+            message: error,
+            variant: 'danger'
+          })
+        );
         done();
       });
   }

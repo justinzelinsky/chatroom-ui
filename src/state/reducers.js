@@ -1,11 +1,10 @@
-import { connectRouter, LOCATION_CHANGE } from 'connected-react-router';
+import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 
 import {
   ADD_CHAT,
   ADD_ADMIN_CHAT,
   CHAT_HISTORY_CLEARED,
-  HAS_ERRORS,
   HIDE_NOTIFICATION,
   RECEIVED_ALL_USERS,
   RECEIVED_MESSAGES,
@@ -34,20 +33,6 @@ export const activeUsers = (state = activeUsersInitialState, action) => {
 export const allUsersInitialState = [];
 export const allUsers = (state = allUsersInitialState, action) => {
   return action.type === RECEIVED_ALL_USERS ? [...action.payload.users] : state;
-};
-
-export const errorsInitialState = {};
-export const errors = (state = errorsInitialState, action) => {
-  switch (action.type) {
-    case HAS_ERRORS:
-      return {
-        ...action.payload.errors
-      };
-    case LOCATION_CHANGE:
-      return errorsInitialState;
-    default:
-      return state;
-  }
 };
 
 export const chatsInitialState = [];
@@ -117,7 +102,6 @@ export default history =>
     chats,
     currentUser,
     darkMode,
-    errors,
     notification,
     router: connectRouter(history),
     usersTyping
