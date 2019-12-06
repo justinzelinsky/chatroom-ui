@@ -5,6 +5,7 @@ import {
   hasErrors,
   hideNotification,
   UPDATE_PROFILE,
+  requestAllUsers,
   setCurrentUser,
   showNotification
 } from 'state/actions';
@@ -19,6 +20,7 @@ const updateProfileLogic = createLogic({
 
         const user = jwt_decode(token);
         dispatch(setCurrentUser(user));
+        dispatch(requestAllUsers());
         dispatch(
           showNotification({
             message: 'Profile updated!'

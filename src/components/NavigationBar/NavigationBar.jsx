@@ -47,9 +47,9 @@ const NavigationBar = () => {
         expand="lg"
         expanded={expandMenu}
         onToggle={handleMenuToggle}
-        stick={'top'}
+        stick="top"
         variant={variant}>
-        <Navbar.Brand>React-Redux Chatroom</Navbar.Brand>
+        <Navbar.Brand>Chatroom</Navbar.Brand>
         <Navbar.Toggle aria-controls="chatroom-navbar-nav" />
         <Navbar.Collapse id="chatroom-navbar-nav">
           <Nav className="mr-auto">
