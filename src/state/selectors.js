@@ -25,6 +25,9 @@ export const getUserList = createSelector(
       };
     });
     const loggedInUser = allUserList.find(user => user.id === currentUser.id);
+    if (!loggedInUser) {
+      return [];
+    }
     const otherUsers = allUserList.filter(user => user.id !== currentUser.id);
     return [loggedInUser, ...otherUsers];
   }
