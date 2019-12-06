@@ -14,6 +14,7 @@ const loginLogic = createLogic({
   type: LOGIN,
   process({ action, post, setAuthToken }, dispatch, done) {
     dispatch(hideNotification());
+
     post('api/users/login', action.payload)
       .then(({ token }) => {
         localStorage.setItem('jwtToken', token);

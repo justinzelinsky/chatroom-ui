@@ -8,7 +8,7 @@ const logoutLogic = createLogic({
     get('api/users/logout').then(() => {
       localStorage.removeItem('jwtToken');
       setAuthToken(false);
-      dispatch(setCurrentUser({}));
+      dispatch(setCurrentUser());
       done();
     });
   }
