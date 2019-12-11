@@ -10,23 +10,31 @@ import {
 
 const initialLoadLogic = createLogic({
   type: PAGE_LOAD,
-  process({ setAuthToken }, dispatch, done) {
+  process({ get, setAuthToken }, dispatch, done) {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (jwtToken) {
-      try {
-        const user = jwt_decode(jwtToken);
+      setAuthToken(jwtToken);
+      get('/api/ping')
+        .then(() => {
+          try {
+            const user = jwt_decode(jwtToken);
 
-        setAuthToken(jwtToken);
-
-        dispatch(setCurrentUser(user));
-        dispatch(requestMessages());
-        dispatch(requestAllUsers());
-      } catch {
-        console.log('Invalid token');
-      }
+            dispatch(setCurrentUser(user));
+            dispatch(requestMessages());
+            dispatch(requestAllUsers());
+          } catch {
+            console.log('Invalid token');
+          }
+        })
+        .catch(() => {
+          localStorage.removeItem('jwtToken');
+          console.log('Expired token.');
+        })
+        .finally(() => done());
+    } else {
+      done();
     }
-    done();
   }
 });
 

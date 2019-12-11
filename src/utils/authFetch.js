@@ -5,11 +5,15 @@ const headers = {
 const request = (url, options) => {
   return new Promise((resolve, reject) => {
     fetch(url, options).then(async response => {
-      const body = await response.json();
-      if (response.status >= 200 && response.status < 300) {
-        resolve(body);
-      } else {
-        reject(body);
+      try {
+        const body = await response.json();
+        if (response.status >= 200 && response.status < 300) {
+          resolve(body);
+        } else {
+          reject(body);
+        }
+      } catch (err) {
+        reject();
       }
     });
   });
