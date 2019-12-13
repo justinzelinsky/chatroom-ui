@@ -123,7 +123,7 @@ describe('chats reducer', () => {
     expect(state2.chats[0].message).toEqual(chatMessage);
     expect(state2.chats[0].user).toEqual(user);
     expect(state2.chats[0].ts).toEqual(ts);
-    expect(state2.chats[0].isAdminMessage).toEqual(true);
+    expect(state2.chats[0].isAdminChat).toEqual(true);
   });
 
   it('should return the initial state when no chats have been retrieved', () => {
@@ -149,7 +149,7 @@ describe('chats reducer', () => {
     const penultimateChatTsFormatted = formatDate(new Date(penultimateChat.ts));
 
     const lastChat = state2.chats[state2.chats.length - 1];
-    expect(lastChat.isAdminMessage).toEqual(true);
+    expect(lastChat.isAdminChat).toEqual(true);
     expect(lastChat.message).toEqual(
       `Last message sent at ${penultimateChatTsFormatted}`
     );

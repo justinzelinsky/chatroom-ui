@@ -2,7 +2,7 @@ export const ADD_ADMIN_CHAT = 'ADD_ADMIN_CHAT';
 export const addAdminChat = ({ message, ts, user }) => ({
   type: ADD_ADMIN_CHAT,
   payload: {
-    isAdminMessage: true,
+    isAdminChat: true,
     message,
     ts,
     user
@@ -14,7 +14,7 @@ export const addChat = ({ isLocalMessage = true, message, ts, user }) => ({
   type: ADD_CHAT,
   payload: {
     isLocalMessage,
-    isAdminMessage: false,
+    isAdminChat: false,
     message,
     ts,
     user

@@ -19,10 +19,10 @@ const ChatMessage = ({ chat, index }) => {
     chatVariant = index % 2 ? 'light' : 'dark';
   }
 
-  const { isAdminMessage, message, ts, user } = chat;
+  const { isAdminChat, message, ts, user } = chat;
 
   const chatStyleName = classnames('chat-message', {
-    'admin-message': isAdminMessage
+    'admin-chat': isAdminChat
   });
 
   const timestamp = formatDate(new Date(ts), true);
@@ -40,7 +40,7 @@ const ChatMessage = ({ chat, index }) => {
 
 ChatMessage.propTypes = {
   chat: shape({
-    isAdminMessage: bool,
+    isAdminChat: bool,
     message: string,
     ts: number,
     user: object

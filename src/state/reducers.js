@@ -67,7 +67,7 @@ export const chats = (state = chatsInitialState, action) => {
       const lastMessage = messages[messages.length - 1];
       const lastMessageTimestamp = formatDate(new Date(lastMessage.ts));
       const lastMessageSent = {
-        isAdminMessage: true,
+        isAdminChat: true,
         message: `Last message sent at ${lastMessageTimestamp}`,
         ts: new Date().valueOf(),
         user: {
