@@ -1,8 +1,6 @@
-import { LOCATION_CHANGE } from 'connected-react-router';
-
 import {
   addChat,
-  receivedMessages,
+  receivedChats,
   chatHistoryCleared,
   setDarkMode,
   showNotification,
@@ -16,8 +14,6 @@ import createRootReducer, {
   allUsersInitialState,
   currentUser,
   currentUserInitialState,
-  errors,
-  errorsInitialState,
   chats,
   chatsInitialState,
   darkMode,
@@ -131,7 +127,7 @@ describe('chats reducer', () => {
       chats: chats(chatsInitialState, {})
     };
     const state2 = {
-      chats: chats(state.chats, receivedMessages([]))
+      chats: chats(state.chats, receivedChats([]))
     };
     expect(state2.chats).toHaveLength(0);
   });
@@ -141,7 +137,7 @@ describe('chats reducer', () => {
       chats: chats(chatsInitialState, {})
     };
     const state2 = {
-      chats: chats(state.chats, receivedMessages(chatList))
+      chats: chats(state.chats, receivedChats(chatList))
     };
     expect(state2.chats).toHaveLength(4);
 
@@ -160,7 +156,7 @@ describe('chats reducer', () => {
       chats: chats(chatsInitialState, {})
     };
     const state2 = {
-      chats: chats(state.chats, receivedMessages(chatList))
+      chats: chats(state.chats, receivedChats(chatList))
     };
     expect(state2.chats).toHaveLength(4);
 

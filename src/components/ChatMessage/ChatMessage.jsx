@@ -22,7 +22,7 @@ const ChatMessage = ({ chat, index }) => {
   const { isAdminChat, message, ts, user } = chat;
 
   const chatStyleName = classnames('chat-message', {
-    'admin-chat': isAdminChat
+    admin: isAdminChat
   });
 
   const timestamp = formatDate(new Date(ts), true);

@@ -4,7 +4,7 @@ import { createLogic } from 'redux-logic';
 import {
   PAGE_LOAD,
   requestAllUsers,
-  requestMessages,
+  requestChats,
   setCurrentUser
 } from 'state/actions';
 
@@ -21,7 +21,7 @@ const initialLoadLogic = createLogic({
             const user = jwt_decode(jwtToken);
 
             dispatch(setCurrentUser(user));
-            dispatch(requestMessages());
+            dispatch(requestChats());
             dispatch(requestAllUsers());
           } catch {
             console.log('Invalid token');

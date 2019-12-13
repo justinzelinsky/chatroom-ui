@@ -18,7 +18,7 @@
     .chat-message {
       word-break: break-word;
 
-      &.admin-message {
+      &.admin {
         font-style: italic;
       }
     }

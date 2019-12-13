@@ -6,7 +6,7 @@ import { showNotification, hideNotification } from '../actions';
 const clearChatHistoryLogic = createLogic({
   type: CLEAR_CHAT_HISTORY,
   process({ post }, dispatch, done) {
-    post('/api/messages/clear').then(() => {
+    post('/api/chats/clear').then(() => {
       dispatch(chatHistoryCleared());
       dispatch(
         showNotification({

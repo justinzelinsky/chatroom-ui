@@ -8,7 +8,7 @@ import {
   CLEAR_CURRENT_USER,
   HIDE_NOTIFICATION,
   RECEIVED_ALL_USERS,
-  RECEIVED_MESSAGES,
+  RECEIVED_CHATS,
   SET_CURRENT_USER,
   SET_DARK_MODE,
   SET_USERS_TYPING,
@@ -58,23 +58,23 @@ export const chats = (state = chatsInitialState, action) => {
     return chatsInitialState;
   }
 
-  if (action.type === RECEIVED_MESSAGES) {
+  if (action.type === RECEIVED_CHATS) {
     const {
-      payload: { messages }
+      payload: { chats }
     } = action;
 
-    if (messages.length > 0) {
-      const lastMessage = messages[messages.length - 1];
-      const lastMessageTimestamp = formatDate(new Date(lastMessage.ts));
-      const lastMessageSent = {
+    if (chats.length > 0) {
+      const lastChat = chats[chats.length - 1];
+      const lastChatTimestamp = formatDate(new Date(lastChat.ts));
+      const lastChatSent = {
         isAdminChat: true,
-        message: `Last message sent at ${lastMessageTimestamp}`,
+        message: `Last message sent at ${lastChatTimestamp}`,
         ts: new Date().valueOf(),
         user: {
           name: 'Admin'
         }
       };
-      return [...messages, lastMessageSent];
+      return [...chats, lastChatSent];
     }
   }
 

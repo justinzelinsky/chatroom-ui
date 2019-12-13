@@ -5,7 +5,7 @@ import {
   hideNotification,
   LOGIN,
   requestAllUsers,
-  requestMessages,
+  requestChats,
   setCurrentUser,
   showNotification
 } from 'state/actions';
@@ -22,7 +22,7 @@ const loginLogic = createLogic({
 
         const user = jwt_decode(token);
         dispatch(setCurrentUser(user));
-        dispatch(requestMessages());
+        dispatch(requestChats());
         dispatch(requestAllUsers());
       })
       .catch(({ error }) =>

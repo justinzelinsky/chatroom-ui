@@ -1,7 +1,7 @@
 import addChat from './addChat';
 import clearChatHistory from './clearChatHistory';
 import getAllUsers from './getAllUsers';
-import getMessages from './getMessages';
+import getChats from './getChats';
 import initialLoad from './initialLoad';
 import login from './login';
 import logout from './logout';
@@ -14,7 +14,7 @@ export default [
   addChat,
   clearChatHistory,
   getAllUsers,
-  getMessages,
+  getChats,
   initialLoad,
   login,
   logout,

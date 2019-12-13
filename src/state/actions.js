@@ -68,11 +68,11 @@ export const receivedAllUsers = users => ({
   }
 });
 
-export const RECEIVED_MESSAGES = 'RECEIVED_MESSAGES';
-export const receivedMessages = messages => ({
-  type: RECEIVED_MESSAGES,
+export const RECEIVED_CHATS = 'RECEIVED_CHATS';
+export const receivedChats = chats => ({
+  type: RECEIVED_CHATS,
   payload: {
-    messages
+    chats
   }
 });
 
@@ -92,9 +92,9 @@ export const requestAllUsers = () => ({
   type: REQUEST_ALL_USERS
 });
 
-export const REQUEST_MESSAGES = 'REQUEST_MESSAGES';
-export const requestMessages = () => ({
-  type: REQUEST_MESSAGES
+export const REQUEST_CHATS = 'REQUEST_CHATS';
+export const requestChats = () => ({
+  type: REQUEST_CHATS
 });
 
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
@@ -169,10 +169,10 @@ export default {
   logout,
   pageLoad,
   receivedAllUsers,
-  receivedMessages,
+  receivedChats,
   register,
   requestAllUsers,
-  requestMessages,
+  requestChats,
   setCurrentUser,
   setDarkMode,
   setUsersTyping,
