@@ -1,19 +1,6 @@
 import { setCurrentUser } from 'state/actions';
-import {
-  currentUser,
-  errors,
-  errorsInitialState,
-  currentUserInitialState
-} from 'state/reducers';
-import {
-  getEmailError,
-  getIsAuthenticated,
-  getIsAdmin,
-  getPasswordError,
-  getPasswordConfirmationError,
-  getNameError,
-  getUserList
-} from 'state/selectors';
+import { currentUser, currentUserInitialState } from 'state/reducers';
+import { isUserAuthenticated, isUserAdmin, getUserList } from 'state/selectors';
 
 describe('getUserList selector', () => {
   const allUsers = [
@@ -58,7 +45,7 @@ describe('getUserList selector', () => {
   });
 });
 
-describe('getIsAuthenticated selector', () => {
+describe('isUserAuthenticated selector', () => {
   const loggedInUser = {
     admin: true,
     id: 1,
@@ -70,7 +57,7 @@ describe('getIsAuthenticated selector', () => {
       currentUser: currentUser(currentUserInitialState, {})
     };
 
-    const isAuthenticated = getIsAuthenticated(state);
+    const isAuthenticated = isUserAuthenticated(state);
     expect(isAuthenticated).toEqual(false);
   });
 
@@ -82,12 +69,12 @@ describe('getIsAuthenticated selector', () => {
       )
     };
 
-    const isAuthenticated = getIsAuthenticated(state);
+    const isAuthenticated = isUserAuthenticated(state);
     expect(isAuthenticated).toEqual(true);
   });
 });
 
-describe('getIsAdmin selector', () => {
+describe('isUserAdmin selector', () => {
   const loggedInUser = {
     admin: true,
     id: 1,
@@ -113,7 +100,7 @@ describe('getIsAdmin selector', () => {
       )
     };
 
-    const isAdmin = getIsAdmin(state);
+    const isAdmin = isUserAdmin(state);
     expect(isAdmin).toEqual(false);
   });
 
@@ -125,7 +112,7 @@ describe('getIsAdmin selector', () => {
       )
     };
 
-    const isAdmin = getIsAdmin(state);
+    const isAdmin = isUserAdmin(state);
     expect(isAdmin).toEqual(true);
   });
 });

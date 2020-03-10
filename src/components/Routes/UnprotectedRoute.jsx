@@ -3,10 +3,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 
-import { getIsAuthenticated } from 'state/selectors';
+import { isUserAuthenticated } from 'state/selectors';
 
 const UnprotectedRoute = ({ component: Component, ...rest }) => {
-  const isAuthenticated = useSelector(getIsAuthenticated);
+  const isAuthenticated = useSelector(isUserAuthenticated);
   return (
     <Route
       {...rest}

@@ -6,13 +6,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 import AboutModal from 'components/AboutModal';
 import ThemeToggle from 'components/ThemeToggle';
 import actions from 'state/actions';
-import { getIsAdmin, getIsAuthenticated } from 'state/selectors';
+import { isUserAdmin, isUserAuthenticated } from 'state/selectors';
 
 const NavigationBar = () => {
   const { darkMode, isAdmin, isAuthenticated } = useSelector(state => ({
     darkMode: state.darkMode,
-    isAdmin: getIsAdmin(state),
-    isAuthenticated: getIsAuthenticated(state)
+    isAdmin: isUserAdmin(state),
+    isAuthenticated: isUserAuthenticated(state)
   }));
   const dispatch = useDispatch();
   const history = useHistory();

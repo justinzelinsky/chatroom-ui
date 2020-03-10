@@ -33,13 +33,13 @@ export const getUserList = createSelector(
   }
 );
 
-export const getIsAuthenticated = createSelector(
+export const isUserAuthenticated = createSelector(
   getCurrentUser,
   currentUser => currentUser !== null
 );
 
-export const getIsAdmin = createSelector(
+export const isUserAdmin = createSelector(
   getCurrentUser,
-  getIsAuthenticated,
+  isUserAuthenticated,
   (currentUser, isAuthenticated) => isAuthenticated && !!currentUser.admin
 );
