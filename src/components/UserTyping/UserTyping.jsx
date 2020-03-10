@@ -18,6 +18,8 @@ const UserTyping = ({ index }) => {
     return () => clearTimeout(timeoutId);
   }, [dots]);
 
+  let chatVariant;
+
   if (darkMode) {
     chatVariant = index % 2 ? 'primary' : 'info';
   } else {
@@ -37,8 +39,6 @@ const UserTyping = ({ index }) => {
     usersTyping.length === 1
       ? `${usersTyping[0].name} is typing ${dots}`
       : `Multiple people are typing ${dots}`;
-
-  let chatVariant;
 
   return (
     <ListGroup.Item styleName="user-typing-chat" variant={chatVariant}>
