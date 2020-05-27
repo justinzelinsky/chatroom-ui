@@ -1,5 +1,6 @@
 const ERROR = 2;
 const WARN = 1;
+const OFF = 0;
 
 module.exports = {
   parser: 'babel-eslint',
@@ -30,29 +31,23 @@ module.exports = {
      'simple-import-sort'
     ],
   rules: {
-    'simple-import-sort/sort': 'error',
-    'keyword-spacing': 'error',
-    'no-trailing-spaces': 'error',
+    'simple-import-sort/sort': ERROR,
+    'keyword-spacing': ERROR,
+    'no-trailing-spaces': ERROR,
     indent: [ERROR, 2, { SwitchCase: 1 }],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-    'react/jsx-indent': 0,
+    'linebreak-style': [ERROR, 'unix'],
+    quotes: [ERROR, 'single'],
+    semi: [ERROR, 'always'],
     'react/jsx-indent-props': [ERROR, 'first'],
     'object-curly-spacing': [ERROR, 'always'],
-    'no-trailing-spaces': ['error'],
-    'no-console': 0,
-    'jest/no-disabled-tests': 'warn',
-    'jest/no-focused-tests': 'error',
-    'jest/no-identical-title': 'error',
-    'jest/prefer-to-have-length': 'warn',
-    'jest/valid-expect': 'error'
+    'no-trailing-spaces': [ERROR],
+    'no-console': OFF,
   },
   settings: {
     react: {
       createClass: 'createReactClass',
       pragma: 'React',
-      version: '16.6.3'
+      version: '16.13.1'
     },
     propWrapperFunctions: ['forbidExtraProps']
   }
