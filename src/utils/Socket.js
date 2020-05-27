@@ -2,39 +2,43 @@ import openSocketClient from 'socket.io-client';
 
 let socket = null;
 
-export const subscribeToChatEvents = callback => {
+export function subscribeToChatEvents(callback) {
   socket.on('new chat', chat => callback(chat));
-};
+}
 
-export const subscribeToAdminChatEvents = callback => {
+export function subscribeToAdminChatEvents(callback) {
   socket.on('new admin chat', chat => callback(chat));
-};
+}
 
-export const subscribeToUserEvents = callback => {
+export function subscribeToUserEvents(callback) {
   socket.on('user joined', username => callback(username));
   socket.on('user left', username => callback(username));
-};
+}
 
-export const subscribeToTypingEvents = callback => {
+export function subscribeToTypingEvents(callback) {
   socket.on('users typing', usersTyping => callback(usersTyping));
-};
+}
 
-export const emitStartTyping = user => {
+export function emitStartTyping(user) {
   socket.emit('user start typing', user);
-};
+}
 
-export const emitStopTyping = user => {
+export function emitStopTyping(user)  {
   socket.emit('user stop typing', user);
-};
+}
 
-export const emitNewChat = chat => {
+export function emitNewChat (chat) {
   socket.emit('new chat', chat);
-};
+}
 
-export const emitAddedUser = username => {
+export function emitAddedUser(username) {
   socket.emit('add user', username);
-};
+}
 
-export const openSocket = () => (socket = openSocketClient(API_ADDRESS));
+export function openSocket() {
+  socket = openSocketClient(API_ADDRESS);
+}
 
-export const closeSocket = () => socket.close();
+export function closeSocket() {
+  socket.close();
+}
