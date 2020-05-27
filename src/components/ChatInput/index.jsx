@@ -1,13 +1,13 @@
 import './style.scss';
 
 import classnames from 'classnames';
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import actions from 'state/actions';
 
-const ChatInput = () => {
+function ChatInput() {
   const { currentUser, darkMode } = useSelector(state => ({
     currentUser: state.currentUser,
     darkMode: state.darkMode
@@ -17,17 +17,17 @@ const ChatInput = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [message, setMessage] = useState('');
 
-  const onChange = event => setMessage(event.target.value);
+  const onChange = useCallback(event => setMessage(event.target.value), [setMessage]);
 
-  const sendMessage = () => {
+  const sendMessage = useCallback(() => {
     if (message) {
       const ts = new Date().valueOf();
       dispatch(actions.addChat({ message, ts, user: currentUser }));
       setMessage('');
     }
-  };
+  }, [currentUser, dispatch, message, setMessage]);
 
-  const onKeyDown = event => {
+  const onKeyDown = useCallback(function(event) {
     clearTimeout(timeoutId);
 
     if (event.key === 'Enter') {
@@ -46,18 +46,21 @@ const ChatInput = () => {
         }, 500)
       );
     }
-  };
+  }, [dispatch, isTyping, sendMessage, timeoutId]);
 
-  const handleOnSubmit = event => {
+  const handleOnSubmit = useCallback(function(event) {
     event.preventDefault();
     sendMessage();
-  };
+  }, [sendMessage]);
 
-  const handleSendClick = () => sendMessage();
+  const handleSendClick = useCallback(() => sendMessage(), [sendMessage]);
 
-  const chatInputClassname = classnames('chat-input-container', {
-    'dark-mode': darkMode
-  });
+  const chatInputClassname = useMemo(
+    () => classnames('chat-input-container', {
+      'dark-mode': darkMode
+    }),
+    [darkMode]
+  );
 
   return (
     <Form
@@ -84,6 +87,6 @@ const ChatInput = () => {
       </Button>
     </Form>
   );
-};
+}
 
 export default ChatInput;

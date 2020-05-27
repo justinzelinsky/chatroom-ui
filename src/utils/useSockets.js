@@ -59,7 +59,7 @@ const useSockets = () => {
     subscribeToUserEvents(usernames => {
       dispatch(updateActiveUsers(usernames));
     });
-  }, []);
+  }, [dispatch, store]);
 
   return () => closeSocket();
 };

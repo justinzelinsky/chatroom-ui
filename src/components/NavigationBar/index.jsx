@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useCallback, useMemo, useState } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -8,7 +8,7 @@ import ThemeToggle from 'components/ThemeToggle';
 import actions from 'state/actions';
 import { isUserAdmin, isUserAuthenticated } from 'state/selectors';
 
-const NavigationBar = () => {
+function NavigationBar() {
   const { darkMode, isAdmin, isAuthenticated } = useSelector(state => ({
     darkMode: state.darkMode,
     isAdmin: isUserAdmin(state),
@@ -21,23 +21,23 @@ const NavigationBar = () => {
   const [showModal, setShowModal] = useState(false);
   const [expandMenu, setExpandMenu] = useState(false);
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     dispatch(actions.logout());
     setExpandMenu(false);
-  };
-  const showAboutModal = () => setShowModal(true);
-  const hideAboutModal = () => {
+  }, [dispatch]);
+  const showAboutModal = useCallback(() => setShowModal(true), []);
+  const hideAboutModal = useCallback(() => {
     setShowModal(false);
     setExpandMenu(false);
-  };
-  const handleMenuToggle = () => setExpandMenu(!expandMenu);
+  }, []);
+  const handleMenuToggle = useCallback(() => setExpandMenu(!expandMenu), [expandMenu]);
   const goTo = path => () => {
     history.push(path);
     setExpandMenu(false);
   };
 
-  const isActive = path => location.pathname.indexOf(path) !== -1;
-  const variant = darkMode ? 'dark' : 'light';
+  const isActive = useCallback(path => location.pathname.indexOf(path) !== -1, [location.pathname]);
+  const variant = useMemo(() => darkMode ? 'dark' : 'light', [darkMode]);
 
   return (
     <Fragment>
@@ -53,7 +53,9 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="chatroom-navbar-nav" />
         <Navbar.Collapse id="chatroom-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link onClick={showAboutModal}>About</Nav.Link>
+            <Nav.Link onClick={showAboutModal}>
+              About
+            </Nav.Link>
             {isAuthenticated && (
               <Nav.Link
                 active={isActive('chatroom')}
@@ -62,7 +64,10 @@ const NavigationBar = () => {
               </Nav.Link>
             )}
             {isAdmin && (
-              <Nav.Link active={isActive('admin')} onClick={goTo('/admin')}>
+              <Nav.Link
+                active={isActive('admin')}
+                onClick={goTo('/admin')}
+              >
                 Admin
               </Nav.Link>
             )}
@@ -73,7 +78,9 @@ const NavigationBar = () => {
                   onClick={goTo('/profile')}>
                   Profile
                 </Nav.Link>
-                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <Nav.Link onClick={handleLogout}>
+                  Logout
+                </Nav.Link>
               </Fragment>
             )}
           </Nav>
@@ -87,6 +94,6 @@ const NavigationBar = () => {
       />
     </Fragment>
   );
-};
+}
 
 export default NavigationBar;

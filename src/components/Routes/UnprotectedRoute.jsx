@@ -5,7 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 import { isUserAuthenticated } from 'state/selectors';
 
-const UnprotectedRoute = ({ component: Component, ...rest }) => {
+function UnprotectedRoute ({ component: Component, ...rest }) {
   const isAuthenticated = useSelector(isUserAuthenticated);
   return (
     <Route
@@ -19,7 +19,7 @@ const UnprotectedRoute = ({ component: Component, ...rest }) => {
       }
     />
   );
-};
+}
 
 UnprotectedRoute.propTypes = {
   component: elementType.isRequired

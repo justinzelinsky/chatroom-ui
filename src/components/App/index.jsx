@@ -13,26 +13,39 @@ const AdminPanel = lazy(() => import('components/AdminPanel'));
 const Chatroom = lazy(() => import('components/Chatroom'));
 const Profile = lazy(() => import('components/Profile'));
 
-const App = () => {
+function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.pageLoad());
-  }, []);
+  }, [dispatch]);
+
   return (
     <Fragment>
       <NavigationBar />
       <NotificationBar />
       <Suspense fallback={<LoadingSpinner />}>
         <Switch>
-          <ProtectedRoute component={Chatroom} path="/chatroom" />
-          <ProtectedRoute component={AdminPanel} path="/admin" />
-          <ProtectedRoute component={Profile} path="/profile" />
-          <UnprotectedRoute component={RegisterLogin} path="/" />
+          <ProtectedRoute
+            component={Chatroom}
+            path="/chatroom"
+          />
+          <ProtectedRoute
+            component={AdminPanel}
+            path="/admin"
+          />
+          <ProtectedRoute
+            component={Profile}
+            path="/profile"
+          />
+          <UnprotectedRoute
+            component={RegisterLogin}
+            path="/"
+          />
           <Redirect to="/login" />
         </Switch>
       </Suspense>
     </Fragment>
   );
-};
+}
 
 export default App;

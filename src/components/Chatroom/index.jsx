@@ -1,7 +1,7 @@
 import './style.scss';
 
 import classnames from 'classnames';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { Container, ListGroup } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
@@ -12,7 +12,7 @@ import NoChats from 'components/NoChats';
 import UserTyping from 'components/UserTyping';
 import useSockets from 'utils/useSockets';
 
-const Chatroom = () => {
+function Chatroom() {
   const { chats, darkMode } = useSelector(state => ({
     chats: state.chats,
     darkMode: state.darkMode
@@ -22,30 +22,42 @@ const Chatroom = () => {
 
   useEffect(() => {
     return handleClose;
-  }, []);
+  }, [handleClose]);
 
   useEffect(() => {
     chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [chats]);
 
-  const chatsClassname = classnames('chats', { 'dark-mode': darkMode });
-
+  const chatsClassname = useMemo(() => classnames('chats', { 'dark-mode': darkMode }), [darkMode]);
+  const userTypingIndex = useMemo(() => {
+    return chats.length === 0 ? 1 : chats.length;
+  }, [chats]);
   return (
-    <Container fluid={true} styleName="chatroom">
+    <Container
+      fluid={true}
+      styleName="chatroom"
+    >
       <div styleName="chatroom-userlist-container">
         <ListGroup styleName={chatsClassname}>
           {chats.length === 0 && <NoChats />}
           {chats.map((chat, idx) => (
-            <ChatMessage chat={chat} index={idx} key={idx} />
+            <ChatMessage
+              chat={chat}
+              index={idx}
+              key={idx}
+            />
           ))}
-          <UserTyping index={chats.length === 0 ? 1 : chats.length} />
-          <ListGroup.Item ref={chatEndRef} styleName="chat-end" />
+          <UserTyping index={userTypingIndex} />
+          <ListGroup.Item
+            ref={chatEndRef}
+            styleName="chat-end"
+          />
         </ListGroup>
         <UserList />
       </div>
       <ChatInput />
     </Container>
   );
-};
+}
 
 export default Chatroom;

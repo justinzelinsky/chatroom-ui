@@ -1,11 +1,11 @@
 import './style.scss';
 
 import { number } from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
-const UserTyping = ({ index }) => {
+function UserTyping ({ index }) {
   const { darkMode, usersTyping } = useSelector(state => ({
     darkMode: state.darkMode,
     usersTyping: state.usersTyping
@@ -18,15 +18,24 @@ const UserTyping = ({ index }) => {
     return () => clearTimeout(timeoutId);
   }, [dots]);
 
-  let chatVariant;
+  const chatVariant = useMemo(() => {
+    if (darkMode) {
+      return index % 2 ? 'primary' : 'info';
+    }
+    return  index % 2 ? 'light' : 'dark';
+  }, [darkMode, index]);
 
-  if (darkMode) {
-    chatVariant = index % 2 ? 'primary' : 'info';
-  } else {
-    chatVariant = index % 2 ? 'light' : 'dark';
-  }
+  const someoneIsTyping = useMemo(() => {
+    if (usersTyping.length === 0) {
+      return null;
+    }
+    if (usersTyping.length === 1) {
+      return `${usersTyping[0].name} is typing ${dots}`;
+    }
+    return `Multiple people are typing ${dots}`;
+  }, [dots, usersTyping]);
 
-  if (usersTyping.length === 0) {
+  if (someoneIsTyping === null) {
     return (
       <ListGroup.Item
         styleName="user-typing-chat hidden"
@@ -35,17 +44,15 @@ const UserTyping = ({ index }) => {
     );
   }
 
-  const someoneIsTyping =
-    usersTyping.length === 1
-      ? `${usersTyping[0].name} is typing ${dots}`
-      : `Multiple people are typing ${dots}`;
-
   return (
-    <ListGroup.Item styleName="user-typing-chat" variant={chatVariant}>
+    <ListGroup.Item
+      styleName="user-typing-chat"
+      variant={chatVariant}
+    >
       {someoneIsTyping}
     </ListGroup.Item>
   );
-};
+}
 
 UserTyping.propTypes = {
   index: number.isRequired

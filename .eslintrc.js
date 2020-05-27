@@ -9,7 +9,7 @@ module.exports = {
     node: true,
     'jest/globals': true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -22,7 +22,9 @@ module.exports = {
   },
   plugins: ['react', 'jest'],
   rules: {
-    indent: [ERROR, 2, { ignoredNodes: ['JSXElement *'], SwitchCase: 1 }],
+    'keyword-spacing': 'error',
+    'no-trailing-spaces': 'error',
+    indent: [ERROR, 2, { SwitchCase: 1 }],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
