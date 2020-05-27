@@ -1,6 +1,5 @@
 import { createLogic } from 'redux-logic';
-
-import { REQUEST_ALL_USERS, receivedAllUsers } from 'state/actions';
+import { receivedAllUsers, REQUEST_ALL_USERS } from 'state/actions';
 
 const getAllUsersLogic = createLogic({
   type: REQUEST_ALL_USERS,

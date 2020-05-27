@@ -1,5 +1,4 @@
 import { createLogic } from 'redux-logic';
-
 import { USER_STARTS_TYPING } from 'state/actions';
 
 const userStartsTypingLogic = createLogic({

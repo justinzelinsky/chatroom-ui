@@ -1,7 +1,7 @@
 import { createLogic } from 'redux-logic';
+import { chatHistoryCleared, CLEAR_CHAT_HISTORY } from 'state/actions';
 
-import { CLEAR_CHAT_HISTORY, chatHistoryCleared } from 'state/actions';
-import { showNotification, hideNotification } from '../actions';
+import { hideNotification, showNotification } from '../actions';
 
 const clearChatHistoryLogic = createLogic({
   type: CLEAR_CHAT_HISTORY,

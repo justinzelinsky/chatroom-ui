@@ -1,6 +1,5 @@
 import { createLogic } from 'redux-logic';
-
-import { LOGOUT, clearCurrentUser } from 'state/actions';
+import { clearCurrentUser, LOGOUT } from 'state/actions';
 
 const logoutLogic = createLogic({
   type: LOGOUT,

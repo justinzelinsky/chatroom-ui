@@ -1,9 +1,8 @@
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
-
 import {
-  ADD_CHAT,
   ADD_ADMIN_CHAT,
+  ADD_CHAT,
   CHAT_HISTORY_CLEARED,
   CLEAR_CURRENT_USER,
   HIDE_NOTIFICATION,

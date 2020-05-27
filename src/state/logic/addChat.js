@@ -1,5 +1,4 @@
 import { createLogic } from 'redux-logic';
-
 import { ADD_CHAT } from 'state/actions';
 
 const addChatLogic = createLogic({

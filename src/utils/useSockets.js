@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-
 import {
-  addChat,
   addAdminChat,
+  addChat,
   setUsersTyping,
   updateActiveUsers
 } from 'state/actions';
@@ -11,10 +10,10 @@ import {
   closeSocket,
   emitAddedUser,
   openSocket,
-  subscribeToChatEvents,
   subscribeToAdminChatEvents,
-  subscribeToUserEvents,
-  subscribeToTypingEvents
+  subscribeToChatEvents,
+  subscribeToTypingEvents,
+  subscribeToUserEvents
 } from 'utils/socket';
 
 const documentTitle = document.title;

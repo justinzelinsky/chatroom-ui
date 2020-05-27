@@ -1,6 +1,5 @@
 import jwt_decode from 'jwt-decode';
 import { createLogic } from 'redux-logic';
-
 import {
   hideNotification,
   LOGIN,

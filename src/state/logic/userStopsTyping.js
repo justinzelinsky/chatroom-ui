@@ -1,5 +1,4 @@
 import { createLogic } from 'redux-logic';
-
 import { USER_STOPS_TYPING } from 'state/actions';
 
 const userStopsTypingLogic = createLogic({

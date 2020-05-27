@@ -1,6 +1,5 @@
 import { createLogic } from 'redux-logic';
-
-import { REQUEST_CHATS, receivedChats } from 'state/actions';
+import { receivedChats, REQUEST_CHATS } from 'state/actions';
 
 const getChatsLogic = createLogic({
   type: REQUEST_CHATS,

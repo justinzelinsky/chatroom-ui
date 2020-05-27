@@ -2,7 +2,6 @@ import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createLogicMiddleware } from 'redux-logic';
-
 import logic from 'state/logic';
 import createRootReducer from 'state/reducers';
 import { get, post, setAuthToken } from 'utils/authFetch';

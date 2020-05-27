@@ -1,5 +1,4 @@
 import { createLogic } from 'redux-logic';
-
 import { login, REGISTER, showNotification } from 'state/actions';
 
 const registerLogic = createLogic({

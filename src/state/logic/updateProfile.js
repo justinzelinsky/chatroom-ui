@@ -1,12 +1,11 @@
 import jwt_decode from 'jwt-decode';
 import { createLogic } from 'redux-logic';
-
 import {
   hideNotification,
-  UPDATE_PROFILE,
   requestAllUsers,
   setCurrentUser,
-  showNotification
+  showNotification,
+  UPDATE_PROFILE
 } from 'state/actions';
 
 const updateProfileLogic = createLogic({
