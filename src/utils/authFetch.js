@@ -16,10 +16,18 @@ function doFetch (url, options) {
   });
 }
 
-export const get = async url => doFetch(url, { headers, method: 'GET' });
+export async function get(url) {
+  return doFetch(url, { headers, method: 'GET' });
+}
 
-export const post = async (url, body) =>
-  doFetch(url, { body: JSON.stringify(body), headers, method: 'POST' });
+export async function post(url, body) {
+  return doFetch(url, {
+    body: JSON.stringify(body),
+    headers,
+    method: 'POST'
+  }
+  );
+}
 
 export function setAuthToken(token) {
   if (token) {

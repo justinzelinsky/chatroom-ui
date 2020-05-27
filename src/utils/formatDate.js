@@ -1,6 +1,11 @@
+const locale = 'en-US';
+const options = {
+  timeZone: 'America/New_York'
+};
+
 export function formatDate (date, onlyTime = false) {
   const [datestamp, ...timestamps] = date
-    .toLocaleString('en-US', { timeZone: 'America/New_York' })
+    .toLocaleString(locale, options)
     .split(' ');
 
   if (onlyTime) {

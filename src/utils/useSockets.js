@@ -19,7 +19,7 @@ import {
 const documentTitle = document.title;
 let unreadNotifications = 0;
 
-const useSockets = () => {
+function useSockets ()  {
   const dispatch = useDispatch();
   const store = useStore();
 
@@ -61,6 +61,6 @@ const useSockets = () => {
   }, [dispatch, store]);
 
   return () => closeSocket();
-};
+}
 
 export default useSockets;
