@@ -1,12 +1,12 @@
-import { get, post, setAuthToken } from 'utils/authFetch';
 import fetchMock from 'fetch-mock';
+import { get, post, setAuthToken } from 'utils/authFetch';
 
-describe('get request', () => {
-  beforeEach(() => {
+describe('get request', function () {
+  beforeEach(function() {
     fetchMock.reset();
   });
 
-  it('should have successfully execute a get request', async () => {
+  it('should have successfully execute a get request', async function () {
     const expectedResponse = { greeting: 'Hello, World' };
     fetchMock.get('/greeting', expectedResponse);
 
@@ -15,7 +15,7 @@ describe('get request', () => {
     expect(fetchMock.calls()).toHaveLength(1);
   });
 
-  it('should have no authorization headers by default', async () => {
+  it('should have no authorization headers by default', async function () {
     const expectedResponse = { greeting: 'Hello, World' };
     fetchMock.get('/greeting', expectedResponse);
 
@@ -28,7 +28,7 @@ describe('get request', () => {
     expect(options.headers).toEqual(expectedHeaders);
   });
 
-  it('should have authorization headers once added', async () => {
+  it('should have authorization headers once added', async function () {
     setAuthToken('token');
     const expectedResponse = { greeting: 'Hello, World' };
     fetchMock.get('/greeting', expectedResponse);
@@ -43,7 +43,7 @@ describe('get request', () => {
     expect(options.headers).toEqual(expectedHeaders);
   });
 
-  it('should not have authorization headers once removed', async () => {
+  it('should not have authorization headers once removed', async function () {
     setAuthToken('token');
     const expectedResponse = { greeting: 'Hello, World' };
     fetchMock.get('/greeting', expectedResponse);
@@ -67,7 +67,7 @@ describe('get request', () => {
     expect(options2.headers).toEqual(expectedHeaders2);
   });
 
-  it('should reject when api call fails', async () => {
+  it('should reject when api call fails', async function (){
     fetchMock.get('/badendpoint', {
       statusText: 'Bad endpoint',
       status: 500
@@ -80,12 +80,12 @@ describe('get request', () => {
   });
 });
 
-describe('post request', () => {
-  beforeEach(() => {
+describe('post request', function () {
+  beforeEach(function() {
     fetchMock.reset();
   });
 
-  it('should have successfully execute a post request', async () => {
+  it('should have successfully execute a post request', async function () {
     fetchMock.post('/updateUser', { status: 200, body: { status: 'ok' } });
 
     const response = await post('/updateUser');
@@ -93,7 +93,7 @@ describe('post request', () => {
     expect(response.status).toEqual('ok');
   });
 
-  it('should reject when api call fails', async () => {
+  it('should reject when api call fails', async function () {
     fetchMock.post('/badendpoint', {
       statusText: 'Bad endpoint',
       status: 500

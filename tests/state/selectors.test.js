@@ -1,8 +1,8 @@
 import { setCurrentUser } from 'state/actions';
 import { currentUser, currentUserInitialState } from 'state/reducers';
-import { isUserAuthenticated, isUserAdmin, getUserList } from 'state/selectors';
+import { getUserList, isUserAdmin, isUserAuthenticated } from 'state/selectors';
 
-describe('getUserList selector', () => {
+describe('getUserList selector', function(){
   const allUsers = [
     {
       id: 0,
@@ -14,7 +14,7 @@ describe('getUserList selector', () => {
     }
   ];
 
-  it('should return an empty list at start', () => {
+  it('should return an empty list at start', function(){
     const state = {
       activeUsers: [],
       allUsers,
@@ -23,7 +23,8 @@ describe('getUserList selector', () => {
     const userList = getUserList(state);
     expect(userList).toHaveLength(0);
   });
-  it('should return the appropriate list of users with their active state', () => {
+
+  it('should return the appropriate list of users with their active state', function () {
     const state = {
       activeUsers: [
         {
@@ -45,14 +46,14 @@ describe('getUserList selector', () => {
   });
 });
 
-describe('isUserAuthenticated selector', () => {
+describe('isUserAuthenticated selector', function() {
   const loggedInUser = {
     admin: true,
     id: 1,
     name: 'Justin'
   };
 
-  it('should return false when not logged in', () => {
+  it('should return false when not logged in', function() {
     const state = {
       currentUser: currentUser(currentUserInitialState, {})
     };
@@ -61,7 +62,7 @@ describe('isUserAuthenticated selector', () => {
     expect(isAuthenticated).toEqual(false);
   });
 
-  it('should return true when logged in', () => {
+  it('should return true when logged in', function() {
     const state = {
       currentUser: currentUser(
         currentUserInitialState,
@@ -74,12 +75,13 @@ describe('isUserAuthenticated selector', () => {
   });
 });
 
-describe('isUserAdmin selector', () => {
+describe('isUserAdmin selector', function() {
   const loggedInUser = {
     admin: true,
     id: 1,
     name: 'Justin'
   };
+
   const otherUsers = [
     {
       admin: false,
@@ -92,7 +94,8 @@ describe('isUserAdmin selector', () => {
       name: 'Gene'
     }
   ];
-  it('should return false for a non-admin user', () => {
+
+  it('should return false for a non-admin user', function() {
     const state = {
       currentUser: currentUser(
         currentUserInitialState,
@@ -104,7 +107,7 @@ describe('isUserAdmin selector', () => {
     expect(isAdmin).toEqual(false);
   });
 
-  it('should return true for an admin user', () => {
+  it('should return true for an admin user', function() {
     const state = {
       currentUser: currentUser(
         currentUserInitialState,

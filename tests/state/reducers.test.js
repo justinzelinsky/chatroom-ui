@@ -1,21 +1,21 @@
 import {
+  addAdminChat,
   addChat,
-  receivedChats,
   chatHistoryCleared,
-  setDarkMode,
-  showNotification,
   hideNotification,
-  addAdminChat
+  receivedChats,
+  setDarkMode,
+  showNotification
 } from 'state/actions';
 import createRootReducer, {
   activeUsers,
   activeUsersInitialState,
   allUsers,
   allUsersInitialState,
-  currentUser,
-  currentUserInitialState,
   chats,
   chatsInitialState,
+  currentUser,
+  currentUserInitialState,
   darkMode,
   darkModeInitialState,
   notification,
