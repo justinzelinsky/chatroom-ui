@@ -9,7 +9,11 @@ module.exports = {
     node: true,
     'jest/globals': true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended'
+    ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -20,8 +24,13 @@ module.exports = {
   globals: {
     API_ADDRESS: true
   },
-  plugins: ['react', 'jest'],
+  plugins: [
+    'react',
+     'jest',
+     'simple-import-sort'
+    ],
   rules: {
+    'simple-import-sort/sort': 'error',
     'keyword-spacing': 'error',
     'no-trailing-spaces': 'error',
     indent: [ERROR, 2, { SwitchCase: 1 }],

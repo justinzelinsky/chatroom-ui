@@ -1,12 +1,11 @@
-import React, { Fragment, lazy, Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Redirect, Switch } from 'react-router-dom';
-
 import LoadingSpinner from 'components/LoadingSpinner';
 import NavigationBar from 'components/NavigationBar';
 import NotificationBar from 'components/NotificationBar';
 import RegisterLogin from 'components/RegisterLogin';
 import { ProtectedRoute, UnprotectedRoute } from 'components/Routes';
+import React, { Fragment, lazy, Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Redirect, Switch } from 'react-router-dom';
 import actions from 'state/actions';
 
 const AdminPanel = lazy(() => import('components/AdminPanel'));

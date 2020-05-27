@@ -3,7 +3,6 @@ import './style.scss';
 import classnames from 'classnames';
 import React from 'react';
 import { useSelector } from 'react-redux';
-
 import { getUserList } from 'state/selectors';
 
 function UserList() {

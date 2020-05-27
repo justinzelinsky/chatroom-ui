@@ -1,10 +1,9 @@
 import './style.scss';
 
-import React from 'react';
-import { Tab, Tabs } from 'react-bootstrap';
-
 import Login from 'components/Login';
 import Register from 'components/Register';
+import React from 'react';
+import { Tab, Tabs } from 'react-bootstrap';
 
 function RegisterLogin() {
   return (

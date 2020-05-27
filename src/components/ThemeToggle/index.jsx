@@ -2,7 +2,6 @@ import './style.scss';
 
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import actions from 'state/actions';
 
 function ThemeToggle () {

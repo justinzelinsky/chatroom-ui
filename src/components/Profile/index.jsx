@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
 import { Button, Form, Jumbotron } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-
 import actions from 'state/actions';
 
 function Profile() {

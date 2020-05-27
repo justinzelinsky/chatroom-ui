@@ -1,10 +1,9 @@
+import AboutModal from 'components/AboutModal';
+import ThemeToggle from 'components/ThemeToggle';
 import React, { Fragment, useCallback, useMemo, useState } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
-
-import AboutModal from 'components/AboutModal';
-import ThemeToggle from 'components/ThemeToggle';
 import actions from 'state/actions';
 import { isUserAdmin, isUserAuthenticated } from 'state/selectors';
 

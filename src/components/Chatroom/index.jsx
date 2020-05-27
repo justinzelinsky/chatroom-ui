@@ -1,15 +1,14 @@
 import './style.scss';
 
 import classnames from 'classnames';
-import React, { useEffect, useMemo, useRef } from 'react';
-import { Container, ListGroup } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-
-import UserList from 'components/UserList';
 import ChatInput from 'components/ChatInput';
 import ChatMessage from 'components/ChatMessage';
 import NoChats from 'components/NoChats';
+import UserList from 'components/UserList';
 import UserTyping from 'components/UserTyping';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { Container, ListGroup } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import useSockets from 'utils/useSockets';
 
 function Chatroom() {

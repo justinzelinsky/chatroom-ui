@@ -1,11 +1,10 @@
 import './style.scss';
 
 import classnames from 'classnames';
-import { bool, shape, string, number, object } from 'prop-types';
+import { bool, number, object, shape, string } from 'prop-types';
 import React, { useMemo } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-
 import formatDate from 'utils/formatDate';
 
 function ChatMessage ({ chat, index }) {
