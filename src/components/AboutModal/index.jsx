@@ -3,7 +3,7 @@ import './style.scss';
 import classnames from 'classnames';
 import { bool, func } from 'prop-types';
 import React from 'react';
-import { Modal } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
 
 function AboutModal ({ darkMode, show, handleClose }) {
   return (

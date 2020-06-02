@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector } from 'react-redux';
 
 function NoChats() {

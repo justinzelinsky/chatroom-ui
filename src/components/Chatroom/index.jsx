@@ -7,7 +7,8 @@ import NoChats from 'components/NoChats';
 import UserList from 'components/UserList';
 import UserTyping from 'components/UserTyping';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { Container, ListGroup } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector } from 'react-redux';
 import useSockets from 'utils/useSockets';
 

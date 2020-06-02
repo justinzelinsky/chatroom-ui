@@ -2,7 +2,7 @@ import './style.scss';
 
 import { number } from 'prop-types';
 import React, { useEffect, useMemo, useState } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector } from 'react-redux';
 
 function UserTyping ({ index }) {

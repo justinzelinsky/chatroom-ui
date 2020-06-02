@@ -3,7 +3,7 @@ import './style.scss';
 import classnames from 'classnames';
 import { bool, number, object, shape, string } from 'prop-types';
 import React, { useMemo } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector } from 'react-redux';
 import formatDate from 'utils/formatDate';
 

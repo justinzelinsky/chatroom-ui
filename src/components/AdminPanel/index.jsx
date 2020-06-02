@@ -2,7 +2,8 @@ import './style.scss';
 
 import classnames from 'classnames';
 import React, { useCallback } from 'react';
-import { Button, Jumbotron } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 

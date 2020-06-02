@@ -2,7 +2,8 @@ import './style.scss';
 
 import classnames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 
