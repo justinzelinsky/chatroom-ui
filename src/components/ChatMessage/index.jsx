@@ -10,7 +10,7 @@ import formatDate from 'utils/formatDate';
 function ChatMessage ({ chat, index }) {
   const darkMode = useSelector(state => state.darkMode);
 
-  const chatVariant = useMemo(function() {
+  const chatVariant = useMemo(function () {
     if (darkMode) {
       return index % 2 ? 'primary' : 'info';
     }

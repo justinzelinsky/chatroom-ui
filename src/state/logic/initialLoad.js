@@ -9,13 +9,13 @@ import {
 
 const initialLoadLogic = createLogic({
   type: PAGE_LOAD,
-  process({ get, setAuthToken }, dispatch, done) {
+  process ({ get, setAuthToken }, dispatch, done) {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (jwtToken) {
       setAuthToken(jwtToken);
       get('/api/ping')
-        .then(() => {
+        .then(function () {
           try {
             const user = jwt_decode(jwtToken);
 
@@ -26,11 +26,13 @@ const initialLoadLogic = createLogic({
             console.log('Invalid token');
           }
         })
-        .catch(() => {
+        .catch(function () {
           localStorage.removeItem('jwtToken');
           console.log('Expired token.');
         })
-        .finally(() => done());
+        .finally(function () {
+          done();
+        });
     } else {
       done();
     }

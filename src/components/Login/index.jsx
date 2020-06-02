@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 
-function Login() {
+function Login () {
   const dispatch = useDispatch();
   const { darkMode } = useSelector(state => state.darkMode);
 

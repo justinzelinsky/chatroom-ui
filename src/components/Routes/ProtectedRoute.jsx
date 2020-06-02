@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 import { isUserAuthenticated } from 'state/selectors';
 
-function ProtectedRoute({ component: Component, ...rest }) {
+function ProtectedRoute ({ component: Component, ...rest }) {
   const isAuthenticated = useSelector(isUserAuthenticated);
 
   return (

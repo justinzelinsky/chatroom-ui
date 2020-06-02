@@ -10,9 +10,9 @@ import {
 
 const updateProfileLogic = createLogic({
   type: UPDATE_PROFILE,
-  process({ action, post, setAuthToken }, dispatch, done) {
+  process ({ action, post, setAuthToken }, dispatch, done) {
     post('api/users/update', action.payload)
-      .then(({ token }) => {
+      .then(function ({ token }) {
         localStorage.setItem('jwtToken', token);
         setAuthToken(token);
 
@@ -29,7 +29,7 @@ const updateProfileLogic = createLogic({
           done();
         }, 5000);
       })
-      .catch(({ error }) => {
+      .catch(function ({ error }) {
         dispatch(
           showNotification({
             message: error,

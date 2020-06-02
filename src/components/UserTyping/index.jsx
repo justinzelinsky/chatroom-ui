@@ -12,20 +12,22 @@ function UserTyping ({ index }) {
   }));
   const [dots, setDots] = useState('.');
 
-  useEffect(() => {
+  useEffect(function () {
     const dotProgress = dots.length < 3 ? `${dots}.` : '.';
     const timeoutId = setTimeout(() => setDots(dotProgress), 500);
-    return () => clearTimeout(timeoutId);
+    return function () {
+      clearTimeout(timeoutId);
+    };
   }, [dots]);
 
-  const chatVariant = useMemo(() => {
+  const chatVariant = useMemo(function (){
     if (darkMode) {
       return index % 2 ? 'primary' : 'info';
     }
     return  index % 2 ? 'light' : 'dark';
   }, [darkMode, index]);
 
-  const someoneIsTyping = useMemo(() => {
+  const someoneIsTyping = useMemo(function () {
     if (usersTyping.length === 0) {
       return null;
     }

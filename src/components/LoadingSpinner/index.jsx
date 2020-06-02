@@ -4,7 +4,7 @@ import React from 'react';
 
 // Taken from https://projects.lukehaas.me/css-loaders/
 
-function LoadingSpinner() {
+function LoadingSpinner () {
   return (
     <div styleName="loader">Loading...</div>
   );

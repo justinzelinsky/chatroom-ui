@@ -1,5 +1,4 @@
 const ERROR = 2;
-const WARN = 1;
 const OFF = 0;
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended'
-    ],
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -27,11 +26,12 @@ module.exports = {
   },
   plugins: [
     'react',
-     'jest',
-     'simple-import-sort'
-    ],
+    'jest',
+    'simple-import-sort'
+  ],
   rules: {
     'simple-import-sort/sort': ERROR,
+    'space-before-function-paren': ['error', 'always'],
     'keyword-spacing': ERROR,
     'no-trailing-spaces': ERROR,
     indent: [ERROR, 2, { SwitchCase: 1 }],
@@ -40,7 +40,6 @@ module.exports = {
     semi: [ERROR, 'always'],
     'react/jsx-indent-props': [ERROR, 'first'],
     'object-curly-spacing': [ERROR, 'always'],
-    'no-trailing-spaces': [ERROR],
     'no-console': OFF,
   },
   settings: {

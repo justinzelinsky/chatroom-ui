@@ -12,7 +12,7 @@ const AdminPanel = lazy(() => import('components/AdminPanel'));
 const Chatroom = lazy(() => import('components/Chatroom'));
 const Profile = lazy(() => import('components/Profile'));
 
-function App() {
+function App () {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.pageLoad());

@@ -11,11 +11,11 @@ import {
 
 const loginLogic = createLogic({
   type: LOGIN,
-  process({ action, post, setAuthToken }, dispatch, done) {
+  process ({ action, post, setAuthToken }, dispatch, done) {
     dispatch(hideNotification());
 
     post('api/users/login', action.payload)
-      .then(({ token }) => {
+      .then(function ({ token }) {
         localStorage.setItem('jwtToken', token);
         setAuthToken(token);
 
@@ -24,15 +24,17 @@ const loginLogic = createLogic({
         dispatch(requestChats());
         dispatch(requestAllUsers());
       })
-      .catch(({ error }) =>
+      .catch(function ({ error }) {
         dispatch(
           showNotification({
             message: error,
             variant: 'danger'
           })
-        )
-      )
-      .finally(() => done());
+        );
+      })
+      .finally(function () {
+        done();
+      });
   }
 });
 

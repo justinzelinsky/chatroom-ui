@@ -8,7 +8,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import actions from 'state/actions';
 import { isUserAdmin, isUserAuthenticated } from 'state/selectors';
 
-function NavigationBar() {
+function NavigationBar () {
   const { darkMode, isAdmin, isAuthenticated } = useSelector(state => ({
     darkMode: state.darkMode,
     isAdmin: isUserAdmin(state),

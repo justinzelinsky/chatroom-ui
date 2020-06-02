@@ -12,7 +12,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector } from 'react-redux';
 import useSockets from 'utils/useSockets';
 
-function Chatroom() {
+function Chatroom () {
   const { chats, darkMode } = useSelector(state => ({
     chats: state.chats,
     darkMode: state.darkMode

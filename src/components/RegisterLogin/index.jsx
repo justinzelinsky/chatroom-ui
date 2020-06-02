@@ -6,7 +6,7 @@ import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-function RegisterLogin() {
+function RegisterLogin () {
   return (
     <div styleName="register-login">
       <Tabs defaultActiveKey="login">

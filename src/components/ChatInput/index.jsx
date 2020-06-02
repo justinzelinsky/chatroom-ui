@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 
-function ChatInput() {
+function ChatInput () {
   const { currentUser, darkMode } = useSelector(state => ({
     currentUser: state.currentUser,
     darkMode: state.darkMode
@@ -27,7 +27,7 @@ function ChatInput() {
     }
   }, [currentUser, dispatch, message, setMessage]);
 
-  const onKeyDown = useCallback(function(event) {
+  const onKeyDown = useCallback(function (event) {
     clearTimeout(timeoutId);
 
     if (event.key === 'Enter') {
@@ -39,16 +39,17 @@ function ChatInput() {
         setIsTyping(true);
         dispatch(actions.userStartsTyping());
       }
-      setTimeoutId(
-        setTimeout(() => {
-          setIsTyping(false);
-          dispatch(actions.userStopsTyping());
-        }, 500)
-      );
+
+      const newTimeoutId = setTimeout(() => {
+        setIsTyping(false);
+        dispatch(actions.userStopsTyping());
+      }, 500);
+
+      setTimeoutId(newTimeoutId);
     }
   }, [dispatch, isTyping, sendMessage, timeoutId]);
 
-  const handleOnSubmit = useCallback(function(event) {
+  const handleOnSubmit = useCallback(function (event) {
     event.preventDefault();
     sendMessage();
   }, [sendMessage]);

@@ -3,9 +3,9 @@ const headers = {
 };
 
 function doFetch (url, options) {
-  return new Promise((resolve, reject) => {
+  return new Promise(function (resolve, reject) {
     fetch(url, options)
-      .then(async function(response) {
+      .then(async function (response) {
         const body = await response.json();
         if (response.ok) {
           resolve(body);
@@ -16,11 +16,11 @@ function doFetch (url, options) {
   });
 }
 
-export async function get(url) {
+async function get (url) {
   return doFetch(url, { headers, method: 'GET' });
 }
 
-export async function post(url, body) {
+async function post (url, body) {
   return doFetch(url, {
     body: JSON.stringify(body),
     headers,
@@ -29,10 +29,16 @@ export async function post(url, body) {
   );
 }
 
-export function setAuthToken(token) {
+function setAuthToken (token) {
   if (token) {
     headers['Authorization'] = token;
   } else {
     delete headers['Authorization'];
   }
 }
+
+export {
+  get,
+  post,
+  setAuthToken
+};

@@ -8,7 +8,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 
-function Profile() {
+function Profile () {
   const { currentUser, darkMode } = useSelector(state => ({
     currentUser: state.currentUser,
     darkMode: state.darkMode
@@ -19,7 +19,7 @@ function Profile() {
 
   const profileClassname = useMemo(() => classnames('profile', { 'dark-mode': darkMode }), [darkMode]);
   const disableButton = useMemo(() => !name, [name]);
-  const handleProfileUpdate = useCallback(event => {
+  const handleProfileUpdate = useCallback(function (event) {
     event.preventDefault();
 
     if (!disableButton) {

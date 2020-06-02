@@ -7,7 +7,7 @@ import actions from 'state/actions';
 function ThemeToggle () {
   const darkMode = useSelector(state => state.darkMode);
   const dispatch = useDispatch();
-  const toggleDarkMode = useCallback(() => {
+  const toggleDarkMode = useCallback(function () {
     if (!darkMode) {
       document.body.classList.add('dark-mode');
     } else {

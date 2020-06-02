@@ -19,48 +19,44 @@ import {
 const documentTitle = document.title;
 let unreadNotifications = 0;
 
+function onDocumentFocus () {
+  if (!document.hidden) {
+    unreadNotifications = 0;
+    document.title = documentTitle;
+    document.removeEventListener('visibilitychange', onDocumentFocus);
+  }
+}
+
 function useSockets ()  {
   const dispatch = useDispatch();
   const store = useStore();
 
-  useEffect(() => {
+  useEffect(function () {
     const { currentUser } = store.getState();
 
     openSocket();
 
     emitAddedUser(currentUser);
 
-    subscribeToChatEvents(chat => {
+    subscribeToChatEvents(function (chat) {
       const { user, message, ts } = chat;
       dispatch(addChat({ isLocalMessage: false, message, ts, user }));
 
       if (document.hidden) {
         unreadNotifications++;
         document.title = `${documentTitle} (${unreadNotifications})`;
-        const onDocumentFocus = () => {
-          if (!document.hidden) {
-            unreadNotifications = 0;
-            document.title = documentTitle;
-            document.removeEventListener('visibilitychange', onDocumentFocus);
-          }
-        };
-
         document.addEventListener('visibilitychange', onDocumentFocus);
       }
     });
 
     subscribeToAdminChatEvents(chat => dispatch(addAdminChat(chat)));
-
-    subscribeToTypingEvents(usersTyping =>
-      dispatch(setUsersTyping(usersTyping))
-    );
-
-    subscribeToUserEvents(usernames => {
-      dispatch(updateActiveUsers(usernames));
-    });
+    subscribeToTypingEvents(usersTyping => dispatch(setUsersTyping(usersTyping)));
+    subscribeToUserEvents(usernames => dispatch(updateActiveUsers(usernames)));
   }, [dispatch, store]);
 
-  return () => closeSocket();
+  return function () {
+    closeSocket();
+  };
 }
 
 export default useSockets;
