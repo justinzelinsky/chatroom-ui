@@ -2,8 +2,8 @@ import './style.scss';
 
 import classnames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
@@ -81,7 +81,7 @@ function Login () {
         </Form.Group>
 
         <Button
-          block={'true'}
+          block="true"
           disabled={disableButton}
           type="submit"
           variant="primary">
