@@ -2,6 +2,18 @@
   margin: 10px auto;
   width: 50%;
 
+  &.dark-mode {
+    nav {
+      a {
+        color: $white !important;
+
+        &[aria-selected='true'] {
+          background-color: $dark-grey-blue;
+        }
+      }
+    }
+  }
+
   @include phone {
     width: 100%;
   }

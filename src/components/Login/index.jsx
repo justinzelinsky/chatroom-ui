@@ -11,7 +11,7 @@ import actions from 'state/actions';
 
 function Login () {
   const dispatch = useDispatch();
-  const { darkMode } = useSelector(state => state.darkMode);
+  const darkMode = useSelector(state => state.darkMode);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -81,7 +81,7 @@ function Login () {
         </Form.Group>
 
         <Button
-          block={true}
+          block={'true'}
           disabled={disableButton}
           type="submit"
           variant="primary">
