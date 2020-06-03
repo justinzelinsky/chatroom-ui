@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 import {
   addAdminChat,
@@ -54,9 +54,11 @@ function useSockets ()  {
     subscribeToUserEvents(usernames => dispatch(updateActiveUsers(usernames)));
   }, [dispatch, store]);
 
-  return function () {
+  const handleClose = useCallback(function () {
     closeSocket();
-  };
+  }, []);
+
+  return handleClose;
 }
 
 export default useSockets;
