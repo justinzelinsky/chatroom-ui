@@ -12,6 +12,8 @@ function doFetch (url, options) {
         } else {
           reject(body);
         }
+      }).catch(function (error) {
+        reject(error);
       });
   });
 }
