@@ -33,7 +33,6 @@ function Profile () {
   return (
     <Jumbotron styleName={profileClassname}>
       <h1>Profile</h1>
-      <hr />
       <Form
         autoComplete="off"
         onSubmit={handleProfileUpdate}
@@ -49,7 +48,7 @@ function Profile () {
             value={name}
           />
         </Form.Group>
-        <Form.Group controlId="name">
+        <Form.Group controlId="email">
           <Form.Label>
             Email:
           </Form.Label>
