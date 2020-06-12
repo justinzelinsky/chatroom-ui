@@ -6,36 +6,34 @@ import {
   requestAllUsers,
   requestChats,
   setCurrentUser,
-  showNotification
+  showNotification,
 } from 'state/actions';
 
 const loginLogic = createLogic({
   type: LOGIN,
-  process ({ action, post, setAuthToken }, dispatch, done) {
+  process: async function ({ action, post, setAuthToken }, dispatch, done) {
     dispatch(hideNotification());
 
-    post('api/users/login', action.payload)
-      .then(function ({ token }) {
-        localStorage.setItem('jwtToken', token);
-        setAuthToken(token);
+    try {
+      const { token } = await post('api/users/login', action.payload);
+      localStorage.setItem('jwtToken', token);
+      setAuthToken(token);
 
-        const user = jwt_decode(token);
-        dispatch(setCurrentUser(user));
-        dispatch(requestChats());
-        dispatch(requestAllUsers());
-      })
-      .catch(function ({ error }) {
-        dispatch(
-          showNotification({
-            message: error,
-            variant: 'danger'
-          })
-        );
-      })
-      .finally(function () {
-        done();
-      });
-  }
+      const user = jwt_decode(token);
+      dispatch(setCurrentUser(user));
+      dispatch(requestChats());
+      dispatch(requestAllUsers());
+    } catch ({ error }) {
+      dispatch(
+        showNotification({
+          message: error,
+          variant: 'danger',
+        })
+      );
+    } finally {
+      done();
+    }
+  },
 });
 
 export default loginLogic;

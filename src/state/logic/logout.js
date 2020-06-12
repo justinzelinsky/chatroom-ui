@@ -3,14 +3,14 @@ import { clearCurrentUser, LOGOUT } from 'state/actions';
 
 const logoutLogic = createLogic({
   type: LOGOUT,
-  process ({ get, setAuthToken }, dispatch, done) {
-    get('api/users/logout').then(function () {
-      localStorage.removeItem('jwtToken');
-      setAuthToken(false);
-      dispatch(clearCurrentUser());
-      done();
-    });
-  }
+  process: async function ({ get, setAuthToken }, dispatch, done) {
+    await get('api/users/logout');
+
+    localStorage.removeItem('jwtToken');
+    setAuthToken(false);
+    dispatch(clearCurrentUser());
+    done();
+  },
 });
 
 export default logoutLogic;

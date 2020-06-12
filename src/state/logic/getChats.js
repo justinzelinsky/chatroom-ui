@@ -3,13 +3,11 @@ import { receivedChats, REQUEST_CHATS } from 'state/actions';
 
 const getChatsLogic = createLogic({
   type: REQUEST_CHATS,
-  process ({ get }, dispatch, done) {
-    get('/api/chats')
-      .then(function (chats) {
-        dispatch(receivedChats(chats));
-        done();
-      });
-  }
+  process: async function ({ get }, dispatch, done) {
+    const chats = await get('/api/chats');
+    dispatch(receivedChats(chats));
+    done();
+  },
 });
 
 export default getChatsLogic;

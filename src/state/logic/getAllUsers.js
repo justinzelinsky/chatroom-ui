@@ -3,13 +3,11 @@ import { receivedAllUsers, REQUEST_ALL_USERS } from 'state/actions';
 
 const getAllUsersLogic = createLogic({
   type: REQUEST_ALL_USERS,
-  process ({ get }, dispatch, done) {
-    get('/api/users')
-      .then(function (users) {
-        dispatch(receivedAllUsers(users));
-        done();
-      });
-  }
+  process: async function ({ get }, dispatch, done) {
+    const users = await get('/api/users');
+    dispatch(receivedAllUsers(users));
+    done();
+  },
 });
 
 export default getAllUsersLogic;

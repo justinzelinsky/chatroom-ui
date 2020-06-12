@@ -4,39 +4,37 @@ import {
   PAGE_LOAD,
   requestAllUsers,
   requestChats,
-  setCurrentUser
+  setCurrentUser,
 } from 'state/actions';
 
 const initialLoadLogic = createLogic({
   type: PAGE_LOAD,
-  process ({ get, setAuthToken }, dispatch, done) {
+  process: async function ({ get, setAuthToken }, dispatch, done) {
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (jwtToken) {
       setAuthToken(jwtToken);
-      get('/api/ping')
-        .then(function () {
-          try {
-            const user = jwt_decode(jwtToken);
+      try {
+        await get('/api/ping');
+        try {
+          const user = jwt_decode(jwtToken);
 
-            dispatch(setCurrentUser(user));
-            dispatch(requestChats());
-            dispatch(requestAllUsers());
-          } catch {
-            console.log('Invalid token');
-          }
-        })
-        .catch(function () {
-          localStorage.removeItem('jwtToken');
-          console.log('Expired token.');
-        })
-        .finally(function () {
-          done();
-        });
+          dispatch(setCurrentUser(user));
+          dispatch(requestChats());
+          dispatch(requestAllUsers());
+        } catch {
+          console.log('Invalid token');
+        }
+      } catch {
+        localStorage.removeItem('jwtToken');
+        console.log('Expired token.');
+      } finally {
+        done();
+      }
     } else {
       done();
     }
-  }
+  },
 });
 
 export default initialLoadLogic;
