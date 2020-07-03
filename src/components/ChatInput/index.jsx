@@ -1,10 +1,10 @@
 import classnames from 'classnames';
+import Button from 'components/Button';
 import React, { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 
 import {
-  StyledButton,
   StyledForm,
   StyledFormGroup,
   StyledFormLabel,
@@ -86,12 +86,12 @@ function ChatInput () {
           value={message}
         />
       </StyledFormGroup>
-      <StyledButton
+      <Button
         block={true}
         onClick={handleSendClick}
         variant="primary">
         Send
-      </StyledButton>
+      </Button>
     </StyledForm>
   );
 }

@@ -1,4 +1,4 @@
-import Button from 'react-bootstrap/Button';
+import FormGroup from 'components/FormGroup';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 import colors from 'styles/colors';
@@ -27,17 +27,7 @@ const StyledForm = styled(Form)`
   }
 `;
 
-const StyledButton = styled(Button)`
-  margin: 5px;
-  width: 130px;
-
-  @media ${devices.phone} {
-    margin: 10px 0 0 0;
-    width: 100%;
-  }
-`;
-
-const StyledFormGroup = styled(Form.Group)`
+const StyledFormGroup = styled(FormGroup)`
   align-items: center;
   display: flex;
   flex: 1;
@@ -76,7 +66,6 @@ const StyledInput = styled(Form.Control)`
 `;
 
 export {
-  StyledButton,
   StyledForm,
   StyledFormGroup,
   StyledFormLabel,
