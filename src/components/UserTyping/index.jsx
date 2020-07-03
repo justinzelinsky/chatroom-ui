@@ -20,7 +20,7 @@ function UserTyping ({ index }) {
     };
   }, [dots]);
 
-  const chatVariant = useMemo(function (){
+  const chatVariant = useMemo(function () {
     if (darkMode) {
       return index % 2 ? 'primary' : 'info';
     }

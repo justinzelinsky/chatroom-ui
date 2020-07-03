@@ -7,6 +7,7 @@ import actions from 'state/actions';
 function ThemeToggle () {
   const darkMode = useSelector(state => state.darkMode);
   const dispatch = useDispatch();
+
   const toggleDarkMode = useCallback(function () {
     if (!darkMode) {
       document.body.classList.add('dark-mode');
@@ -15,11 +16,16 @@ function ThemeToggle () {
     }
     dispatch(actions.setDarkMode(!darkMode));
   }, [darkMode, dispatch]);
+
   const disableDarkMode = useCallback(() => dispatch(actions.setDarkMode(false)), [dispatch]);
   const enableDarkMode = useCallback(() => dispatch(actions.setDarkMode(true)), [dispatch]);
+
   return (
     <div styleName="dark-mode-toggle">
-      <button onClick={disableDarkMode} type="button">
+      <button
+        onClick={disableDarkMode}
+        type="button"
+      >
         ☀
       </button>
       <span styleName="toggle-control">
@@ -32,7 +38,10 @@ function ThemeToggle () {
         />
         <label htmlFor="dmcheck" />
       </span>
-      <button onClick={enableDarkMode} type="button">
+      <button
+        onClick={enableDarkMode}
+        type="button"
+      >
         ☾
       </button>
     </div>
