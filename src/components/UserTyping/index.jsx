@@ -1,9 +1,9 @@
-import './style.scss';
-
+import classnames from 'classnames';
 import { number } from 'prop-types';
 import React, { useEffect, useMemo, useState } from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector } from 'react-redux';
+
+import { StyledListGroupItem } from './styled';
 
 function UserTyping ({ index }) {
   const { darkMode, usersTyping } = useSelector(state => ({
@@ -37,22 +37,17 @@ function UserTyping ({ index }) {
     return `Multiple people are typing ${dots}`;
   }, [dots, usersTyping]);
 
-  if (someoneIsTyping === null) {
-    return (
-      <ListGroup.Item
-        styleName="user-typing-chat hidden"
-        variant={chatVariant}
-      />
-    );
-  }
+  const hiddenClass = useMemo(function () {
+    return classnames({ hidden: !someoneIsTyping });
+  }, [someoneIsTyping]);
 
   return (
-    <ListGroup.Item
-      styleName="user-typing-chat"
+    <StyledListGroupItem
+      className={hiddenClass}
       variant={chatVariant}
     >
       {someoneIsTyping}
-    </ListGroup.Item>
+    </StyledListGroupItem>
   );
 }
 

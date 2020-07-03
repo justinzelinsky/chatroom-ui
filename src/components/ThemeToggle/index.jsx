@@ -1,8 +1,14 @@
-import './style.scss';
-
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
+
+import {
+  Button,
+  DarkModeToggle,
+  Input,
+  Label,
+  ToggleControl
+} from './styled';
 
 function ThemeToggle () {
   const darkMode = useSelector(state => state.darkMode);
@@ -21,30 +27,30 @@ function ThemeToggle () {
   const enableDarkMode = useCallback(() => dispatch(actions.setDarkMode(true)), [dispatch]);
 
   return (
-    <div styleName="dark-mode-toggle">
-      <button
+    <DarkModeToggle>
+      <Button
         onClick={disableDarkMode}
         type="button"
       >
         ☀
-      </button>
-      <span styleName="toggle-control">
-        <input
+      </Button>
+      <ToggleControl>
+        <Input
           checked={darkMode}
           id="dmcheck"
           onChange={toggleDarkMode}
-          styleName="dmcheck"
           type="checkbox"
         />
-        <label htmlFor="dmcheck" />
-      </span>
-      <button
+        <Label htmlFor="dmcheck" />
+      </ToggleControl>
+      <Button
+        className="moon"
         onClick={enableDarkMode}
         type="button"
       >
         ☾
-      </button>
-    </div>
+      </Button>
+    </DarkModeToggle>
   );
 }
 

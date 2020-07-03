@@ -1,5 +1,3 @@
-import './style.scss';
-
 import classnames from 'classnames';
 import ChatInput from 'components/ChatInput';
 import ChatMessage from 'components/ChatMessage';
@@ -7,10 +5,15 @@ import NoChats from 'components/NoChats';
 import UserList from 'components/UserList';
 import UserTyping from 'components/UserTyping';
 import React, { useEffect, useMemo, useRef } from 'react';
-import Container from 'react-bootstrap/Container';
-import ListGroup from 'react-bootstrap/ListGroup';
 import { useSelector } from 'react-redux';
 import useSockets from 'utils/useSockets';
+
+import {
+  ChatEnd,
+  ChatroomUserlistContainer,
+  StyledContainer,
+  StyledListGroup
+} from './styled';
 
 function Chatroom () {
   const { chats, darkMode } = useSelector(state => ({
@@ -28,17 +31,14 @@ function Chatroom () {
     chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [chats]);
 
-  const chatsClassname = useMemo(() => classnames('chats', { 'dark-mode': darkMode }), [darkMode]);
+  const chatsClassname = useMemo(() => classnames({ 'dark-mode': darkMode }), [darkMode]);
   const userTypingIndex = useMemo(() => {
     return chats.length === 0 ? 1 : chats.length;
   }, [chats]);
   return (
-    <Container
-      fluid={true}
-      styleName="chatroom"
-    >
-      <div styleName="chatroom-userlist-container">
-        <ListGroup styleName={chatsClassname}>
+    <StyledContainer fluid={true}>
+      <ChatroomUserlistContainer>
+        <StyledListGroup className={chatsClassname}>
           {chats.length === 0 && <NoChats />}
           {chats.map((chat, idx) => (
             <ChatMessage
@@ -48,15 +48,13 @@ function Chatroom () {
             />
           ))}
           <UserTyping index={userTypingIndex} />
-          <ListGroup.Item
-            ref={chatEndRef}
-            styleName="chat-end"
-          />
-        </ListGroup>
+          <ChatEnd ref={chatEndRef}/>
+        </StyledListGroup>
         <UserList />
-      </div>
+      </ChatroomUserlistContainer>
+
       <ChatInput />
-    </Container>
+    </StyledContainer>
   );
 }
 

@@ -1,16 +1,17 @@
-import './style.scss';
-
-import classnames from 'classnames';
+import Button from 'components/Button';
+import Form from 'components/Form';
+import FormContainer from 'components/FormContainer';
+import FormGroup from 'components/FormGroup';
+import FormHeader from 'components/FormHeader';
+import FormLabel from 'components/FormLabel';
+import Input from 'components/Input';
 import React, { useCallback, useMemo, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import actions from 'state/actions';
 
 function Register () {
-  const darkMode = useSelector(state => state.darkMode);
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
@@ -41,97 +42,94 @@ function Register () {
     }
   }, [disableButton, dispatch, name, email, password, passwordConfirmation]);
 
-  const registerClassname = useMemo(() => classnames('register-container', {
-    'dark-mode': darkMode
-  }), [darkMode]);
-
   return (
-    <div styleName={registerClassname}>
-      <h1 styleName="register-header">
+    <FormContainer>
+      <FormHeader>
         Register
-      </h1>
+      </FormHeader>
       <Form
         autoComplete="off"
         onSubmit={handleOnSubmit}
-        styleName="register-form">
-        <Form.Group
+      >
+        <FormGroup
           as={Row}
           controlId="register-name"
         >
-          <Form.Label
+          <FormLabel
             column={true}
             xs={3}
           >
             Name
-          </Form.Label>
+          </FormLabel>
           <Col xs={9}>
-            <Form.Control onChange={onNameChange} />
+            <Input onChange={onNameChange} />
           </Col>
-        </Form.Group>
+        </FormGroup>
 
-        <Form.Group
+        <FormGroup
           as={Row}
           controlId="register-email"
         >
-          <Form.Label
+          <FormLabel
             column={true}
             xs={3}
           >
             Email address
-          </Form.Label>
+          </FormLabel>
           <Col xs={9}>
-            <Form.Control
+            <Input
               onChange={onEmailChange}
               type="email"
             />
           </Col>
-        </Form.Group>
+        </FormGroup>
 
-        <Form.Group
+        <FormGroup
           as={Row}
           controlId="register-password"
         >
-          <Form.Label
+          <FormLabel
             column={true}
             xs={3}
           >
             Password
-          </Form.Label>
+          </FormLabel>
           <Col xs={9}>
-            <Form.Control
+            <Input
               onChange={onPasswordChange}
               type="password"
             />
           </Col>
-        </Form.Group>
+        </FormGroup>
 
-        <Form.Group
+        <FormGroup
           as={Row}
           controlId="register-password-confirmation"
         >
-          <Form.Label
+          <FormLabel
             column={true}
             xs={3}
           >
             Password (again)
-          </Form.Label>
+          </FormLabel>
           <Col xs={9}>
-            <Form.Control
+            <Input
               onChange={onPasswordConfirmationChange}
               type="password"
             />
           </Col>
-        </Form.Group>
+        </FormGroup>
 
         <Button
           block={true}
           disabled={disableButton}
           type="submit"
-          variant="primary">
+          variant="primary"
+        >
           Register
         </Button>
       </Form>
-    </div>
+    </FormContainer>
   );
 }
 

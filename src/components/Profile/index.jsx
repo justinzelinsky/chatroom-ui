@@ -1,12 +1,15 @@
-import './style.scss';
-
 import classnames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
+
+import {
+  StyledButton,
+  StyledHeader,
+  StyledInput,
+  StyledJumbotron
+} from './styled';
 
 function Profile () {
   const { currentUser, darkMode } = useSelector(state => ({
@@ -17,7 +20,7 @@ function Profile () {
   const [name, setName] = useState(currentUser.name);
   const [email, setEmail] = useState(currentUser.email);
 
-  const profileClassname = useMemo(() => classnames('profile', { 'dark-mode': darkMode }), [darkMode]);
+  const darkModeClassname = useMemo(() => classnames({ 'dark-mode': darkMode }), [darkMode]);
   const disableButton = useMemo(() => !name, [name]);
   const handleProfileUpdate = useCallback(function (event) {
     event.preventDefault();
@@ -31,8 +34,10 @@ function Profile () {
   const onEmailChange = useCallback(event => setEmail(event.target.value), []);
 
   return (
-    <Jumbotron styleName={profileClassname}>
-      <h1>Profile</h1>
+    <StyledJumbotron className={darkModeClassname}>
+      <StyledHeader>
+        Profile
+      </StyledHeader>
       <Form
         autoComplete="off"
         onSubmit={handleProfileUpdate}
@@ -41,8 +46,9 @@ function Profile () {
           <Form.Label>
             Name:
           </Form.Label>
-          <Form.Control
+          <StyledInput
             autoFocus={true}
+            className={darkModeClassname}
             onChange={onNameChange}
             type="text"
             value={name}
@@ -52,18 +58,19 @@ function Profile () {
           <Form.Label>
             Email:
           </Form.Label>
-          <Form.Control
+          <StyledInput
             autoFocus={true}
+            className={darkModeClassname}
             onChange={onEmailChange}
             type="text"
             value={email}
           />
         </Form.Group>
-        <Button type="submit">
+        <StyledButton type="submit">
           Update Profile
-        </Button>
+        </StyledButton>
       </Form>
-    </Jumbotron>
+    </StyledJumbotron>
   );
 }
 

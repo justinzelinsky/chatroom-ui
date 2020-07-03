@@ -1,11 +1,15 @@
-import './style.scss';
-
 import classnames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
+
+import {
+  StyledButton,
+  StyledForm,
+  StyledFormGroup,
+  StyledFormLabel,
+  StyledInput
+} from './styled';
 
 function ChatInput () {
   const { currentUser, darkMode } = useSelector(state => ({
@@ -56,37 +60,39 @@ function ChatInput () {
 
   const handleSendClick = useCallback(() => sendMessage(), [sendMessage]);
 
-  const chatInputClassname = useMemo(
-    () => classnames('chat-input-container', {
+  const darkModeClass = useMemo(
+    () => classnames({
       'dark-mode': darkMode
     }),
     [darkMode]
   );
 
   return (
-    <Form
+    <StyledForm
       autoComplete="off"
       onSubmit={handleOnSubmit}
-      styleName={chatInputClassname}>
-      <Form.Group controlId="message" styleName="chat-input-group">
-        <Form.Label styleName="username-display">{currentUser.name}</Form.Label>
-        <Form.Control
+      className={darkModeClass}>
+      <StyledFormGroup controlId="message">
+        <StyledFormLabel>
+          {currentUser.name}
+        </StyledFormLabel>
+        <StyledInput
           autoFocus={true}
+          className={darkModeClass}
           onChange={onChange}
           onKeyDown={onKeyDown}
           placeholder="Type your message..."
           type="text"
           value={message}
         />
-      </Form.Group>
-      <Button
+      </StyledFormGroup>
+      <StyledButton
         block={true}
         onClick={handleSendClick}
-        styleName="send-button"
         variant="primary">
         Send
-      </Button>
-    </Form>
+      </StyledButton>
+    </StyledForm>
   );
 }
 

@@ -1,17 +1,18 @@
-import './style.scss';
-
-import classnames from 'classnames';
+import Button from 'components/Button';
+import Form from 'components/Form';
+import FormContainer from 'components/FormContainer';
+import FormGroup from 'components/FormGroup';
+import FormHeader from 'components/FormHeader';
+import FormLabel from 'components/FormLabel';
+import Input from 'components/Input';
 import React, { useCallback, useMemo, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import actions from 'state/actions';
 
 function Login () {
   const dispatch = useDispatch();
-  const darkMode = useSelector(state => state.darkMode);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,57 +29,51 @@ function Login () {
     }
   }, [disableButton, dispatch, email, password]);
 
-  const loginClassame = useMemo(
-    () => classnames('login-container', {
-      'dark-mode': darkMode
-    }),
-    [darkMode]
-  );
-
   return (
-    <div styleName={loginClassame}>
-      <h1 styleName="login-header">Login</h1>
+    <FormContainer>
+      <FormHeader>
+        Login
+      </FormHeader>
       <Form
         autoComplete="off"
-        styleName="login-form"
         onSubmit={handleOnSubmit}
       >
-        <Form.Group
+        <FormGroup
           as={Row}
           controlId="login-email"
         >
-          <Form.Label
+          <FormLabel
             column={true}
             sm={3}
           >
             Email address
-          </Form.Label>
+          </FormLabel>
           <Col sm={9}>
-            <Form.Control
+            <Input
               autoFocus={true}
               onChange={onEmailChange}
               type="email"
             />
           </Col>
-        </Form.Group>
+        </FormGroup>
 
-        <Form.Group
+        <FormGroup
           as={Row}
           controlId="login-password"
         >
-          <Form.Label
+          <FormLabel
             column={true}
             sm={3}
           >
             Password
-          </Form.Label>
+          </FormLabel>
           <Col sm={9}>
-            <Form.Control
+            <Input
               onChange={onPasswordChange}
               type="password"
             />
           </Col>
-        </Form.Group>
+        </FormGroup>
 
         <Button
           block="true"
@@ -88,7 +83,7 @@ function Login () {
           Login
         </Button>
       </Form>
-    </div>
+    </FormContainer>
   );
 }
 

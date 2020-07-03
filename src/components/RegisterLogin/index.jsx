@@ -1,5 +1,3 @@
-import './style.scss';
-
 import classnames from 'classnames';
 import Login from 'components/Login';
 import Register from 'components/Register';
@@ -8,14 +6,18 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useSelector } from 'react-redux';
 
+import {
+  TabsContainer
+} from './styled';
+
 function RegisterLogin () {
   const darkMode = useSelector(state => state.darkMode);
-  const registerLoginClassname = useMemo(function () {
-    return classnames('register-login', { 'dark-mode': darkMode });
+  const darkmodeClassname = useMemo(function () {
+    return classnames({ 'dark-mode': darkMode });
   }, [darkMode]);
 
   return (
-    <div styleName={registerLoginClassname}>
+    <TabsContainer className={darkmodeClassname}>
       <Tabs defaultActiveKey="login">
         <Tab
           eventKey="login"
@@ -30,7 +32,7 @@ function RegisterLogin () {
           <Register />
         </Tab>
       </Tabs>
-    </div>
+    </TabsContainer>
   );
 }
 
