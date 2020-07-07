@@ -1,14 +1,12 @@
+import S from 'components/Button/styled';
 import { node } from 'prop-types';
 import React from 'react';
 
-import { StyledButton } from './styled';
-
-function Button ({ children, ...rest }) {
-
+function Button ({ children, ...buttonProps }) {
   return (
-    <StyledButton {...rest}>
+    <S.Button {...buttonProps}>
       {children}
-    </StyledButton>
+    </S.Button>
   );
 }
 

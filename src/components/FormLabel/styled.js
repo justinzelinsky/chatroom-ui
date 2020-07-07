@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 import devices from 'styles/devices';
 
-const StyledFormLabel = styled(Form.Label)`
+const FormLabel = styled(Form.Label)`
   text-align: right;
 
   @media ${devices.phone} {
@@ -10,6 +10,6 @@ const StyledFormLabel = styled(Form.Label)`
   }
 `;
 
-export {
-  StyledFormLabel
+export default {
+  FormLabel
 };

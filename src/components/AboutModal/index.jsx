@@ -1,25 +1,25 @@
 import classnames from 'classnames';
+import S from 'components/AboutModal/styled';
 import { bool, func } from 'prop-types';
 import React from 'react';
 
-import { StyledModal } from './styled';
-
-function AboutModal ({ darkMode, show, handleClose }) {
+function AboutModal ({ darkMode, handleClose, show }) {
   return (
-    <StyledModal
+    <S.Modal
       centered={true}
       className={classnames('about-modal', { 'dark-mode': darkMode })}
       onHide={handleClose}
-      show={show}>
-      <StyledModal.Header closeButton={true}>
-        <StyledModal.Title>
+      show={show}
+    >
+      <S.Modal.Header closeButton={true}>
+        <S.Modal.Title>
           About React-Redux Chatroom
-        </StyledModal.Title>
-      </StyledModal.Header>
-      <StyledModal.Body>
+        </S.Modal.Title>
+      </S.Modal.Header>
+      <S.Modal.Body>
         This is a basic chatroom written using React, Redux, and Socket.IO.
-      </StyledModal.Body>
-    </StyledModal>
+      </S.Modal.Body>
+    </S.Modal>
   );
 }
 

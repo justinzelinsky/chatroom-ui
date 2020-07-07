@@ -1,18 +1,17 @@
+import S from 'components/FormHeader/styled';
 import { node } from 'prop-types';
 import React from 'react';
 
-import { StyledFormHeader } from './styled';
-
-function FormContainer ({ children }) {
+function FormHeader ({ children }) {
   return (
-    <StyledFormHeader>
+    <S.FormHeader>
       {children}
-    </StyledFormHeader>
+    </S.FormHeader>
   );
 }
 
-FormContainer.propTypes = {
+FormHeader.propTypes = {
   children: node.isRequired
 };
 
-export default FormContainer;
+export default FormHeader;

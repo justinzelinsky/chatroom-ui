@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 import colors from 'styles/colors';
 
-const StyledInput = styled(Form.Control)`
+const Input = styled(Form.Control)`
   &.dark-mode {
       background-color: ${colors.black};
       border: ${colors.verySoftViolet};
@@ -10,6 +10,6 @@ const StyledInput = styled(Form.Control)`
   }
 `;
 
-export {
-  StyledInput
+export default {
+  Input
 };

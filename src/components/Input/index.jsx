@@ -1,17 +1,18 @@
 import classnames from 'classnames';
+import S from 'components/Input/styled';
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { StyledInput } from './styled';
-
 function Input (props) {
   const darkMode = useSelector(state => state.darkMode);
-  const darkModeClassname = useMemo(() => classnames({
-    'dark-mode': darkMode
-  }), [darkMode]);
+  const darkModeClassname = useMemo(function () {
+    return classnames({
+      'dark-mode': darkMode
+    });
+  }, [darkMode]);
 
   return (
-    <StyledInput
+    <S.Input
       className={darkModeClassname}
       {...props}
     />

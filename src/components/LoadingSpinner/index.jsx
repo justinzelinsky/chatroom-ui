@@ -1,15 +1,14 @@
 
+import S from 'components/LoadingSpinner/styled';
 import React from 'react';
-
-import { Loader } from './styled';
 
 // Taken from https://projects.lukehaas.me/css-loaders/
 
 function LoadingSpinner () {
   return (
-    <Loader>
+    <S.LoadingSpinner>
       Loading...
-    </Loader>
+    </S.LoadingSpinner>
   );
 }
 

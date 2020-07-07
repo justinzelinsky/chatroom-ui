@@ -17,17 +17,25 @@ function Login () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const disableButton = useMemo(() => !email || !password, [email, password]);
+  const loginDisabled = useMemo(function () {
+    return !email || !password;
+  }, [email, password]);
 
-  const onEmailChange = useCallback(event => setEmail(event.target.value), [setEmail]);
-  const onPasswordChange = useCallback(event => setPassword(event.target.value), [setPassword]);
-  const handleOnSubmit = useCallback(event => {
+  const onEmailChange = useCallback(function (event) {
+    setEmail(event.target.value);
+  }, []);
+
+  const onPasswordChange = useCallback(function (event) {
+    setPassword(event.target.value);
+  }, []);
+
+  const handleOnSubmit = useCallback(function (event) {
     event.preventDefault();
 
-    if (!disableButton) {
+    if (!loginDisabled) {
       dispatch(actions.login({ email, password }));
     }
-  }, [disableButton, dispatch, email, password]);
+  }, [loginDisabled, dispatch, email, password]);
 
   return (
     <FormContainer>
@@ -77,9 +85,10 @@ function Login () {
 
         <Button
           block="true"
-          disabled={disableButton}
+          disabled={loginDisabled}
           type="submit"
-          variant="primary">
+          variant="primary"
+        >
           Login
         </Button>
       </Form>

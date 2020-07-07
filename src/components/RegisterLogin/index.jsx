@@ -1,14 +1,11 @@
 import classnames from 'classnames';
 import Login from 'components/Login';
 import Register from 'components/Register';
+import S from 'components/RegisterLogin/styled';
 import React, { useMemo } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useSelector } from 'react-redux';
-
-import {
-  TabsContainer
-} from './styled';
 
 function RegisterLogin () {
   const darkMode = useSelector(state => state.darkMode);
@@ -17,7 +14,7 @@ function RegisterLogin () {
   }, [darkMode]);
 
   return (
-    <TabsContainer className={darkmodeClassname}>
+    <S.TabsContainer className={darkmodeClassname}>
       <Tabs defaultActiveKey="login">
         <Tab
           eventKey="login"
@@ -32,7 +29,7 @@ function RegisterLogin () {
           <Register />
         </Tab>
       </Tabs>
-    </TabsContainer>
+    </S.TabsContainer>
   );
 }
 

@@ -2,9 +2,9 @@ import { node } from 'prop-types';
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 
-function FormGroup ({ children, ...rest }) {
+function FormGroup ({ children, ...formGroupProps }) {
   return (
-    <Form.Group {...rest}>
+    <Form.Group {...formGroupProps}>
       {children}
     </Form.Group>
   );

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import devices from 'styles/devices';
 
-const StyledFormHeader = styled.h1`
+const FormHeader = styled.h1`
   text-align: center;
 
   @media ${devices.phone} {
@@ -9,6 +9,6 @@ const StyledFormHeader = styled.h1`
   }
 `;
 
-export {
-  StyledFormHeader
+export default {
+  FormHeader
 } ;

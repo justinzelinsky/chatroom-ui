@@ -16,6 +16,6 @@ const StyledModal = styled(Modal)`
   }}
 `;
 
-export {
-  StyledModal
+export default {
+  Modal: StyledModal
 };

@@ -23,6 +23,6 @@ const TabsContainer = styled.div`
   }
 `;
 
-export {
+export default {
   TabsContainer
 };

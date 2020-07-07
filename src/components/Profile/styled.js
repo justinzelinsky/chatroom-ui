@@ -1,5 +1,3 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import styled from 'styled-components';
 import colors from 'styles/colors';
@@ -20,27 +18,11 @@ const StyledJumbotron = styled(Jumbotron)`
   }
 `;
 
-const StyledButton = styled(Button)`
-  &.dark-mode {
-    color: ${colors.white};
-  }
-`;
-
-const StyledInput = styled(Form.Control)`
-  &.dark-mode {
-    background-color: ${colors.black};
-    border: ${colors.verySoftViolet};
-    color: ${colors.white};
-  }
-`;
-
-const StyledHeader = styled.h1`
+const Header = styled.h1`
   border-bottom: 1px solid rgba(45, 45, 45, .5);
 `;
 
-export {
-  StyledButton,
-  StyledHeader,
-  StyledInput,
-  StyledJumbotron
+export default {
+  Header,
+  Jumbotron: StyledJumbotron
 };

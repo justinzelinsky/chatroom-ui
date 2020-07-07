@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import colors from 'styles/colors';
 import devices from 'styles/devices';
 
-const StyledForm = styled(Form)`
+const ChatInput = styled(Form)`
   align-items: center;
   background-color: ${colors.white};
   border-top: 1px solid ${colors.black};
@@ -27,7 +27,7 @@ const StyledForm = styled(Form)`
   }
 `;
 
-const StyledFormGroup = styled(FormGroup)`
+const InputWrapper = styled(FormGroup)`
   align-items: center;
   display: flex;
   flex: 1;
@@ -38,7 +38,7 @@ const StyledFormGroup = styled(FormGroup)`
   }
 `;
 
-const StyledFormLabel = styled(Form.Label)`
+const UserName = styled(Form.Label)`
   margin: 5px;
   font-size: 16px;
   font-weight: bold;
@@ -49,7 +49,7 @@ const StyledFormLabel = styled(Form.Label)`
   }
 `;
 
-const StyledInput = styled(Form.Control)`
+const MessageInput = styled(Form.Control)`
   flex: 1;
   margin: 5px;
 
@@ -65,10 +65,10 @@ const StyledInput = styled(Form.Control)`
   }
 `;
 
-export {
-  StyledForm,
-  StyledFormGroup,
-  StyledFormLabel,
-  StyledInput
+export default {
+  ChatInput,
+  InputWrapper,
+  MessageInput,
+  UserName,
 };
 

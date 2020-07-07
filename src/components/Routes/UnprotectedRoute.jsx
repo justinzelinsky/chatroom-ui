@@ -6,6 +6,7 @@ import { isUserAuthenticated } from 'state/selectors';
 
 function UnprotectedRoute ({ component: Component, ...rest }) {
   const isAuthenticated = useSelector(isUserAuthenticated);
+
   return (
     <Route
       {...rest}

@@ -12,6 +12,6 @@ const StyledButton = styled(Button)`
   }
 `;
 
-export {
-  StyledButton
+export default {
+  Button: StyledButton
 };

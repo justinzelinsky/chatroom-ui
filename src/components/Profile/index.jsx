@@ -1,15 +1,11 @@
 import classnames from 'classnames';
+import Button from 'components/Button';
+import Input from 'components/Input';
+import S from 'components/Profile/styled';
 import React, { useCallback, useMemo, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
-
-import {
-  StyledButton,
-  StyledHeader,
-  StyledInput,
-  StyledJumbotron
-} from './styled';
 
 function Profile () {
   const { currentUser, darkMode } = useSelector(state => ({
@@ -34,10 +30,10 @@ function Profile () {
   const onEmailChange = useCallback(event => setEmail(event.target.value), []);
 
   return (
-    <StyledJumbotron className={darkModeClassname}>
-      <StyledHeader>
+    <S.Jumbotron className={darkModeClassname}>
+      <S.Header>
         Profile
-      </StyledHeader>
+      </S.Header>
       <Form
         autoComplete="off"
         onSubmit={handleProfileUpdate}
@@ -46,7 +42,7 @@ function Profile () {
           <Form.Label>
             Name:
           </Form.Label>
-          <StyledInput
+          <Input
             autoFocus={true}
             className={darkModeClassname}
             onChange={onNameChange}
@@ -58,7 +54,7 @@ function Profile () {
           <Form.Label>
             Email:
           </Form.Label>
-          <StyledInput
+          <Input
             autoFocus={true}
             className={darkModeClassname}
             onChange={onEmailChange}
@@ -66,11 +62,11 @@ function Profile () {
             value={email}
           />
         </Form.Group>
-        <StyledButton type="submit">
+        <Button type="submit">
           Update Profile
-        </StyledButton>
+        </Button>
       </Form>
-    </StyledJumbotron>
+    </S.Jumbotron>
   );
 }
 

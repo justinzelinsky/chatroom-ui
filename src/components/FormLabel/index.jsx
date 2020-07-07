@@ -1,13 +1,12 @@
+import S from 'components/FormLabel/styled';
 import { node } from 'prop-types';
 import React from 'react';
 
-import { StyledFormLabel } from './styled';
-
-function FormLabel ({ children, ...rest }) {
+function FormLabel ({ children, ...formLabelProps }) {
   return (
-    <StyledFormLabel {...rest}>
+    <S.FormLabel {...formLabelProps}>
       {children}
-    </StyledFormLabel>
+    </S.FormLabel>
   );
 }
 

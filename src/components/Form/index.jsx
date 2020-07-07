@@ -1,13 +1,12 @@
+import S from 'components/Form/styled';
 import { node } from 'prop-types';
 import React from 'react';
 
-import { StyledForm } from './styled';
-
-function Form ({ children, ...rest }) {
+function Form ({ children, ...formProps }) {
   return (
-    <StyledForm {...rest}>
+    <S.Form {...formProps}>
       {children}
-    </StyledForm>
+    </S.Form>
   );
 }
 

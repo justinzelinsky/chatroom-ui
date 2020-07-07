@@ -5,6 +5,6 @@ const StyledAlert = styled(Alert)`
   margin-bottom: 0;
 `;
 
-export {
-  StyledAlert
+export default {
+  Alert: StyledAlert
 };

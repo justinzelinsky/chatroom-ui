@@ -21,23 +21,35 @@ function NavigationBar () {
   const [showModal, setShowModal] = useState(false);
   const [expandMenu, setExpandMenu] = useState(false);
 
-  const handleLogout = useCallback(() => {
+  const handleLogout = useCallback(function () {
     dispatch(actions.logout());
     setExpandMenu(false);
   }, [dispatch]);
-  const showAboutModal = useCallback(() => setShowModal(true), []);
-  const hideAboutModal = useCallback(() => {
+  const showAboutModal = useCallback(function () {
+    setShowModal(true);
+  }, []);
+  const hideAboutModal = useCallback(function () {
     setShowModal(false);
     setExpandMenu(false);
   }, []);
-  const handleMenuToggle = useCallback(() => setExpandMenu(!expandMenu), [expandMenu]);
-  const goTo = path => () => {
-    history.push(path);
-    setExpandMenu(false);
-  };
+  const handleMenuToggle = useCallback(function () {
+    setExpandMenu(!expandMenu);
+  }, [expandMenu]);
 
-  const isActive = useCallback(path => location.pathname.indexOf(path) !== -1, [location.pathname]);
-  const variant = useMemo(() => darkMode ? 'dark' : 'light', [darkMode]);
+  const goTo = useCallback(function (path) {
+    return function () {
+      history.push(path);
+      setExpandMenu(false);
+    };
+  }, [history]);
+
+  const isActive = useCallback(function (path) {
+    return location.pathname.indexOf(path) !== -1;
+  }, [location.pathname]);
+
+  const variant = useMemo(function () {
+    return darkMode ? 'dark' : 'light';
+  }, [darkMode]);
 
   return (
     <Fragment>
@@ -59,7 +71,8 @@ function NavigationBar () {
             {isAuthenticated && (
               <Nav.Link
                 active={isActive('chatroom')}
-                onClick={goTo('/chatroom')}>
+                onClick={goTo('/chatroom')}
+              >
                 Chatroom
               </Nav.Link>
             )}
@@ -75,7 +88,8 @@ function NavigationBar () {
               <Fragment>
                 <Nav.Link
                   active={isActive('profile')}
-                  onClick={goTo('/profile')}>
+                  onClick={goTo('/profile')}
+                >
                   Profile
                 </Nav.Link>
                 <Nav.Link onClick={handleLogout}>

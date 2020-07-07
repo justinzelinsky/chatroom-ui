@@ -18,29 +18,36 @@ function Register () {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const disableButton = useMemo(
-    () => !email || !name || !password || !passwordConfirmation || password !== passwordConfirmation,
-    [email, name, password, passwordConfirmation]
+
+  const registerDisabled = useMemo(
+    function () {
+      return !email || !name || !password || !passwordConfirmation || password !== passwordConfirmation;
+    }, [email, name, password, passwordConfirmation]
   );
 
-  const onNameChange = useCallback(event => setName(event.target.value), []);
-  const onEmailChange = useCallback(event => setEmail(event.target.value), []);
-  const onPasswordChange = useCallback(event => setPassword(event.target.value), []);
+  const onNameChange = useCallback(function (event) {
+    setName(event.target.value);
+  }, []);
+  const onEmailChange = useCallback(function (event) {
+    setEmail(event.target.value);
+  }, []);
+  const onPasswordChange = useCallback(function (event) {
+    setPassword(event.target.value);
+  }, []);
 
-  const onPasswordConfirmationChange = useCallback(
-    event => setPasswordConfirmation(event.target.value),
-    []
-  );
+  const onPasswordConfirmationChange = useCallback(function (event) {
+    setPasswordConfirmation(event.target.value);
+  }, []);
 
-  const handleOnSubmit = useCallback(event => {
+  const handleOnSubmit = useCallback(function (event) {
     event.preventDefault();
 
-    if (!disableButton) {
+    if (!registerDisabled) {
       dispatch(
         actions.register({ name, email, password, passwordConfirmation })
       );
     }
-  }, [disableButton, dispatch, name, email, password, passwordConfirmation]);
+  }, [registerDisabled, dispatch, name, email, password, passwordConfirmation]);
 
   return (
     <FormContainer>
@@ -122,7 +129,7 @@ function Register () {
 
         <Button
           block={true}
-          disabled={disableButton}
+          disabled={registerDisabled}
           type="submit"
           variant="primary"
         >

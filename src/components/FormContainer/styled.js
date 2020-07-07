@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from 'styles/colors';
 
-const StyledFormContainer = styled.div`
+const FormContainer = styled.div`
   border-bottom: 1px solid ${colors.lightGrayishBlue};
   border-right: 1px solid ${colors.lightGrayishBlue};
   border-left: 1px solid ${colors.lightGrayishBlue};
@@ -12,6 +12,6 @@ const StyledFormContainer = styled.div`
   }
 `;
 
-export {
-  StyledFormContainer
+export default {
+  FormContainer
 } ;

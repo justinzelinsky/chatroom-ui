@@ -1,15 +1,9 @@
 import classnames from 'classnames';
 import Button from 'components/Button';
+import S from 'components/ChatInput/styled';
 import React, { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
-
-import {
-  StyledForm,
-  StyledFormGroup,
-  StyledFormLabel,
-  StyledInput
-} from './styled';
 
 function ChatInput () {
   const { currentUser, darkMode } = useSelector(state => ({
@@ -21,9 +15,11 @@ function ChatInput () {
   const [isTyping, setIsTyping] = useState(false);
   const [message, setMessage] = useState('');
 
-  const onChange = useCallback(event => setMessage(event.target.value), [setMessage]);
+  const onChange = useCallback(function (event) {
+    setMessage(event.target.value);
+  }, [setMessage]);
 
-  const sendMessage = useCallback(() => {
+  const sendMessage = useCallback(function () {
     if (message) {
       const ts = new Date().valueOf();
       dispatch(actions.addChat({ message, ts, user: currentUser }));
@@ -58,25 +54,27 @@ function ChatInput () {
     sendMessage();
   }, [sendMessage]);
 
-  const handleSendClick = useCallback(() => sendMessage(), [sendMessage]);
+  const handleSendClick = useCallback(function () {
+    sendMessage();
+  } , [sendMessage]);
 
-  const darkModeClass = useMemo(
-    () => classnames({
+  const darkModeClass = useMemo(function () {
+    return classnames({
       'dark-mode': darkMode
-    }),
-    [darkMode]
-  );
+    });
+  }, [darkMode]);
 
   return (
-    <StyledForm
+    <S.ChatInput
       autoComplete="off"
+      className={darkModeClass}
       onSubmit={handleOnSubmit}
-      className={darkModeClass}>
-      <StyledFormGroup controlId="message">
-        <StyledFormLabel>
+    >
+      <S.InputWrapper>
+        <S.UserName>
           {currentUser.name}
-        </StyledFormLabel>
-        <StyledInput
+        </S.UserName>
+        <S.MessageInput
           autoFocus={true}
           className={darkModeClass}
           onChange={onChange}
@@ -85,14 +83,15 @@ function ChatInput () {
           type="text"
           value={message}
         />
-      </StyledFormGroup>
+      </S.InputWrapper>
       <Button
         block={true}
         onClick={handleSendClick}
-        variant="primary">
+        variant="primary"
+      >
         Send
       </Button>
-    </StyledForm>
+    </S.ChatInput>
   );
 }
 

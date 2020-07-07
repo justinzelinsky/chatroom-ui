@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from 'styles/colors';
 
-const DarkModeToggle = styled.div`
+const ThemeToggle = styled.div`
   display: flex;
 
   & > button:last-child {
@@ -63,10 +63,10 @@ const Button = styled.button`
   }
 `;
 
-export {
+export default {
   Button,
-  DarkModeToggle,
   Input,
   Label,
+  ThemeToggle,
   ToggleControl
 };

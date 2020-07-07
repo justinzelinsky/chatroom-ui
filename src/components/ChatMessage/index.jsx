@@ -1,16 +1,9 @@
 import classnames from 'classnames';
+import S from 'components/ChatMessage/styled';
 import { bool, number, object, shape, string } from 'prop-types';
 import React, { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import formatDate from 'utils/formatDate';
-
-import {
-  Message,
-  StyledListGroupItem,
-  TimeStamp,
-  UserName,
-  UserNameChat
-} from './styled';
 
 function ChatMessage ({ chat, index }) {
   const darkMode = useSelector(state => state.darkMode);
@@ -24,32 +17,28 @@ function ChatMessage ({ chat, index }) {
 
   const { isAdminChat, message, ts, user } = chat;
 
-  const chatStyleName = useMemo(
-    () => classnames({
-      admin: isAdminChat
-    }),
-    [isAdminChat]
-  );
+  const chatClassName = useMemo(function () {
+    return classnames({ admin: isAdminChat });
+  }, [isAdminChat]);
 
-  const timestamp = useMemo(
-    () => formatDate(new Date(ts), true),
-    [ts]
-  );
+  const timestamp = useMemo(function () {
+    return formatDate(new Date(ts), true);
+  }, [ts]);
 
   return (
-    <StyledListGroupItem variant={chatVariant}>
-      <UserNameChat>
-        <UserName>
+    <S.ChatMessage variant={chatVariant}>
+      <S.UserChat>
+        <S.UserName>
           {user.name}
-        </UserName>
-        <Message className={chatStyleName}>
+        </S.UserName>
+        <S.Message className={chatClassName}>
           {message}
-        </Message>
-      </UserNameChat>
-      <TimeStamp>
+        </S.Message>
+      </S.UserChat>
+      <S.TimeStamp>
         {timestamp}
-      </TimeStamp>
-    </StyledListGroupItem>
+      </S.TimeStamp>
+    </S.ChatMessage>
   );
 }
 

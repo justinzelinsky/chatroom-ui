@@ -5,6 +5,6 @@ const StyledForm = styled(Form)`
   padding: 20px;
 `;
 
-export {
-  StyledForm
+export default {
+  Form: StyledForm
 };

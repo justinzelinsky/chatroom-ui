@@ -1,26 +1,15 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import styled from 'styled-components';
 
-const StyledListGroupItem = styled(ListGroup.Item)`
+const ChatMessage = styled(ListGroup.Item)`
   align-items: center;
   display: flex;
   font-size: 16px;
   padding: 10px;
 `;
 
-const UserNameChat = styled.div`
-  flex: 1;
-`;
-
-const UserName = styled.div`
-  font-weight: bold;
-
-  &:after {
-    content: ':';
-  }
-`;
-
 const Message = styled.div`
+  flex: 1;
   word-break: break-word;
 
   &.admin {
@@ -33,10 +22,24 @@ const TimeStamp = styled.div`
   margin-left: 5px;
 `;
 
-export {
+const UserChat = styled.div`
+  display: flex;
+  flex: 1;
+`;
+
+const UserName = styled.div`
+  font-weight: bold;
+  margin-right: 5px;
+
+  &:after {
+    content: ' :';
+  }
+`;
+
+export default {
+  ChatMessage,
   Message,
-  StyledListGroupItem,
   TimeStamp,
+  UserChat,
   UserName,
-  UserNameChat
 };

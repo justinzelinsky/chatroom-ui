@@ -11,7 +11,7 @@ const rotate = keyframes`
   }
 `;
 
-const Loader = styled.div`
+const LoadingSpinner = styled.div`
   animation: ${rotate} 1.4s infinite linear;
   background: ${colors.vividBlue};
   background: linear-gradient(to right, ${colors.vividBlue} 10%, rgba(4, 51, 255, 0) 42%);
@@ -50,6 +50,6 @@ const Loader = styled.div`
   }
 `;
 
-export {
-  Loader
+export default {
+  LoadingSpinner
 };
