@@ -14,6 +14,7 @@ const Profile = lazy(() => import('components/Profile'));
 
 function App () {
   const dispatch = useDispatch();
+
   useEffect(function () {
     dispatch(actions.pageLoad());
   }, [dispatch]);

@@ -40,7 +40,7 @@ function ChatInput () {
         dispatch(actions.userStartsTyping());
       }
 
-      const newTimeoutId = setTimeout(() => {
+      const newTimeoutId = setTimeout(function () {
         setIsTyping(false);
         dispatch(actions.userStopsTyping());
       }, 500);
@@ -59,9 +59,7 @@ function ChatInput () {
   } , [sendMessage]);
 
   const darkModeClass = useMemo(function () {
-    return classnames({
-      'dark-mode': darkMode
-    });
+    return classnames({ 'dark-mode': darkMode });
   }, [darkMode]);
 
   return (
