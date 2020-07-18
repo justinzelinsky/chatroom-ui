@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import S from 'components/Input/styled';
+import S from 'components/UI/Input/styled';
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 

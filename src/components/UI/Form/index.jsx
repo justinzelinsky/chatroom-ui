@@ -1,4 +1,4 @@
-import S from 'components/Form/styled';
+import S from 'components/UI/Form/styled';
 import { node } from 'prop-types';
 import React from 'react';
 

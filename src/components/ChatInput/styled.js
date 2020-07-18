@@ -1,4 +1,4 @@
-import FormGroup from 'components/FormGroup';
+import FormGroup from 'components/UI/FormGroup';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 import colors from 'styles/colors';

@@ -1,10 +1,10 @@
-import Button from 'components/Button';
-import Form from 'components/Form';
-import FormContainer from 'components/FormContainer';
-import FormGroup from 'components/FormGroup';
-import FormHeader from 'components/FormHeader';
-import FormLabel from 'components/FormLabel';
-import Input from 'components/Input';
+import Button from 'components/UI/Button';
+import Form from 'components/UI/Form';
+import FormContainer from 'components/UI/FormContainer';
+import FormGroup from 'components/UI/FormGroup';
+import FormHeader from 'components/UI/FormHeader';
+import FormLabel from 'components/UI/FormLabel';
+import Input from 'components/UI/Input';
 import React, { useCallback, useMemo, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';

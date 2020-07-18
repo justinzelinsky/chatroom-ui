@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import S from 'components/AdminPanel/styled';
+import Button from 'components/UI/Button';
 import React, { useCallback } from 'react';
-import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 

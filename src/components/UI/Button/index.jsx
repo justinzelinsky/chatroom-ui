@@ -1,4 +1,4 @@
-import S from 'components/Button/styled';
+import S from 'components/UI/Button/styled';
 import { node } from 'prop-types';
 import React from 'react';
 

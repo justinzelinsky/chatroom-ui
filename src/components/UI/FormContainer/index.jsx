@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import S from 'components/FormContainer/styled';
+import S from 'components/UI/FormContainer/styled';
 import { node } from 'prop-types';
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';

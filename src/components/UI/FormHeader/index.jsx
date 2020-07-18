@@ -1,4 +1,4 @@
-import S from 'components/FormHeader/styled';
+import S from 'components/UI/FormHeader/styled';
 import { node } from 'prop-types';
 import React from 'react';
 
