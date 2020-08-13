@@ -4,10 +4,11 @@ import { bool, func } from 'prop-types';
 import React from 'react';
 
 function AboutModal ({ darkMode, handleClose, show }) {
+  const className = classnames('about-modal', { 'dark-mode': darkMode });
   return (
     <S.Modal
       centered={true}
-      className={classnames('about-modal', { 'dark-mode': darkMode })}
+      className={className}
       onHide={handleClose}
       show={show}
     >
