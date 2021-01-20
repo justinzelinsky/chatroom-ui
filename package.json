@@ -21,7 +21,6 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "connected-react-router": "^6.8.0",
-    "express": "^4.17.1",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
@@ -51,6 +50,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-webpack-plugin": "^2.4.3",
+    "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
     "fetch-mock": "^9.11.0",
     "html-webpack-plugin": "^4.5.1",
