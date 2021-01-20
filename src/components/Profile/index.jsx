@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import S from 'components/Profile/styled';
 import Button from 'components/UI/Button';
+import Header from 'components/UI/Header';
 import Input from 'components/UI/Input';
 import { useCallback, useMemo, useState } from 'react';
 import Form from 'react-bootstrap/Form';
@@ -31,9 +32,9 @@ function Profile () {
 
   return (
     <S.Jumbotron className={darkModeClassname}>
-      <S.Header>
+      <Header>
         Profile
-      </S.Header>
+      </Header>
       <Form
         autoComplete="off"
         onSubmit={handleProfileUpdate}

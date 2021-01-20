@@ -18,11 +18,6 @@ const StyledJumbotron = styled(Jumbotron)`
   }
 `;
 
-const Header = styled.h1`
-  border-bottom: 1px solid rgba(45, 45, 45, .5);
-`;
-
 export default {
-  Header,
   Jumbotron: StyledJumbotron
 };

@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import S from 'components/AdminPanel/styled';
 import Button from 'components/UI/Button';
+import Header from 'components/UI/Header';
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
@@ -19,8 +20,9 @@ function AdminPanel () {
 
   return (
     <S.Jumbotron className={adminClassname}>
-      <S.Header>Admin Panel</S.Header>
-
+      <Header>
+        Admin Panel
+      </Header>
       <Button onClick={clearChatHistory}>
         Clear Chat History
       </Button>
