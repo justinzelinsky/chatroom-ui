@@ -1,8 +1,8 @@
 import classnames from 'classnames';
-import S from 'components/Profile/styled';
 import Button from 'components/UI/Button';
 import Header from 'components/UI/Header';
 import Input from 'components/UI/Input';
+import Jumbotron from 'components/UI/Jumbotron';
 import { useCallback, useMemo, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -31,7 +31,7 @@ function Profile () {
   const onEmailChange = useCallback(event => setEmail(event.target.value), []);
 
   return (
-    <S.Jumbotron className={darkModeClassname}>
+    <Jumbotron className={darkModeClassname}>
       <Header>
         Profile
       </Header>
@@ -67,7 +67,7 @@ function Profile () {
           Update Profile
         </Button>
       </Form>
-    </S.Jumbotron>
+    </Jumbotron>
   );
 }
 

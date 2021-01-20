@@ -22,6 +22,4 @@ const StyledJumbotron = styled(Jumbotron)`
   }
 `;
 
-export default {
-  Jumbotron: StyledJumbotron
-};
+export default { Jumbotron: StyledJumbotron };
