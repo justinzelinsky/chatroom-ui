@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import S from 'components/Profile/styled';
 import Button from 'components/UI/Button';
 import Input from 'components/UI/Input';
-import React, { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';

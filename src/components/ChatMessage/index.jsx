@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import S from 'components/ChatMessage/styled';
 import { bool, number, object, shape, string } from 'prop-types';
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import formatDate from 'utils/formatDate';
 

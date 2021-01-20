@@ -1,6 +1,6 @@
 import AboutModal from 'components/AboutModal';
 import ThemeToggle from 'components/ThemeToggle';
-import React, { Fragment, useCallback, useMemo, useState } from 'react';
+import { Fragment, useCallback, useMemo, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useDispatch, useSelector } from 'react-redux';

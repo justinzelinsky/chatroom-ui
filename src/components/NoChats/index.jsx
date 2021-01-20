@@ -1,5 +1,5 @@
 import S from 'components/NoChats/styled';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 function NoChats () {

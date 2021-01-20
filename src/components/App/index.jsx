@@ -3,7 +3,7 @@ import NavigationBar from 'components/NavigationBar';
 import NotificationBar from 'components/NotificationBar';
 import RegisterLogin from 'components/RegisterLogin';
 import { ProtectedRoute, UnprotectedRoute } from 'components/Routes';
-import React, { Fragment, lazy, Suspense, useEffect } from 'react';
+import { Fragment, lazy, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect, Switch } from 'react-router-dom';
 import actions from 'state/actions';

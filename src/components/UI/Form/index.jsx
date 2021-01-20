@@ -1,6 +1,5 @@
 import S from 'components/UI/Form/styled';
 import { node } from 'prop-types';
-import React from 'react';
 
 function Form ({ children, ...formProps }) {
   return (

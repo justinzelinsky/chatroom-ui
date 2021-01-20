@@ -14,6 +14,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended'
   ],
+  root: true,
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -30,7 +31,7 @@ module.exports = {
     'simple-import-sort'
   ],
   rules: {
-    'simple-import-sort/sort': ERROR,
+    'simple-import-sort/imports': ERROR,
     'space-before-function-paren': ['error', 'always'],
     'keyword-spacing': ERROR,
     'no-trailing-spaces': ERROR,
@@ -41,12 +42,16 @@ module.exports = {
     'react/jsx-indent-props': [ERROR, 'first'],
     'object-curly-spacing': [ERROR, 'always'],
     'no-console': OFF,
+    'sort-imports': OFF,
+    'import/order': OFF,
+    'react/jsx-uses-react': OFF,
+    'react/react-in-jsx-scope': OFF
   },
   settings: {
     react: {
       createClass: 'createReactClass',
       pragma: 'React',
-      version: '16.13.1'
+      version: '17.0.1'
     },
     propWrapperFunctions: ['forbidExtraProps']
   }

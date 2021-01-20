@@ -6,20 +6,8 @@
         "targets": "last 1 chrome version, last 1 safari version, last 1 firefox version"
       }
     ],
-    "@babel/preset-react"
-  ],
-  "plugins": [
-    [
-      "react-css-modules",
-      {
-        "generateScopedName": "[name]-[local]-[hash:base64:6]",
-        "filetypes": {
-          ".scss": {
-            "syntax": "postcss-scss"
-          }
-        },
-        "webpackHotModuleReloading": true
-      }
-    ]
+    ["@babel/preset-react", {
+      "runtime": "automatic"
+    }]
   ]
 }

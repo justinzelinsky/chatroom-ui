@@ -1,6 +1,5 @@
 import S from 'components/UserList/styled';
 import UserStatus from 'components/UserStatus';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { getUserList } from 'state/selectors';
 

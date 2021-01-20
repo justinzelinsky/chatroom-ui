@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import S from 'components/UserTyping/styled';
 import { number } from 'prop-types';
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 function UserTyping ({ index }) {

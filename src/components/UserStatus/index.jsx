@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import S from 'components/UserStatus/styled';
 import { bool, string } from 'prop-types';
-import React from 'react';
+import { memo } from 'react';
 
 function UserStatus ({ isActive, isSelf, name }) {
   const statusStyle = classnames({ 'is-active': isActive });
@@ -20,4 +20,4 @@ UserStatus.propTypes = {
   name: string.isRequired
 };
 
-export default React.memo(UserStatus);
+export default memo(UserStatus);

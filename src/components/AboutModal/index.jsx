@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import S from 'components/AboutModal/styled';
 import { bool, func } from 'prop-types';
-import React from 'react';
 
 function AboutModal ({ darkMode, handleClose, show }) {
   const className = classnames('about-modal', { 'dark-mode': darkMode });

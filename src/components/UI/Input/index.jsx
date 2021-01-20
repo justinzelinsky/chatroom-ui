@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import S from 'components/UI/Input/styled';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 function Input (props) {

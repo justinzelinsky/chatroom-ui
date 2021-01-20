@@ -2,7 +2,7 @@ import ChatInput from 'components/ChatInput';
 import S from 'components/Chatroom/styled';
 import Chats from 'components/Chats';
 import UserList from 'components/UserList';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import useSockets from 'utils/useSockets';
 
 function Chatroom () {

@@ -1,5 +1,4 @@
 import S from 'components/NotificationBar/styled';
-import React from 'react';
 import { useSelector } from 'react-redux';
 
 function NotificationBar () {

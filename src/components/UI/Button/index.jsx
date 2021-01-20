@@ -1,6 +1,5 @@
 import S from 'components/UI/Button/styled';
 import { node } from 'prop-types';
-import React from 'react';
 
 function Button ({ children, ...buttonProps }) {
   return (

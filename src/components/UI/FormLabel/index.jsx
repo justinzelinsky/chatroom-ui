@@ -1,6 +1,5 @@
 import S from 'components/UI/FormLabel/styled';
 import { node } from 'prop-types';
-import React from 'react';
 
 function FormLabel ({ children, ...formLabelProps }) {
   return (

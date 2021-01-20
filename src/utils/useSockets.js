@@ -1,11 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import {
-  addAdminChat,
-  addChat,
-  setUsersTyping,
-  updateActiveUsers
-} from 'state/actions';
+import { addAdminChat, addChat, setUsersTyping, updateActiveUsers } from 'state/actions';
 import {
   closeSocket,
   emitAddedUser,

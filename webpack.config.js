@@ -6,6 +6,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { DefinePlugin } = require('webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const paths = {
   source: path.join(__dirname, 'src'),
@@ -38,7 +39,7 @@ const rules = [
     test: /.(jsx?)$/,
     include: paths.source,
     exclude: /node_modules/,
-    use: ['babel-loader', 'eslint-loader']
+    use: ['babel-loader']
   },
   {
     test: /\.css$/,
@@ -70,7 +71,8 @@ const plugins = [
   }),
   new DefinePlugin({
     API_ADDRESS: JSON.stringify(apiAddress)
-  })
+  }),
+  new ESLintPlugin()
 ];
 
 if (process.env.WEBPACK_ANALYZE) {

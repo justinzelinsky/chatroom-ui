@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import Login from 'components/Login';
 import Register from 'components/Register';
 import S from 'components/RegisterLogin/styled';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useSelector } from 'react-redux';

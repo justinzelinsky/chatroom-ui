@@ -27,8 +27,7 @@ async function post (url, body) {
     body: JSON.stringify(body),
     headers,
     method: 'POST'
-  }
-  );
+  });
 }
 
 function setAuthToken (token) {

@@ -1,5 +1,4 @@
 import { node } from 'prop-types';
-import React from 'react';
 import Form from 'react-bootstrap/Form';
 
 function FormGroup ({ children, ...formGroupProps }) {

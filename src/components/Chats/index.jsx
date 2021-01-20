@@ -3,7 +3,7 @@ import ChatMessage from 'components/ChatMessage';
 import S from 'components/Chats/styled';
 import NoChats from 'components/NoChats';
 import UserTyping from 'components/UserTyping';
-import React, { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 function Chats () {
