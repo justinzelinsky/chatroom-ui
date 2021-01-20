@@ -44,6 +44,7 @@ const Label = styled.label`
   display: inline-block;
   height: 18px;
   left: 2px;
+  margin-bottom: 0;
   opacity: 1.0;
   position: absolute;
   transition: all 0.3s ease;
