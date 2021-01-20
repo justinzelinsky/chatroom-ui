@@ -60,10 +60,16 @@ function NavigationBar () {
         expanded={expandMenu}
         onToggle={handleMenuToggle}
         stick="top"
-        variant={variant}>
-        <Navbar.Brand>Chatroom</Navbar.Brand>
+        variant={variant}
+      >
+        <Navbar.Brand>
+          Chatroom
+        </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="chatroom-navbar-nav" />
+
         <Navbar.Collapse id="chatroom-navbar-nav">
+
           <Nav className="mr-auto">
             <Nav.Link onClick={showAboutModal}>
               About
@@ -98,14 +104,18 @@ function NavigationBar () {
               </Fragment>
             )}
           </Nav>
+
           <ThemeToggle />
+
         </Navbar.Collapse>
       </Navbar>
+
       <AboutModal
         darkMode={darkMode}
         handleClose={hideAboutModal}
         show={showModal}
       />
+
     </Fragment>
   );
 }
