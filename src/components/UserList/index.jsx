@@ -10,12 +10,10 @@ function UserList () {
 
   return (
     <S.UserList className={darkModeClass}>
-      {userList.map(({ isActive, isSelf, name }, idx) => (
+      {userList.map((user, idx) => (
         <UserStatus
-          isActive={isActive}
-          isSelf={isSelf}
+          user={user}
           key={idx}
-          name={name}
         />
       ))}
     </S.UserList>
