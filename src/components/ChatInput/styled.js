@@ -13,7 +13,7 @@ const ChatInput = styled(Form)`
   display: flex;
   left: 0;
   margin: 0;
-  padding: 10px 0;
+  padding: 10px;
   position: fixed;
   right: 0;
 
