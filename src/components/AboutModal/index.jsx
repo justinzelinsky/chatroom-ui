@@ -1,9 +1,12 @@
 import classnames from 'classnames';
 import S from 'components/AboutModal/styled';
 import { bool, func } from 'prop-types';
+import useDarkMode from 'state/hooks/useDarkMode';
 
-function AboutModal ({ darkMode, handleClose, show }) {
-  const className = classnames('about-modal', { 'dark-mode': darkMode });
+function AboutModal ({  handleClose, show }) {
+  const { darkModeClass } = useDarkMode();
+  const className = classnames('about-modal', darkModeClass);
+
   return (
     <S.Modal
       centered={true}
@@ -24,7 +27,6 @@ function AboutModal ({ darkMode, handleClose, show }) {
 }
 
 AboutModal.propTypes = {
-  darkMode: bool.isRequired,
   handleClose: func.isRequired,
   show: bool.isRequired
 };

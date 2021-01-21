@@ -6,11 +6,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import actions from 'state/actions';
+import useDarkMode from 'state/hooks/useDarkMode';
 import { isUserAdmin, isUserAuthenticated } from 'state/selectors';
 
 function NavigationBar () {
-  const { darkMode, isAdmin, isAuthenticated } = useSelector(state => ({
-    darkMode: state.darkMode,
+  const { darkMode } = useDarkMode();
+
+  const { isAdmin, isAuthenticated } = useSelector(state => ({
     isAdmin: isUserAdmin(state),
     isAuthenticated: isUserAuthenticated(state)
   }));

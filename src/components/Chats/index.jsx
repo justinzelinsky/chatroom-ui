@@ -1,20 +1,15 @@
-import classnames from 'classnames';
 import ChatMessage from 'components/ChatMessage';
 import S from 'components/Chats/styled';
 import NoChats from 'components/NoChats';
 import UserTyping from 'components/UserTyping';
 import { useEffect, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import useDarkMode from 'state/hooks/useDarkMode';
 
 function Chats () {
-  const { chats, darkMode } = useSelector(state => ({
-    darkMode: state.darkMode,
-    chats: state.chats,
-  }));
+  const { darkModeClass } = useDarkMode();
 
-  const darkModeClassname = useMemo(function () {
-    return classnames({ 'dark-mode': darkMode });
-  }, [darkMode]);
+  const chats  = useSelector(state => state.chats);
 
   const userTypingIndex = useMemo(function () {
     return chats.length === 0 ? 1 : chats.length;
@@ -27,7 +22,7 @@ function Chats () {
   }, [chats]);
 
   return (
-    <S.Chats className={darkModeClassname}>
+    <S.Chats className={darkModeClass}>
       {chats.length === 0 && <NoChats />}
       {chats.map((chat, idx) => (
         <ChatMessage

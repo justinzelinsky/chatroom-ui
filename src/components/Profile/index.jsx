@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import Button from 'components/UI/Button';
 import Header from 'components/UI/Header';
 import Input from 'components/UI/Input';
@@ -7,17 +6,15 @@ import { useCallback, useMemo, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
+import useDarkMode from 'state/hooks/useDarkMode';
 
 function Profile () {
-  const { currentUser, darkMode } = useSelector(state => ({
-    currentUser: state.currentUser,
-    darkMode: state.darkMode
-  }));
+  const { darkModeClass } = useDarkMode();
+  const currentUser  = useSelector(state => state.currentUser);
   const dispatch = useDispatch();
   const [name, setName] = useState(currentUser.name);
   const [email, setEmail] = useState(currentUser.email);
 
-  const darkModeClassname = useMemo(() => classnames({ 'dark-mode': darkMode }), [darkMode]);
   const disableButton = useMemo(() => !name, [name]);
   const handleProfileUpdate = useCallback(function (event) {
     event.preventDefault();
@@ -31,7 +28,7 @@ function Profile () {
   const onEmailChange = useCallback(event => setEmail(event.target.value), []);
 
   return (
-    <Jumbotron className={darkModeClassname}>
+    <Jumbotron className={darkModeClass}>
       <Header>
         Profile
       </Header>
@@ -45,7 +42,7 @@ function Profile () {
           </Form.Label>
           <Input
             autoFocus={true}
-            className={darkModeClassname}
+            className={darkModeClass}
             onChange={onNameChange}
             type="text"
             value={name}
@@ -57,7 +54,7 @@ function Profile () {
           </Form.Label>
           <Input
             autoFocus={true}
-            className={darkModeClassname}
+            className={darkModeClass}
             onChange={onEmailChange}
             type="text"
             value={email}

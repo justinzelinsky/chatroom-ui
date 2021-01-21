@@ -1,15 +1,13 @@
-import classnames from 'classnames';
 import S from 'components/ChatInput/styled';
 import Button from 'components/UI/Button';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
+import useDarkMode from 'state/hooks/useDarkMode';
 
 function ChatInput () {
-  const { currentUser, darkMode } = useSelector(state => ({
-    currentUser: state.currentUser,
-    darkMode: state.darkMode
-  }));
+  const currentUser = useSelector(state => state.currentUser);
+  const { darkModeClass } = useDarkMode();
   const dispatch = useDispatch();
   const [timeoutId, setTimeoutId] = useState(null);
   const [isTyping, setIsTyping] = useState(false);
@@ -57,10 +55,6 @@ function ChatInput () {
   const handleSendClick = useCallback(function () {
     sendMessage();
   } , [sendMessage]);
-
-  const darkModeClass = useMemo(function () {
-    return classnames({ 'dark-mode': darkMode });
-  }, [darkMode]);
 
   return (
     <S.ChatInput

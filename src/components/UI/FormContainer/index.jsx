@@ -1,19 +1,11 @@
-import classnames from 'classnames';
 import S from 'components/UI/FormContainer/styled';
 import { node } from 'prop-types';
-import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-
+import useDarkMode from 'state/hooks/useDarkMode';
 function FormContainer ({ children }) {
-  const darkMode = useSelector(state => state.darkMode);
-  const darkModeClassname = useMemo(function () {
-    return classnames({
-      'dark-mode': darkMode
-    });
-  }, [darkMode]);
+  const { darkModeClass } = useDarkMode();
 
   return (
-    <S.FormContainer className={darkModeClassname}>
+    <S.FormContainer className={darkModeClass}>
       {children}
     </S.FormContainer>
   );

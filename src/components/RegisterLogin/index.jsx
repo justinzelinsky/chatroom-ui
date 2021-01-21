@@ -1,20 +1,15 @@
-import classnames from 'classnames';
 import Login from 'components/Login';
 import Register from 'components/Register';
 import S from 'components/RegisterLogin/styled';
-import { useMemo } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import { useSelector } from 'react-redux';
+import useDarkMode from 'state/hooks/useDarkMode';
 
 function RegisterLogin () {
-  const darkMode = useSelector(state => state.darkMode);
-  const darkmodeClassname = useMemo(function () {
-    return classnames({ 'dark-mode': darkMode });
-  }, [darkMode]);
+  const { darkModeClass } = useDarkMode();
 
   return (
-    <S.TabsContainer className={darkmodeClassname}>
+    <S.TabsContainer className={darkModeClass}>
       <Tabs defaultActiveKey="login">
         <Tab
           eventKey="login"

@@ -1,9 +1,10 @@
 import S from 'components/NoChats/styled';
 import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import useDarkMode from 'state/hooks/useDarkMode';
 
 function NoChats () {
-  const darkMode = useSelector(state => state.darkMode);
+  const { darkMode } = useDarkMode();
+
   const variant = useMemo(function () {
     return darkMode ? 'primary' : 'light';
   }, [darkMode]);

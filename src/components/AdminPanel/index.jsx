@@ -1,25 +1,22 @@
-import classnames from 'classnames';
 import Button from 'components/UI/Button';
 import Header from 'components/UI/Header';
 import Jumbotron from 'components/UI/Jumbotron';
-import { useCallback, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import actions from 'state/actions';
+import useDarkMode from 'state/hooks/useDarkMode';
 
 function AdminPanel () {
-  const darkMode = useSelector(state => state.darkMode);
   const dispatch = useDispatch();
 
   const clearChatHistory = useCallback(function () {
     dispatch(actions.clearChatHistory());
   }, [dispatch]);
 
-  const adminClassname = useMemo(function () {
-    return classnames({ 'dark-mode': darkMode });
-  }, [darkMode]);
+  const { darkModeClass } = useDarkMode();
 
   return (
-    <Jumbotron className={adminClassname}>
+    <Jumbotron className={darkModeClass}>
       <Header>
         Admin Panel
       </Header>

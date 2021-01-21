@@ -2,11 +2,11 @@ import classnames from 'classnames';
 import S from 'components/ChatMessage/styled';
 import { bool, number, object, shape, string } from 'prop-types';
 import { memo, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import useDarkMode from 'state/hooks/useDarkMode';
 import formatDate from 'utils/formatDate';
 
 function ChatMessage ({ chat, index }) {
-  const darkMode = useSelector(state => state.darkMode);
+  const { darkMode } = useDarkMode();
 
   const chatVariant = useMemo(function () {
     if (darkMode) {

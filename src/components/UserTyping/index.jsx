@@ -3,12 +3,11 @@ import S from 'components/UserTyping/styled';
 import { number } from 'prop-types';
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+import useDarkMode from 'state/hooks/useDarkMode';
 
 function UserTyping ({ index }) {
-  const { darkMode, usersTyping } = useSelector(state => ({
-    darkMode: state.darkMode,
-    usersTyping: state.usersTyping
-  }));
+  const { darkMode } = useDarkMode();
+  const usersTyping = useSelector(state => state.usersTyping);
   const [dots, setDots] = useState('.');
 
   useEffect(function () {
