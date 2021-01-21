@@ -17,7 +17,7 @@ import {
 import formatDate from 'utils/formatDate';
 
 export const currentUserInitialState = null;
-export const currentUser = (state = currentUserInitialState, action) => {
+export function currentUser (state = currentUserInitialState, action) {
   switch (action.type) {
     case SET_CURRENT_USER:
       return {
@@ -28,22 +28,22 @@ export const currentUser = (state = currentUserInitialState, action) => {
     default:
       return state;
   }
-};
+}
 
 export const activeUsersInitialState = [];
-export const activeUsers = (state = activeUsersInitialState, action) => {
+export function activeUsers (state = activeUsersInitialState, action) {
   return action.type === UPDATE_ACTIVE_USERS
     ? [...action.payload.users]
     : state;
-};
+}
 
 export const allUsersInitialState = [];
-export const allUsers = (state = allUsersInitialState, action) => {
+export function allUsers (state = allUsersInitialState, action){
   return action.type === RECEIVED_ALL_USERS ? [...action.payload.users] : state;
-};
+}
 
 export const chatsInitialState = [];
-export const chats = (state = chatsInitialState, action) => {
+export function chats (state = chatsInitialState, action) {
   if (action.type === ADD_CHAT || action.type === ADD_ADMIN_CHAT) {
     return [
       ...state,
@@ -78,15 +78,15 @@ export const chats = (state = chatsInitialState, action) => {
   }
 
   return state;
-};
+}
 
 export const darkModeInitialState = false;
-export const darkMode = (state = darkModeInitialState, action) => {
+export function darkMode (state = darkModeInitialState, action)  {
   return action.type === SET_DARK_MODE ? action.payload.isDarkMode : state;
-};
+}
 
 export const notificationInitialState = null;
-export const notification = (state = notificationInitialState, action) => {
+export function notification (state = notificationInitialState, action) {
   switch (action.type) {
     case SHOW_NOTIFICATION:
       return action.payload.notification;
@@ -95,15 +95,15 @@ export const notification = (state = notificationInitialState, action) => {
     default:
       return state;
   }
-};
+}
 
 export const usersTypingInitialState = [];
-export const usersTyping = (state = usersTypingInitialState, action) => {
+export function usersTyping (state = usersTypingInitialState, action) {
   return action.type === SET_USERS_TYPING ? action.payload.usersTyping : state;
-};
+}
 
-export default history =>
-  combineReducers({
+export default function (history) {
+  return combineReducers({
     activeUsers,
     allUsers,
     chats,
@@ -113,3 +113,4 @@ export default history =>
     router: connectRouter(history),
     usersTyping
   });
+}

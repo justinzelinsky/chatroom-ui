@@ -8,7 +8,7 @@ export const getUserList = createSelector(
   getActiveUsers,
   getCurrentUser,
   getAllUsers,
-  (activeUsers, currentUser, allUsers) => {
+  function (activeUsers, currentUser, allUsers) {
     if (!currentUser || activeUsers.length === 0) {
       return [];
     }
