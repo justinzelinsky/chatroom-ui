@@ -9,7 +9,7 @@ import useDarkMode from 'state/hooks/useDarkMode';
 function Chats () {
   const { darkModeClass } = useDarkMode();
 
-  const chats  = useSelector(state => state.chats);
+  const chats = useSelector(state => state.chats);
 
   const userTypingIndex = useMemo(function () {
     return chats.length === 0 ? 1 : chats.length;
