@@ -2,24 +2,24 @@ const headers = {
   'Content-Type': 'application/json'
 };
 
-function doFetch (url, options) {
-  return new Promise(function (resolve, reject) {
-    fetch(url, options)
-      .then(async function (response) {
-        const body = await response.json();
-        if (response.ok) {
-          resolve(body);
-        } else {
-          reject(body);
-        }
-      }).catch(function (error) {
-        reject(error);
-      });
-  });
+async function doFetch (url, options) {
+  try {
+    const response = await fetch(url, options);
+    const body = await response.json();
+    if (response.ok) {
+      return body;
+    }
+    throw new Error(body);
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
 async function get (url) {
-  return doFetch(url, { headers, method: 'GET' });
+  return doFetch(url, {
+    headers,
+    method: 'GET'
+  });
 }
 
 async function post (url, body) {
