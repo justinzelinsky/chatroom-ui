@@ -12,8 +12,8 @@ function UserList () {
     <S.UserList className={darkModeClass}>
       {userList.map((user, idx) => (
         <UserStatus
-          user={user}
           key={idx}
+          user={user}
         />
       ))}
     </S.UserList>
