@@ -21,7 +21,7 @@ import createRootReducer, {
   notification,
   notificationInitialState
 } from 'state/reducers';
-import formatDate from 'utils/formatDate';
+import { formatDate } from 'utils/date';
 
 describe('allUsers reducer', () => {
   it('should return the existing state for an unrelated action', () => {
@@ -142,7 +142,7 @@ describe('chats reducer', () => {
     expect(state2.chats).toHaveLength(4);
 
     const penultimateChat = state2.chats[state2.chats.length - 2];
-    const penultimateChatTsFormatted = formatDate(new Date(penultimateChat.ts));
+    const penultimateChatTsFormatted = formatDate(penultimateChat.ts);
 
     const lastChat = state2.chats[state2.chats.length - 1];
     expect(lastChat.isAdminChat).toEqual(true);

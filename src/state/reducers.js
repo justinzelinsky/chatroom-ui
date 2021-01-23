@@ -14,7 +14,7 @@ import {
   SHOW_NOTIFICATION,
   UPDATE_ACTIVE_USERS
 } from 'state/actions';
-import formatDate from 'utils/formatDate';
+import { formatDate } from 'utils/date';
 
 export const currentUserInitialState = null;
 export function currentUser (state = currentUserInitialState, action) {
@@ -64,7 +64,7 @@ export function chats (state = chatsInitialState, action) {
 
     if (chats.length > 0) {
       const lastChat = chats[chats.length - 1];
-      const lastChatTimestamp = formatDate(new Date(lastChat.ts));
+      const lastChatTimestamp = formatDate(lastChat.ts);
       const lastChatSent = {
         isAdminChat: true,
         message: `Last message sent at ${lastChatTimestamp}`,
