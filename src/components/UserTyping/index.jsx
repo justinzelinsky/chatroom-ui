@@ -23,7 +23,7 @@ function UserTyping ({ index }) {
     if (darkMode) {
       return index % 2 ? 'primary' : 'info';
     }
-    return  index % 2 ? 'light' : 'dark';
+    return index % 2 ? 'light' : 'dark';
   }, [darkMode, index]);
 
   const someoneIsTyping = useMemo(function () {
