@@ -1,7 +1,8 @@
 import LoadingSpinner from 'components/LoadingSpinner';
+import Login from 'components/Login';
 import NavigationBar from 'components/NavigationBar';
 import NotificationBar from 'components/NotificationBar';
-import RegisterLogin from 'components/RegisterLogin';
+import Register from 'components/Register';
 import { ProtectedRoute, UnprotectedRoute } from 'components/Routes';
 import { Fragment, lazy, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -38,8 +39,12 @@ function App () {
             path="/profile"
           />
           <UnprotectedRoute
-            component={RegisterLogin}
-            path="/"
+            component={Register}
+            path="/register"
+          />
+          <UnprotectedRoute
+            component={Login}
+            path="/login"
           />
           <Redirect to="/login" />
         </Switch>

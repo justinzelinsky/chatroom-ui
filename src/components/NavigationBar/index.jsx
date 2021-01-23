@@ -84,6 +84,22 @@ function NavigationBar () {
                 Chatroom
               </Nav.Link>
             )}
+            {!isAuthenticated && (
+              <Fragment>
+                <Nav.Link
+                  active={isActive('login')}
+                  onClick={goTo('/login')}
+                >
+                  Login
+                </Nav.Link>
+                <Nav.Link
+                  active={isActive('register')}
+                  onClick={goTo('/register')}
+                >
+                  Register
+                </Nav.Link>
+              </Fragment>
+            )}
             {isAdmin && (
               <Nav.Link
                 active={isActive('admin')}
