@@ -9,7 +9,7 @@ async function doFetch (url, options) {
     if (response.ok) {
       return body;
     }
-    throw new Error(body);
+    throw new Error(body.error);
   } catch (error) {
     throw new Error(error);
   }

@@ -23,10 +23,10 @@ const loginLogic = createLogic({
       dispatch(setCurrentUser(user));
       dispatch(requestChats());
       dispatch(requestAllUsers());
-    } catch ({ error }) {
+    } catch (error) {
       dispatch(
         showNotification({
-          message: error,
+          message: error.message,
           variant: 'danger',
         })
       );

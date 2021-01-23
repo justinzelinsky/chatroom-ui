@@ -29,10 +29,10 @@ const updateProfileLogic = createLogic({
         dispatch(hideNotification());
         done();
       }, 5000);
-    } catch ({ error }) {
+    } catch (error) {
       dispatch(
         showNotification({
-          message: error,
+          message: error.message,
           variant: 'danger',
         })
       );

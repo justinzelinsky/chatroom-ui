@@ -9,10 +9,10 @@ const registerLogic = createLogic({
 
       const { email, password } = action.payload;
       dispatch(login({ email, password }));
-    } catch ({ error }) {
+    } catch (error) {
       dispatch(
         showNotification({
-          message: error,
+          message: error.message,
           variant: 'danger',
         })
       );
