@@ -1,9 +1,10 @@
 import classnames from 'classnames';
-import S from 'components/UserTyping/styled';
 import { number } from 'prop-types';
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import useDarkMode from 'state/hooks/useDarkMode';
+
+import S from './styled';
 
 function UserTyping ({ index }) {
   const { darkMode } = useDarkMode();

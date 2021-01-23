@@ -1,8 +1,9 @@
-import S from 'components/ThemeToggle/styled';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import actions from 'state/actions';
 import useDarkMode from 'state/hooks/useDarkMode';
+
+import S from './styled';
 
 function ThemeToggle () {
   const { darkMode } = useDarkMode();

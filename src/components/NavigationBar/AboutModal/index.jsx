@@ -1,6 +1,7 @@
-import S from 'components/AboutModal/styled';
 import { bool, func } from 'prop-types';
 import useDarkMode from 'state/hooks/useDarkMode';
+
+import S from './styled';
 
 function AboutModal ({  handleClose, show }) {
   const { darkModeClass } = useDarkMode();

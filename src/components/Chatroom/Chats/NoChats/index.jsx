@@ -1,6 +1,7 @@
-import S from 'components/NoChats/styled';
 import { useMemo } from 'react';
 import useDarkMode from 'state/hooks/useDarkMode';
+
+import S from './styled';
 
 function NoChats () {
   const { darkMode } = useDarkMode();

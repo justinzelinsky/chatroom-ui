@@ -1,9 +1,9 @@
-import LoadingSpinner from 'components/LoadingSpinner';
 import Login from 'components/Login';
 import NavigationBar from 'components/NavigationBar';
 import NotificationBar from 'components/NotificationBar';
 import Register from 'components/Register';
 import { ProtectedRoute, UnprotectedRoute } from 'components/Routes';
+import { LoadingSpinner } from 'components/UI';
 import { Fragment, lazy, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect, Switch } from 'react-router-dom';

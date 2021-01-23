@@ -1,9 +1,5 @@
-import Button from 'components/UI/Button';
-import Header from 'components/UI/Header';
-import Input from 'components/UI/Input';
-import Jumbotron from 'components/UI/Jumbotron';
+import { Button, Form, FormGroup, FormLabel, Header, Input, Jumbotron } from 'components/UI';
 import { useCallback, useMemo, useState } from 'react';
-import Form from 'react-bootstrap/Form';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 import useDarkMode from 'state/hooks/useDarkMode';
@@ -36,10 +32,10 @@ function Profile () {
         autoComplete="off"
         onSubmit={handleProfileUpdate}
       >
-        <Form.Group controlId="name">
-          <Form.Label>
+        <FormGroup controlId="name">
+          <FormLabel>
             Name:
-          </Form.Label>
+          </FormLabel>
           <Input
             autoFocus={true}
             className={darkModeClass}
@@ -47,11 +43,11 @@ function Profile () {
             type="text"
             value={name}
           />
-        </Form.Group>
-        <Form.Group controlId="email">
-          <Form.Label>
+        </FormGroup>
+        <FormGroup controlId="email">
+          <FormLabel>
             Email:
-          </Form.Label>
+          </FormLabel>
           <Input
             autoFocus={true}
             className={darkModeClass}
@@ -59,7 +55,7 @@ function Profile () {
             type="text"
             value={email}
           />
-        </Form.Group>
+        </FormGroup>
         <Button type="submit">
           Update Profile
         </Button>

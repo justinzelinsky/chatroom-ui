@@ -1,10 +1,4 @@
-import Button from 'components/UI/Button';
-import Form from 'components/UI/Form';
-import FormContainer from 'components/UI/FormContainer';
-import FormGroup from 'components/UI/FormGroup';
-import FormHeader from 'components/UI/FormHeader';
-import FormLabel from 'components/UI/FormLabel';
-import Input from 'components/UI/Input';
+import { Button, Form, FormContainer, FormGroup, FormHeader, FormLabel, Input } from 'components/UI';
 import { useCallback, useMemo, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';

@@ -1,5 +1,5 @@
-import FormGroup from 'components/UI/FormGroup';
 import Form from 'react-bootstrap/Form';
+import FormGroup from 'react-bootstrap/FormGroup';
 import styled from 'styled-components';
 import colors from 'styles/colors';
 import devices from 'styles/devices';

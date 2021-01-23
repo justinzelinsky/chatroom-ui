@@ -1,9 +1,10 @@
-import ChatInput from 'components/ChatInput';
-import S from 'components/Chatroom/styled';
-import Chats from 'components/Chats';
-import UserList from 'components/UserList';
 import { useEffect } from 'react';
 import useSockets from 'utils/useSockets';
+
+import ChatInput from './ChatInput';
+import Chats from './Chats';
+import S from './styled';
+import UserList from './UserList';
 
 function Chatroom () {
   const handleClose = useSockets();

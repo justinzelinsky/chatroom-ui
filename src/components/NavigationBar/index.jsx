@@ -1,5 +1,3 @@
-import AboutModal from 'components/AboutModal';
-import ThemeToggle from 'components/ThemeToggle';
 import { Fragment, useCallback, useMemo, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,6 +6,9 @@ import { useHistory, useLocation } from 'react-router-dom';
 import actions from 'state/actions';
 import useDarkMode from 'state/hooks/useDarkMode';
 import { isUserAdmin, isUserAuthenticated } from 'state/selectors';
+
+import AboutModal from './AboutModal';
+import ThemeToggle from './ThemeToggle';
 
 function NavigationBar () {
   const { darkMode } = useDarkMode();

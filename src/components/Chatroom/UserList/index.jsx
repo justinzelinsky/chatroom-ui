@@ -1,8 +1,9 @@
-import S from 'components/UserList/styled';
-import UserStatus from 'components/UserStatus';
 import { useSelector } from 'react-redux';
 import useDarkMode from 'state/hooks/useDarkMode';
 import { getUserList } from 'state/selectors';
+
+import S from './styled';
+import UserStatus from './UserStatus';
 
 function UserList () {
   const userList = useSelector(getUserList);

@@ -1,10 +1,11 @@
-import ChatMessage from 'components/ChatMessage';
-import S from 'components/Chats/styled';
-import NoChats from 'components/NoChats';
-import UserTyping from 'components/UserTyping';
 import { useEffect, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import useDarkMode from 'state/hooks/useDarkMode';
+
+import ChatMessage from './ChatMessage';
+import NoChats from './NoChats';
+import S from './styled';
+import UserTyping from './UserTyping';
 
 function Chats () {
   const { darkModeClass } = useDarkMode();

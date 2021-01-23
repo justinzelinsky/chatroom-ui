@@ -1,6 +1,4 @@
-import Button from 'components/UI/Button';
-import Header from 'components/UI/Header';
-import Jumbotron from 'components/UI/Jumbotron';
+import { Button, Header, Jumbotron } from 'components/UI';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import actions from 'state/actions';

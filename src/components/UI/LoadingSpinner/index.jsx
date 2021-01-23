@@ -1,5 +1,5 @@
 
-import S from 'components/LoadingSpinner/styled';
+import S from './styled';
 
 // Taken from https://projects.lukehaas.me/css-loaders/
 

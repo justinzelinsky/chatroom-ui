@@ -1,9 +1,10 @@
 import classnames from 'classnames';
-import S from 'components/ChatMessage/styled';
 import { bool, number, object, shape, string } from 'prop-types';
 import { memo, useMemo } from 'react';
 import useDarkMode from 'state/hooks/useDarkMode';
 import { formatTime } from 'utils/date';
+
+import S from './styled';
 
 function ChatMessage ({ chat, index }) {
   const { darkMode } = useDarkMode();

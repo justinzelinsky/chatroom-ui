@@ -1,9 +1,10 @@
-import S from 'components/ChatInput/styled';
-import Button from 'components/UI/Button';
+import { Button } from 'components/UI';
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from 'state/actions';
 import useDarkMode from 'state/hooks/useDarkMode';
+
+import S from './styled';
 
 function ChatInput () {
   const currentUser = useSelector(state => state.currentUser);

@@ -1,7 +1,8 @@
 import classnames from 'classnames';
-import S from 'components/UserStatus/styled';
 import { bool, shape, string } from 'prop-types';
 import { memo } from 'react';
+
+import S from './styled';
 
 function UserStatus ({ user }) {
   const { isActive, isSelf, name } = user;
