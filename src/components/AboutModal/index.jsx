@@ -1,16 +1,14 @@
-import classnames from 'classnames';
 import S from 'components/AboutModal/styled';
 import { bool, func } from 'prop-types';
 import useDarkMode from 'state/hooks/useDarkMode';
 
 function AboutModal ({  handleClose, show }) {
   const { darkModeClass } = useDarkMode();
-  const className = classnames('about-modal', darkModeClass);
 
   return (
     <S.Modal
       centered={true}
-      className={className}
+      className={darkModeClass}
       onHide={handleClose}
       show={show}
     >
