@@ -2,7 +2,7 @@ const ERROR = 2;
 const OFF = 0;
 
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   env: {
     browser: true,
     es6: true,
