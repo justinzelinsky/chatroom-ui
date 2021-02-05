@@ -1,7 +1,6 @@
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -13,7 +12,7 @@ const paths = {
   dist: path.join(__dirname, 'dist')
 };
 const apiAddress = 'http://localhost:8083';
-const devMode = process.env.NODE_ENV !== 'production';
+const isDevMode = process.env.NODE_ENV !== 'production';
 
 const entry = path.join(paths.source, 'index.jsx');
 
@@ -30,9 +29,9 @@ const devServer = {
   }
 };
 
-const devtool = devMode ? 'cheap-module-eval-source-map' : 'inline-source-map';
+const devtool = isDevMode ? 'cheap-module-eval-source-map' : 'inline-source-map';
 
-const mode = devMode ? 'development' : 'production';
+const mode = isDevMode ? 'development' : 'production';
 
 const rules = [
   {
@@ -40,17 +39,12 @@ const rules = [
     include: paths.source,
     exclude: /node_modules/,
     use: ['babel-loader']
-  },
-  {
-    test: /\.css$/,
-    use: ['style-loader', 'css-loader']
   }
 ];
 
 const optimization = {
   minimize: true,
   minimizer: [
-    new OptimizeCSSAssetsPlugin(),
     new TerserPlugin({ extractComments: false, parallel: true })
   ],
   splitChunks: {
@@ -65,14 +59,14 @@ const output = {
 
 const plugins = [
   new CleanWebpackPlugin(),
+  new DefinePlugin({
+    API_ADDRESS: JSON.stringify(apiAddress)
+  }),
+  new ESLintPlugin(),
   new HtmlWebpackPlugin({
     template: path.join(paths.source, 'index.html'),
     title: 'React/Redux Chatroom'
   }),
-  new DefinePlugin({
-    API_ADDRESS: JSON.stringify(apiAddress)
-  }),
-  new ESLintPlugin()
 ];
 
 if (process.env.WEBPACK_ANALYZE) {
