@@ -7,8 +7,8 @@ import devices from 'styles/devices';
 const ChatInput = styled(Form)`
   align-items: center;
   background-color: ${colors.white};
-  border-top: 1px solid ${colors.black};
   border-radius: 5px;
+  border-top: 1px solid ${colors.black};
   bottom: 0;
   display: flex;
   left: 0;
@@ -39,9 +39,9 @@ const InputWrapper = styled(FormGroup)`
 `;
 
 const UserName = styled(Form.Label)`
-  margin: 5px;
   font-size: 16px;
   font-weight: bold;
+  margin: 5px;
   text-align: right;
 
   &::after {

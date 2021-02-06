@@ -22,8 +22,8 @@ const Input = styled.input`
   border-radius: 5px;
   cursor: pointer;
   height: 10px;
-  position: relative;
   outline: none;
+  position: relative;
   vertical-align: 2px;
   width: 40px;
 
@@ -37,9 +37,9 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
-  border-radius: 50%;
   background: ${colors.white};
   background-color: ${colors.darkGrey};
+  border-radius: 50%;
   cursor: pointer;
   display: inline-block;
   height: 18px;
