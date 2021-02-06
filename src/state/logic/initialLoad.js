@@ -23,11 +23,11 @@ const initialLoadLogic = createLogic({
           dispatch(requestChats());
           dispatch(requestAllUsers());
         } catch {
-          console.log('Invalid token');
+          console.log('Invalid token'); // eslint-disable-line
         }
       } catch {
         localStorage.removeItem('jwtToken');
-        console.log('Expired token.');
+        console.log('Expired token.'); // eslint-disable-line
       } finally {
         done();
       }

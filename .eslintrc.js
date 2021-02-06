@@ -33,8 +33,9 @@ module.exports = {
   rules: {
     'better-styled-components/sort-declarations-alphabetically': ERROR,
     'indent': [ERROR, 2, { SwitchCase: 1 }],
-    'keyword-spacing': ERROR,
+    'keyword-spacing': 1,
     'linebreak-style': [ERROR, 'unix'],
+    'no-console': ERROR,
     'no-trailing-spaces': ERROR,
     'object-curly-spacing': [ERROR, 'always'],
     'quotes': [ERROR, 'single'],

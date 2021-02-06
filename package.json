@@ -6,6 +6,7 @@
   "scripts": {
     "analyze": "WEBPACK_ANALYZE=true npm run build",
     "build": "NODE_ENV=production webpack",
+    "lint": "eslint src",
     "start": "npm run build && node index.js",
     "test": "jest",
     "tracker": "WEBPACK_TRACKER=true npm run build",
