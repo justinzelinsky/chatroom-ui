@@ -7,10 +7,12 @@ install:
   - npm ci
 jobs:
   include:
-    - script: npm run lint
-    - script: npm run tracker
+    - name: lint
+      script: npm run lint
+    - name: track
+      script: npm run tracker
     - name: test
-      post_install:
+      before_install:
         - npm i -g codecov
       script:
           - npm test
