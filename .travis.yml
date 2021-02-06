@@ -3,10 +3,17 @@ node_js:
   - '12.13.0'
 os:
   - osx
-install:
-  - npm install -g codecov
-  - npm ci
-script:
-  - npm test
-  - codecov
-  - npm run tracker
+jobs:
+  include:
+    - stage: test
+      install:
+        - npm install -g codecov
+        - npm ci
+      script:
+        - npm test
+        - codecov
+        - npm run tracker
+    - stage: lint
+      install:
+        - npm ci
+      script: npm run lint
