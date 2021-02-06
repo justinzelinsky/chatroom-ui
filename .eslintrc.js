@@ -25,11 +25,13 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
+    'better-styled-components',
     'jest',
     'react',
     'simple-import-sort'
   ],
   rules: {
+    'better-styled-components/sort-declarations-alphabetically': ERROR,
     'indent': [ERROR, 2, { SwitchCase: 1 }],
     'keyword-spacing': ERROR,
     'linebreak-style': [ERROR, 'unix'],
@@ -43,6 +45,9 @@ module.exports = {
     'space-before-function-paren': ['error', 'always'],
   },
   settings: {
-    propWrapperFunctions: ['forbidExtraProps']
+    propWrapperFunctions: ['forbidExtraProps'],
+    react: {
+      'version': 'detect'
+    }
   }
 };
