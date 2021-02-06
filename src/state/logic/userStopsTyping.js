@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 import { USER_STOPS_TYPING } from 'state/actions';
-import { emitStopTyping } from 'utils/socket';
+import { emitStopTyping } from 'utils/Socket';
 
 const userStopsTypingLogic = createLogic({
   type: USER_STOPS_TYPING,

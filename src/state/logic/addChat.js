@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic';
 import { ADD_CHAT } from 'state/actions';
-import { emitNewChat } from 'utils/socket';
+import { emitNewChat } from 'utils/Socket';
 
 const addChatLogic = createLogic({
   type: ADD_CHAT,

@@ -9,7 +9,7 @@ import {
   subscribeToChatEvents,
   subscribeToTypingEvents,
   subscribeToUserEvents
-} from 'utils/socket';
+} from 'utils/Socket';
 
 const documentTitle = document.title;
 let unreadNotifications = 0;
