@@ -21,7 +21,7 @@ const middleware = [
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  createRootReducer(history),
+  createRootReducer(),
   composeEnhancers(applyMiddleware(...middleware))
 );
 
