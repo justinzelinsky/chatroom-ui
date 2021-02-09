@@ -1,4 +1,3 @@
-import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 import {
   ADD_ADMIN_CHAT,
@@ -102,7 +101,7 @@ export function usersTyping (state = usersTypingInitialState, action) {
   return action.type === SET_USERS_TYPING ? action.payload.usersTyping : state;
 }
 
-export default function (history) {
+export default function () {
   return combineReducers({
     activeUsers,
     allUsers,
@@ -110,7 +109,6 @@ export default function (history) {
     currentUser,
     darkMode,
     notification,
-    router: connectRouter(history),
     usersTyping
   });
 }

@@ -1,4 +1,3 @@
-import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createLogicMiddleware } from 'redux-logic';
@@ -16,7 +15,6 @@ const deps = {
 };
 
 const middleware = [
-  routerMiddleware(history),
   createLogicMiddleware(logic, deps)
 ];
 

@@ -5,10 +5,10 @@ import ProtectedRoute from 'components/ProtectedRoute';
 import Register from 'components/Register';
 import { LoadingSpinner } from 'components/UI';
 import UnprotectedRoute from 'components/UnprotectedRoute';
-import { ConnectedRouter } from 'connected-react-router';
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect, Switch } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import actions from 'state/actions';
 import { history } from 'state/store';
 import { GlobalStyle } from 'styles/globals';
@@ -25,7 +25,7 @@ function App () {
   }, [dispatch]);
 
   return (
-    <ConnectedRouter history={history}>
+    <Router history={history}>
       <GlobalStyle />
       <NavigationBar />
       <NotificationBar />
@@ -54,7 +54,7 @@ function App () {
           <Redirect to="/login" />
         </Switch>
       </Suspense>
-    </ConnectedRouter>
+    </Router>
   );
 }
 

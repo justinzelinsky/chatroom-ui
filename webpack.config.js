@@ -11,6 +11,7 @@ const paths = {
   source: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist')
 };
+
 const apiAddress = 'http://localhost:8083';
 const isDevMode = process.env.NODE_ENV !== 'production';
 
