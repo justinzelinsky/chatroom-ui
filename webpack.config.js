@@ -1,5 +1,4 @@
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -29,7 +28,7 @@ const devServer = {
   }
 };
 
-const devtool = isDevMode ? 'cheap-module-eval-source-map' : 'inline-source-map';
+const devtool = isDevMode ? 'eval-cheap-module-source-map' : false;
 
 const mode = isDevMode ? 'development' : 'production';
 
@@ -58,12 +57,10 @@ const optimization = {
 };
 
 const output = {
-  filename: 'app.js',
-  path: paths.dist
+  clean: true
 };
 
 const plugins = [
-  new CleanWebpackPlugin(),
   new DefinePlugin({
     API_ADDRESS: JSON.stringify(apiAddress)
   }),
