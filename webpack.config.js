@@ -2,10 +2,9 @@ const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { DefinePlugin } = require('webpack');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const { DefinePlugin, ProvidePlugin } = require('webpack');
+const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
 
 const paths = {
   source: path.join(__dirname, 'src'),
@@ -37,16 +36,21 @@ const mode = isDevMode ? 'development' : 'production';
 const rules = [
   {
     test: /.(jsx?)$/,
-    include: paths.source,
+    include: [paths.source],
     exclude: /node_modules/,
-    use: ['babel-loader']
+    loader: 'esbuild-loader',
+    options: {
+      loader: 'jsx'
+    }
   }
 ];
 
 const optimization = {
   minimize: true,
   minimizer: [
-    new TerserPlugin({ extractComments: false, parallel: true })
+    new ESBuildMinifyPlugin({
+      target: 'es2015'
+    })
   ],
   splitChunks: {
     chunks: 'all'
@@ -63,11 +67,14 @@ const plugins = [
   new DefinePlugin({
     API_ADDRESS: JSON.stringify(apiAddress)
   }),
-  new ESLintPlugin(),
+  new ESBuildPlugin(),
   new HtmlWebpackPlugin({
     template: path.join(paths.source, 'index.html'),
     title: 'React/Redux Chatroom'
   }),
+  new ProvidePlugin({
+    React: 'react'
+  })
 ];
 
 if (process.env.WEBPACK_ANALYZE) {
