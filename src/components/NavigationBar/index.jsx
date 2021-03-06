@@ -1,22 +1,19 @@
 import { Fragment, useCallback, useMemo, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 import actions from 'state/actions';
+import useCurrentUser from 'state/hooks/useCurrentUser';
 import useDarkMode from 'state/hooks/useDarkMode';
-import { isUserAdmin, isUserAuthenticated } from 'state/selectors';
 
 import AboutModal from './AboutModal';
 import ThemeToggle from './ThemeToggle';
 
 function NavigationBar () {
   const { darkMode } = useDarkMode();
+  const { isAdmin, isAuthenticated } = useCurrentUser();
 
-  const { isAdmin, isAuthenticated } = useSelector(state => ({
-    isAdmin: isUserAdmin(state),
-    isAuthenticated: isUserAuthenticated(state)
-  }));
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
