@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import { number } from 'prop-types';
 import { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -40,7 +39,7 @@ function UserTyping ({ index }) {
   }, [dots, usersTyping]);
 
   const hiddenClass = useMemo(function () {
-    return classnames({ hidden: !someoneIsTyping });
+    return someoneIsTyping ? '' : 'hidden';
   }, [someoneIsTyping]);
 
   return (

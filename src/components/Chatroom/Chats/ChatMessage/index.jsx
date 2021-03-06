@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import { bool, number, object, shape, string } from 'prop-types';
 import { memo, useMemo } from 'react';
 import useDarkMode from 'state/hooks/useDarkMode';
@@ -19,7 +18,7 @@ function ChatMessage ({ chat, index }) {
   const { isAdminChat, message, ts, user } = chat;
 
   const chatClassName = useMemo(function () {
-    return classnames({ admin: isAdminChat });
+    return isAdminChat ? 'admin' : '';
   }, [isAdminChat]);
 
   const timestamp = useMemo(function () {

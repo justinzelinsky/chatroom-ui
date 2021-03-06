@@ -1,12 +1,13 @@
-import classnames from 'classnames';
 import { bool, shape, string } from 'prop-types';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 
 import S from './styled';
 
 function UserStatus ({ user }) {
   const { isActive, isSelf, name } = user;
-  const statusStyle = classnames({ 'is-active': isActive });
+  const statusStyle = useMemo(function () {
+    return isActive ? 'is-active' : '';
+  }, [isActive]);
 
   return (
     <S.User>
