@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { DefinePlugin, ProvidePlugin } = require('webpack');
-const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
+const { ESBuildMinifyPlugin, ESBuildPlugin } = require('esbuild-loader');
 
 const paths = {
   source: path.join(__dirname, 'src'),
