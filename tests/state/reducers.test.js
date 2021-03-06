@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import {
   addAdminChat,
   addChat,
@@ -21,7 +22,6 @@ import createRootReducer, {
   notification,
   notificationInitialState
 } from 'state/reducers';
-import { formatDate } from 'utils/date';
 
 describe('allUsers reducer', () => {
   it('should return the existing state for an unrelated action', () => {
@@ -142,7 +142,7 @@ describe('chats reducer', () => {
     expect(state2.chats).toHaveLength(4);
 
     const penultimateChat = state2.chats[state2.chats.length - 2];
-    const penultimateChatTsFormatted = formatDate(penultimateChat.ts);
+    const penultimateChatTsFormatted = format(penultimateChat.ts, 'L/dd/Y, h:m:s b');
 
     const lastChat = state2.chats[state2.chats.length - 1];
     expect(lastChat.isAdminChat).toEqual(true);

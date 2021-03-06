@@ -1,7 +1,7 @@
+import { format } from 'date-fns';
 import { bool, number, object, shape, string } from 'prop-types';
 import { memo, useMemo } from 'react';
 import useDarkMode from 'state/hooks/useDarkMode';
-import { formatTime } from 'utils/date';
 
 import S from './styled';
 
@@ -22,7 +22,7 @@ function ChatMessage ({ chat, index }) {
   }, [isAdminChat]);
 
   const timestamp = useMemo(function () {
-    return formatTime(ts);
+    return format(ts, 'h:m:s b');
   }, [ts]);
 
   return (

@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { combineReducers } from 'redux';
 import {
   ADD_ADMIN_CHAT,
@@ -13,7 +14,6 @@ import {
   SHOW_NOTIFICATION,
   UPDATE_ACTIVE_USERS
 } from 'state/actions';
-import { formatDate } from 'utils/date';
 
 export const currentUserInitialState = null;
 export function currentUser (state = currentUserInitialState, action) {
@@ -63,7 +63,7 @@ export function chats (state = chatsInitialState, action) {
 
     if (chats.length > 0) {
       const lastChat = chats[chats.length - 1];
-      const lastChatTimestamp = formatDate(lastChat.ts);
+      const lastChatTimestamp = format(lastChat.ts, 'L/dd/Y, h:m:s b');
       const lastChatSent = {
         isAdminChat: true,
         message: `Last message sent at ${lastChatTimestamp}`,

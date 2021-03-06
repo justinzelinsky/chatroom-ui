@@ -20,6 +20,7 @@
   "author": "Justin Zelinsky",
   "license": "MIT",
   "dependencies": {
+    "date-fns": "^2.19.0",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
