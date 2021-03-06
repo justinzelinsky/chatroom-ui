@@ -78,10 +78,8 @@ function Login () {
         </FormGroup>
 
         <Button
-          block="true"
           disabled={loginDisabled}
           type="submit"
-          variant="primary"
         >
           Login
         </Button>

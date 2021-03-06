@@ -2,6 +2,7 @@ const black = '#000000';
 const darkGrey ='#808080';
 const darkGreyBlue = '#343A40';
 const lightGrayishBlue = '#DEE2E6';
+const primaryBlue = '#007BFF';
 const pureGreen = '#7CFC00';
 const silver = '#BBBBBB';
 const veryDarkGray = '#555555';
@@ -19,6 +20,7 @@ export default {
   darkGrey,
   darkGreyBlue,
   lightGrayishBlue,
+  primaryBlue,
   pureGreen,
   silver,
   veryDarkDesaturatedBlue,

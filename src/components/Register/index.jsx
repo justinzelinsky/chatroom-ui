@@ -130,10 +130,8 @@ function Register () {
         </FormGroup>
 
         <Button
-          block={true}
           disabled={registerDisabled}
           type="submit"
-          variant="primary"
         >
           Register
         </Button>

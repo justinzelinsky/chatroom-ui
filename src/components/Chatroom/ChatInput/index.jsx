@@ -77,11 +77,7 @@ function ChatInput () {
           value={message}
         />
       </S.InputWrapper>
-      <Button
-        block={true}
-        onClick={handleSendClick}
-        variant="primary"
-      >
+      <Button onClick={handleSendClick}>
         Send
       </Button>
     </S.ChatInput>

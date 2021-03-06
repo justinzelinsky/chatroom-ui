@@ -1,6 +1,7 @@
 import Login from 'components/Login';
 import NavigationBar from 'components/NavigationBar';
 import NotificationBar from 'components/NotificationBar';
+import Playground from 'components/Playground';
 import ProtectedRoute from 'components/ProtectedRoute';
 import Register from 'components/Register';
 import { LoadingSpinner } from 'components/UI';
@@ -49,6 +50,10 @@ function App () {
           <UnprotectedRoute
             component={Login}
             path="/login"
+          />
+          <UnprotectedRoute
+            component={Playground}
+            path="/playground"
           />
           <Redirect to="/login" />
         </Switch>

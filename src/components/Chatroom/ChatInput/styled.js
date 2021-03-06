@@ -22,8 +22,12 @@ const ChatInput = styled(Form)`
   }
 
   @media ${devices.phone} {
-    padding: 10px;
     display: block;
+    padding: 10px;
+
+    button {
+      margin-top: 10px;
+    }
   }
 `;
 

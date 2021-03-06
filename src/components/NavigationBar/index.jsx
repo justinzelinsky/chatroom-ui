@@ -74,6 +74,12 @@ function NavigationBar () {
             <Nav.Link onClick={showAboutModal}>
               About
             </Nav.Link>
+            <Nav.Link
+              active={isActive('playground')}
+              onClick={goTo('/playground')}
+            >
+              Playground
+            </Nav.Link>
             {isAuthenticated && (
               <Nav.Link
                 active={isActive('chatroom')}
