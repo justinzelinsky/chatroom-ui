@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useSockets from 'utils/useSockets';
+import useSockets from 'state/hooks/useSockets';
 
 import ChatInput from './ChatInput';
 import Chats from './Chats';
