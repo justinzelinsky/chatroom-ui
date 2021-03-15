@@ -1,23 +1,15 @@
 import { number } from 'prop-types';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import useDarkMode from 'state/hooks/useDarkMode';
+import useTypingIndicator from 'state/hooks/useTypingIndicator';
 
 import S from './styled';
 
 function UserTyping ({ index }) {
   const { darkMode } = useDarkMode();
   const usersTyping = useSelector(state => state.usersTyping);
-  const [dots, setDots] = useState('.');
-
-  useEffect(function () {
-    const dotProgress = dots.length < 3 ? `${dots}.` : '.';
-    const timeoutId = setTimeout(() => setDots(dotProgress), 500);
-
-    return function () {
-      clearTimeout(timeoutId);
-    };
-  }, [dots]);
+  const dots = useTypingIndicator();
 
   const variant = useMemo(function () {
     if (darkMode) {

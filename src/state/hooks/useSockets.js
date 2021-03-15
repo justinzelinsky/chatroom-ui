@@ -53,7 +53,9 @@ function useSockets ()  {
     closeSocket();
   }, []);
 
-  return handleClose;
+  useEffect(function () {
+    return handleClose;
+  }, [handleClose]);
 }
 
 export default useSockets;

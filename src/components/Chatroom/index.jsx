@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import useSockets from 'state/hooks/useSockets';
 
 import ChatInput from './ChatInput';
@@ -7,11 +6,7 @@ import S from './styled';
 import UserList from './UserList';
 
 function Chatroom () {
-  const handleClose = useSockets();
-
-  useEffect(function () {
-    return handleClose;
-  }, [handleClose]);
+  useSockets();
 
   return (
     <S.Container fluid={true}>

@@ -6,10 +6,9 @@ import ProtectedRoute from 'components/ProtectedRoute';
 import Register from 'components/Register';
 import { LoadingSpinner } from 'components/UI';
 import UnprotectedRoute from 'components/UnprotectedRoute';
-import { lazy, Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { lazy, Suspense } from 'react';
 import { Redirect, Router, Switch } from 'react-router-dom';
-import actions from 'state/actions';
+import usePageLoad from 'state/hooks/usePageLoad';
 import { history } from 'state/store';
 import { GlobalStyle } from 'styles/globals';
 
@@ -18,11 +17,7 @@ const Chatroom = lazy(() => import('components/Chatroom'));
 const Profile = lazy(() => import('components/Profile'));
 
 function App () {
-  const dispatch = useDispatch();
-
-  useEffect(function () {
-    dispatch(actions.pageLoad());
-  }, [dispatch]);
+  usePageLoad();
 
   return (
     <Router history={history}>
